@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->enum('role', ['admin', 'murid', 'guru']);
-            $table->string('no_telp', 25);
+            $table->string('no_telp', 25)->nullable();
 
             $table->rememberToken();
             $table->timestamps();
