@@ -56,6 +56,23 @@
                 </div>
             </div>
 
+            <div class="form-group row">                
+                <div class="col-12">
+                    <div class="form-check-inline">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio4" name="role" class="custom-control-input" value="murid" required>
+                            <label class="custom-control-label" for="customRadio4">Murid</label>
+                        </div>
+                    </div>
+                    <div class="form-check-inline">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio5" name="role" class="custom-control-input" value="guru" required>
+                            <label class="custom-control-label" for="customRadio5">Guru</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <div class="col-12">
                     <div class="custom-control custom-checkbox">
