@@ -13,7 +13,7 @@
 
 <script src="{{ asset('annex/assets/plugins/skycons/skycons.min.js') }}"></script>
 <script src="{{ asset('annex/assets/plugins/raphael/raphael-min.js') }}"></script>
-<script src="{{ asset('annex/assets/plugins/morris/morris.min.js') }}"></script>
+{{-- <script src="{{ asset('annex/assets/plugins/morris/morris.min.js') }}"></script> --}}
 
 <script src="{{ asset('annex/assets/pages/dashborad.js') }}"></script>
 

@@ -8,6 +8,7 @@ class Kelas extends Model
 {
     protected $table = 'kelas';
 
+    protected $fillable = ['tingkatan_kelas_id', 'mapel_id', 'level_kelas_id', 'user_id', 'nama_kelas', 'gambar', 'deskripsi', 'harga'];
 
     public function levelKelas()
     {

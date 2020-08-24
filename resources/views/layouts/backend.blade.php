@@ -9,7 +9,9 @@
         <meta content="Mannatthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+        @yield('style-before')
         @include('includes.backend.style')
+        @yield('style-after')
 
     </head>
 
@@ -65,7 +67,9 @@
         </div>
         <!-- END wrapper -->
 
+        @yield('script-before')
         @include('includes.backend.script')
+        @yield('script-after')
 
         <script>
              /* BEGIN SVG WEATHER ICON */
