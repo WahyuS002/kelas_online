@@ -60,6 +60,21 @@
                         </div>                        
                     </div>
 
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label> Tingkatan </label>
+                            <select class="form-control" name="" id="">
+                                <option value="">A</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label> Level </label>
+                            <select class="form-control" name="" id="">
+                                <option value="">A</option>
+                            </select>
+                        </div>
+                    </div>
+
                     
                     <div class="row">
                         <div class="form-group col-md-6">
