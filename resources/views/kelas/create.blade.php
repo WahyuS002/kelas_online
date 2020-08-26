@@ -1,180 +1,144 @@
 @extends('layouts.backend')
 
-@section('style-before')
-    <!-- Dropzone css -->
-    <link href="{{ asset('annex/assets/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('annex/assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('plugins/summernote/summernote.min.css') }}" rel="stylesheet">
-@endsection
+@push('style-after')
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/select2/select2.min.css') }}">
+    <!--  END CUSTOM STYLE FILE  -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('cork/plugins/file-upload/file-upload-with-preview.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+    
+    <!-- SUMMERNOTE -->
+    <link href="{{ asset('cork/plugins/summernote/summernote.min.css') }}" rel="stylesheet">
+    <!-- END SUMMERNOTE -->
+@endpush
 
 @section('content')
-<div class="row">
-    <div class="col-sm-12">
-        <div class="page-title-box">
-            <div class="btn-group float-right">
-                <ol class="breadcrumb hide-phone p-0 m-0">
-                    <li class="breadcrumb-item"><a href="#">Annex</a></li>
-                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                    <li class="breadcrumb-item active">Form Validation</li>
-                </ol>
+<!--  BEGIN CONTENT AREA  -->
+<div id="content" class="main-content">
+    <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+                            
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                <div class="widget-content-area br-4">
+                    <div class="widget-one">
+                        <form action="" method="POST">
+                            @csrf
+                            <div class="form-row mb-4">
+                                <div class="form-group col-md-4">
+                                    <label for="nama_kelas">Nama Kelas</label>
+                                    <input name="nama_kelas" type="text" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="jenjang">Jenjang</label>
+                                    <select name="jenjang" class="form-control">
+                                        <option value="sd">SD</option>
+                                        <option value="smp">SMP</option>
+                                        <option value="sma">SMA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="level">Level</label>
+                                    <select name="jenjang" class="form-control">
+                                        <option value="kelas1">Kelas 1</option>
+                                        <option value="kelas2">Kelas 2</option>
+                                        <option value="kelas3">Kelas 3</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="form-group col-md-4">
+                                    <label for="harga">Harga</label>
+                                    <input name="harga" type="number" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="jenjang">Jenjang</label>
+                                    <input type="date" name="durasi" class="form-control">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="kapasitas">Kapasitas</label>
+                                    <input type="number" name="kapasitas" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="form-group col-md-6">
+                                    <label for="kategori">Kategori</label>
+                                    <select class="form-control tagging" multiple="multiple">
+                                        <option>orange</option>
+                                        <option>white</option>
+                                        <option>purple</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="video_preview">URL Video Preview</label>
+                                    <input type="text" name="video_preview" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row mb-4">
+                                <div class="form-group col-md-12">
+                                    <div class="custom-file-container" data-upload-id="myFirstImage">
+                                        <label> Thumbnail <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
+                                        <label class="custom-file-container__custom-file" >
+                                            <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="foto">
+                                            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                            <span class="custom-file-container__custom-file__custom-file-control"></span>
+                                        </label>
+                                        <div class="custom-file-container__image-preview"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <textarea id="summernote" name="editordata"></textarea>
+
+                          <button type="submit" class="btn btn-primary mt-3">Sign in</button>
+                        </form>
+
+                    </div>
+                </div>
             </div>
-            <h4 class="page-title">Form Validation</h4>
+
         </div>
     </div>
 </div>
-<!-- end page title end breadcrumb -->
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card m-b-30">
-            <div class="card-body">
-
-                <form class="" action="{{ route('kelas.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label> Mapel </label>
-                            <select class="form-control" name="mapel_id" required>
-                                <option value="">Pilih Mapel</option>
-                                @foreach ($mapel as $m)
-                                    <option value="{{ $m->id }}">{{ $m->mapel }}</option>
-                                @endforeach
-                            </select>
-                        </div>                        
-                        <div class="form-group col-md-4">
-                            <label> Level </label>
-                            <select class="form-control" name="level_kelas_id" required>
-                                <option value="">Pilih Level</option>
-                                @foreach ($level as $l)
-                                    <option value="{{ $l->id }}">{{ $l->level }}</option>
-                                @endforeach
-                            </select>
-                        </div>                        
-                        <div class="form-group col-md-4">
-                            <label> Tingkatan </label>
-                            <select class="form-control" name="tingkatan_kelas_id" required>
-                                <option value="">Pilih Tingkatan</option>
-                                @foreach ($tingkatan as $t)
-                                    <option value="{{ $t->id }}">{{ $t->tingkatan }}</option>
-                                @endforeach
-                            </select>
-                        </div>                        
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label> Tingkatan </label>
-                            <select class="form-control" name="" id="">
-                                <option value="">A</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label> Level </label>
-                            <select class="form-control" name="" id="">
-                                <option value="">A</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label> Nama Kelas </label>
-                            <input class="form-control" type="text" name="nama_kelas" placeholder="Belajar HTML Dasar">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label> Harga Kelas </label>
-                            <input type="number" class="form-control" name="harga" />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card m-b-30">
-                                <div class="card-body">
-                                    <label> Thumbnail </label>                                    
-                                    <input type="file" id="input-file-now" class="dropify" name="gambar" />                                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="summernote"> Deskripsi </label>
-                        <textarea id="summernote" name="deskripsi"></textarea>
-                    </div>
-                      
-                    
-                    <div class="form-group">
-                        <div>
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                Submit
-                            </button>
-                            <button type="reset" class="btn btn-secondary waves-effect m-l-5">
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div> <!-- end col -->
 @endsection
 
-@section('script-after')
-    <!-- Dropzone js -->
-    <script src="{{ asset('annex/assets/plugins/dropzone/dist/dropzone.js') }}"></script>
-    <script src="{{ asset('annex/assets/plugins/dropify/js/dropify.min.js') }}"></script>
+@push('script-after')
+
+    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
+    <script src="{{ asset('cork/assets/js/scrollspyNav.js') }}"></script>
+    <script src="{{ asset('cork/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('cork/plugins/select2/custom-select2.js') }}"></script>
 
     <script>
-        $(document).ready(function(){
-            // Basic
-            $('.dropify').dropify();
-
-            // Translated
-            $('.dropify-fr').dropify({
-                messages: {
-                    default: 'Glissez-déposez un fichier ici ou cliquez',
-                    replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                    remove:  'Supprimer',
-                    error:   'Désolé, le fichier trop volumineux'
-                }
-            });
-
-            // Used events
-            var drEvent = $('#input-file-events').dropify();
-
-            drEvent.on('dropify.beforeClear', function(event, element){
-                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-            });
-
-            drEvent.on('dropify.afterClear', function(event, element){
-                alert('File deleted');
-            });
-
-            drEvent.on('dropify.errors', function(event, element){
-                console.log('Has Errors');
-            });
-
-            var drDestroy = $('#input-file-to-destroy').dropify();
-            drDestroy = drDestroy.data('dropify')
-            $('#toggleDropify').on('click', function(e){
-                e.preventDefault();
-                if (drDestroy.isDropified()) {
-                    drDestroy.destroy();
-                } else {
-                    drDestroy.init();
-                }
-            })
-        });
+    $(".tagging").select2({
+        tags: true
+    });
     </script>
+    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
 
-    <script src="{{ asset('plugins/summernote/summernote.min.js') }}"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="{{ asset('cork/assets/js/scrollspyNav.js') }}"></script>
+    <script src="{{ asset('cork/plugins/file-upload/file-upload-with-preview.min.js') }}"></script>
+
+    <script>
+        //First upload
+        var firstUpload = new FileUploadWithPreview('myFirstImage')
+    </script>
+    <!-- END PAGE LEVEL PLUGINS --> 
+
+    <script src="{{ asset('cork/plugins/summernote/summernote.min.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
-                height: 300,
+                height: 200,
             });
         });
     </script>
-@endsection
+@endpush
