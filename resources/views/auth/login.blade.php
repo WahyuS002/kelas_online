@@ -1,60 +1,44 @@
 @extends('layouts.auth')
 
 @section('content')
-<h3 class="text-center mt-0 m-b-15">
-    <a href="index.html" class="logo logo-admin"><img src="{{ asset('annex/assets/images/logo.png') }}" height="24" alt="logo"></a>
-</h3>
+<h1 class="">Sign In</h1>
+<p class="">Log in to your account to continue.</p>
 
-<div class="p-3">
-    <form class="form-horizontal m-t-20" action="{{ route('login') }}" method="POST">
-        @csrf
-        <div class="form-group row">
-            <div class="col-12">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
-            </div>
+<form class="text-left" method="POST" action="{{ route('login') }}">
+    @csrf
+    <div class="form">
 
+        <div id="username-field" class="field-wrapper input">
+            <label for="email">EMAIL</label>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <input id="email" name="email" type="email" class="form-control" placeholder="Email@gmail.com">
             @error('email')
-                <span class="invalid-feedback" role="alert">
+                {{-- <span class="danger" role="alert"> --}}
                     <strong>{{ $message }}</strong>
-                </span>
+                {{-- </span> --}}
             @enderror
         </div>
 
-        <div class="form-group row">
-            <div class="col-12">
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+        <div id="password-field" class="field-wrapper input mb-2">
+            <div class="d-flex justify-content-between">
+                <label for="password">PASSWORD</label>
+                <a href="auth_pass_recovery_boxed.html" class="forgot-pass-link">Forgot Password?</a>
             </div>
-            
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="toggle-password" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
             @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                <strong>{{ $message }}</strong>
             @enderror
         </div>
-
-        <div class="form-group row">
-            <div class="col-12">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="customCheck1">Remember me</label>
-                </div>
+        <div class="d-sm-flex justify-content-between">
+            <div class="field-wrapper">
+                <button type="submit" class="btn btn-primary" value="">Log In</button>
             </div>
         </div>
 
-        <div class="form-group text-center row m-t-20">
-            <div class="col-12">
-                <button class="btn btn-danger btn-block waves-effect waves-light" type="submit">Log In</button>
-            </div>
-        </div>
+        <p class="signup-link">Not registered ? <a href="{{ route('register') }}">Create an account</a></p>
 
-        <div class="form-group m-t-10 mb-0 row">
-            <div class="col-sm-7 m-t-20">
-                <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> <small>Forgot your password ?</small></a>
-            </div>
-            <div class="col-sm-5 m-t-20">
-                <a href="{{ route('register') }}" class="text-muted"><i class="mdi mdi-account-circle"></i> <small>Create an account ?</small></a>
-            </div>
-        </div>
-    </form>
-</div>
+    </div>
+</form>
 @endsection
