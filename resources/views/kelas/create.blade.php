@@ -1,11 +1,6 @@
 @extends('layouts.backend')
 
 @push('style-after')
-    <!--  BEGIN CUSTOM STYLE FILE  -->
-    <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/select2/select2.min.css') }}">
-    <!--  END CUSTOM STYLE FILE  -->
-
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('cork/plugins/file-upload/file-upload-with-preview.min.css') }}" rel="stylesheet" type="text/css" />
@@ -25,7 +20,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
                 <div class="widget-content-area br-4">
                     <div class="widget-one">
-                        <form action="" method="POST">
+                        <form action="{{ route('kelas.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-4">
@@ -38,14 +33,19 @@
                                         <option value="sd">SD</option>
                                         <option value="smp">SMP</option>
                                         <option value="sma">SMA</option>
+                                        <option value="kuliah">Kuliah</option>
+                                        <option value="umum">Umum</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="level">Level</label>
-                                    <select name="jenjang" class="form-control">
-                                        <option value="kelas1">Kelas 1</option>
-                                        <option value="kelas2">Kelas 2</option>
-                                        <option value="kelas3">Kelas 3</option>
+                                    <select name="level" class="form-control">
+                                        <option value="Kelas 1">Kelas 1</option>
+                                        <option value="Kelas 2">Kelas 2</option>
+                                        <option value="Kelas 3">Kelas 3</option>
+                                        <option value="Kelas 4">Kelas 4</option>
+                                        <option value="Kelas 5">Kelas 5</option>
+                                        <option value="Kelas 6">Kelas 6</option>
                                     </select>
                                 </div>
                             </div>
@@ -56,22 +56,23 @@
                                     <input name="harga" type="number" class="form-control">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="jenjang">Jenjang</label>
-                                    <input type="date" name="durasi" class="form-control">
+                                    <label for="durasi_kelas">Durasi</label>
+                                    <input type="date" name="durasi_kelas" class="form-control">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="kapasitas">Kapasitas</label>
-                                    <input type="number" name="kapasitas" class="form-control">
+                                    <label for="kapasitas_kelas">Kapasitas</label>
+                                    <input type="number" name="kapasitas_kelas" class="form-control">
                                 </div>
                             </div>
 
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="kategori">Kategori</label>
-                                    <select class="form-control tagging" multiple="multiple">
-                                        <option>orange</option>
-                                        <option>white</option>
-                                        <option>purple</option>
+                                    <label for="kategori_id">Kategori</label>
+                                    <select name="kategori_id" class="form-control">
+                                        <option value="">Pilih Kategori</option>
+                                        @foreach ($kategori as $k)
+                                        <option value="{{ $k->id }}">{{ $k->kategori }}</option>    
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -85,7 +86,7 @@
                                     <div class="custom-file-container" data-upload-id="myFirstImage">
                                         <label> Thumbnail <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                         <label class="custom-file-container__custom-file" >
-                                            <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="foto">
+                                            <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*" name="thumbnail">
                                             <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                             <span class="custom-file-container__custom-file__custom-file-control"></span>
                                         </label>
@@ -94,9 +95,9 @@
                                 </div>
                             </div>
 
-                            <textarea id="summernote" name="editordata"></textarea>
+                            <textarea id="summernote" name="deskripsi"></textarea>
 
-                          <button type="submit" class="btn btn-primary mt-3">Sign in</button>
+                          <button type="submit" class="btn btn-primary mt-3">Buat Kelas</button>
                         </form>
 
                     </div>
@@ -109,19 +110,6 @@
 @endsection
 
 @push('script-after')
-
-    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
-    <script src="{{ asset('cork/assets/js/scrollspyNav.js') }}"></script>
-    <script src="{{ asset('cork/plugins/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('cork/plugins/select2/custom-select2.js') }}"></script>
-
-    <script>
-    $(".tagging").select2({
-        tags: true
-    });
-    </script>
-    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
-
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <script src="{{ asset('cork/assets/js/scrollspyNav.js') }}"></script>
     <script src="{{ asset('cork/plugins/file-upload/file-upload-with-preview.min.js') }}"></script>

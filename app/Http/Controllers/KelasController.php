@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\KategoriKelas;
 use Illuminate\Http\Request;
 use App\LevelKelas;
 use App\Mapel;
@@ -31,21 +32,25 @@ class KelasController extends Controller
 
     public function create()
     {
-        $mapel = Mapel::get();
-        $level = LevelKelas::get();
-        $tingkatan = TingkatanKelas::get();
+        // $mapel = Mapel::get();
+        // $level = LevelKelas::get();
+        // $tingkatan = TingkatanKelas::get();
+        $kategori = KategoriKelas::get();
 
-        return view('kelas.create', compact('mapel', 'level', 'tingkatan'));
+        return view('kelas.create', compact('kategori'));
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['slug_kelas'] = \Str::slug($request->nama_kelas);
         $data['user_id'] = auth()->user()->id;
 
-        $nama_gambar = $request->gambar->getClientOriginalName();
-        $gambar = $request->gambar->storeAs('kelas', $nama_gambar);
-        $data['gambar'] = $gambar;
+        $nama_foto = $request->thumbnail->getClientOriginalName();
+        $foto = $request->thumbnail->storeAs('kelas', $nama_foto);
+        $data['foto'] = $foto;
+
+        // dd($request->all());
 
         Kelas::create($data);
 

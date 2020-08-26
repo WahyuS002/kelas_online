@@ -13,8 +13,8 @@
     <div class="layout-px-spacing">
 
         <!-- CONTENT AREA -->        
-        <div class="row layout-top-spacing">
-            
+        <div class="row layout-top-spacing">            
+
             @forelse ($kelas as $k)
             <div class="col-xl-4 col-lg-4 col-md-4 col-12 layout-spacing">
                 <div class="widget-content-area br-4">
@@ -35,13 +35,7 @@
                 </div>
             </div>
             @empty
-                <div class="alert alert-warning mb-4" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x close" data-dismiss="alert"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button> <strong>Warning!</strong> Tidak ada kelas </div>
-
-                <div class="form-group row">
-                    <div class="col-sm-12">
-                        <a href="{{ route('kelas.create') }}" type="submit" class="btn btn-primary mt-3">Tambah Kelas</a>
-                    </div>
-                </div>
+                <div class="alert alert-warning mb-4" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x close" data-dismiss="alert"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button> <strong>Warning!</strong> Tidak ada kelas </div>                
             @endforelse
             
 
