@@ -25,9 +25,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('password');
 
-            $table->string('pendidikan_terakhir')->nullable();
+            $table->enum('pendidikan_terakhir', ['SD', 'SMP', 'SMA', 'Kuliah'])->nullable();
             $table->enum('jk', ['L', 'P'])->nullable();
-            $table->string('tempat_lahir')->nullable();
+            // $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->string('alamat')->nullable();
             $table->longText('bio')->nullable();
@@ -39,7 +39,7 @@ class CreateUsersTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('ig')->nullable();
             $table->string('yt')->nullable();
-            $table->string('linkedin')->nullable();
+            // $table->string('linkedin')->nullable();
 
             $table->char('nik', 16)->nullable();
             $table->char('npwp', 15)->nullable();

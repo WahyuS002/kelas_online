@@ -15,19 +15,19 @@ class KelasController extends Controller
     {
         $kelas = Kelas::latest()->get();
 
-        return view('kelas.index', compact('kelas'));
+        return view('pages.kelas.index', compact('kelas'));
     }
 
     public function admin()
     {
         $kelas = Kelas::latest()->get();
 
-        return view('kelas.admin', compact('kelas'));
+        return view('pages.kelas.admin', compact('kelas'));
     }
 
     public function verifikasi($id)
     {
-        return view('kelas.verifikasi', compact('id'));
+        return view('pages.kelas.verifikasi', compact('id'));
     }
 
     public function create()
@@ -37,7 +37,7 @@ class KelasController extends Controller
         // $tingkatan = TingkatanKelas::get();
         $kategori = KategoriKelas::get();
 
-        return view('kelas.create', compact('kategori'));
+        return view('pages.kelas.create', compact('kategori'));
     }
 
     public function store(Request $request)
