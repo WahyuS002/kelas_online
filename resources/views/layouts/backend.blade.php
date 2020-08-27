@@ -30,6 +30,8 @@
         
         @yield('content')
 
+        @include('includes.backend.footer')
+
     </div>
     <!-- END MAIN CONTAINER -->
 

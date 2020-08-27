@@ -29,7 +29,10 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/admin/kelas', 'KelasController@admin')->name('kelas.admin');
 Route::get('/admin/kelas/{kelas:id}/verifikasi', 'KelasController@verifikasi')->name('kelas.verifikasi');
 
-// Guru
-Route::get('/guru/kelas', 'KelasController@index')->name('kelas');
-Route::get('/guru/kelas/create', 'KelasController@create')->name('kelas.create');
-Route::post('/guru/kelas/store', 'KelasController@store')->name('kelas.store');
+// Kelas
+Route::get('/user/kelas', 'KelasController@index')->name('kelas');
+Route::get('/user/kelas/create', 'KelasController@create')->name('kelas.create');
+Route::post('/user/kelas/store', 'KelasController@store')->name('kelas.store');
+
+
+Route::get('/user/profile', 'ProfileController@index')->name('user.profile');

@@ -43,12 +43,13 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['slug_kelas'] = \Str::slug($request->nama_kelas);
-        $data['user_id'] = auth()->user()->id;
 
         $nama_foto = $request->thumbnail->getClientOriginalName();
-        $foto = $request->thumbnail->storeAs('kelas', $nama_foto);
-        $data['foto'] = $foto;
+        $foto = $request->thumbnail->storeAs("kelas", $nama_foto);
+        $data['thumbnail'] = $foto;
+
+        $data['slug_kelas'] = \Str::slug($request->nama_kelas);
+        $data['user_id'] = auth()->user()->id;
 
         // dd($request->all());
 
