@@ -15,8 +15,6 @@
         <div class="cs-overlay"></div>
         <div class="search-overlay"></div>
 
-        <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content">
             <div class="layout-px-spacing">                
                     
                 <form action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
@@ -51,7 +49,7 @@
                                                                     <div class="col-sm-6">
                                                                         <label class="dob-input">Date of Birth</label>                                                                        
                                                                             <div class="form-group mr-1">
-                                                                                <input type="date" class="form-control" name="tanggal_lahir">
+                                                                                <input type="date" class="form-control" name="tanggal_lahir" value="{{ $user->tanggal_lahir }}">
                                                                             </div>                                                                                                                                                    
                                                                     </div>
                                                                 </div>
@@ -69,11 +67,11 @@
                                                                             <label for="jk">Jenis Kelamin</label>
                                                                             <br>
                                                                             <div class="custom-control custom-radio custom-control-inline">
-                                                                            <input type="radio" id="customRadioInline1" name="jk" class="custom-control-input" value="L">
-                                                                            <label class="custom-control-label" for="customRadioInline1">Laki-laki</label>
+                                                                            <input type="radio" id="customRadioInline1" name="jk" class="custom-control-input" value="L" {{ ($user->jk=="L") ? "checked" : "" }}>
+                                                                            <label class="custom-control-label" for="customRadioInline1" >Laki-laki</label>
                                                                             </div>
                                                                         <div class="custom-control custom-radio custom-control-inline">
-                                                                            <input type="radio" id="customRadioInline2" name="jk" class="custom-control-input" value="P">
+                                                                            <input type="radio" id="customRadioInline2" name="jk" class="custom-control-input" value="P" {{ ($user->jk=="P") ? "checked" : "" }}>
                                                                             <label class="custom-control-label" for="customRadioInline2">Perempuan</label>
                                                                         </div>
                                                                         
@@ -97,9 +95,7 @@
                                                 <div class="col-md-11 mx-auto">
                                                     <div class="form-group">
                                                         <label for="bio">Bio</label>
-                                                        <textarea class="form-control" id="bio" placeholder="Tell something interesting about yourself" rows="10" name="bio">I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.
-
-My job is to build your website so that it is functional and user-friendly but at the same time attractive. Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring across your message and identity in the most creative way. I created web design for many famous brand companies.</textarea>
+                                                        <textarea class="form-control" id="bio" placeholder="Tell something interesting about yourself" rows="10" name="bio">{{ $user->bio }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,13 +173,13 @@ My job is to build your website so that it is functional and user-friendly but a
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="alamat">Alamat</label>
-                                                                <input type="text" class="form-control mb-4" id="alamat" placeholder="Jl. Kampar 03" name="alamat">
+                                                            <input type="text" class="form-control mb-4" id="alamat" placeholder="Jl. Kampar 03" name="alamat" value="{{ $user->alamat }}">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="phone">No.HP</label>
-                                                                <input type="number" class="form-control mb-4" id="phone" placeholder="Write your phone number here" name="no_hp">
+                                                                <input type="number" class="form-control mb-4" id="phone" placeholder="Write your phone number here" name="no_hp" value="{{ $user->no_hp }}">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -269,9 +265,9 @@ My job is to build your website so that it is functional and user-friendly but a
                         </div>
                     </div>
 
-                    <button type="submit">Save</button>
+                    {{-- <button type="submit">Save</button> --}}
 
-                    {{-- <div class="account-settings-footer">
+                    <div class="account-settings-footer">
                         
                         <div class="as-footer-container">
 
@@ -283,15 +279,12 @@ My job is to build your website so that it is functional and user-friendly but a
 
                         </div>
 
-                    </div> --}}
+                    </div>
                 </form>
-                </div>
+            </div>
 
-                </div>
-        </div>
-        <!--  END CONTENT AREA  -->
-
-    </div>
+        </div>    
+</div>
     <!-- END MAIN CONTAINER -->
 @endsection
 

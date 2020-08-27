@@ -28,9 +28,12 @@
 
         @include('includes.backend.sidebar')
         
-        @yield('content')
+        <!--  BEGIN CONTENT PART  -->
+        <div id="content" class="main-content">
+            @yield('content')
 
-        @include('includes.backend.footer')
+            @include('includes.backend.footer')
+        </div>
 
     </div>
     <!-- END MAIN CONTAINER -->
