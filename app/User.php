@@ -2,6 +2,10 @@
 
 namespace App;
 
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\Village;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,5 +46,25 @@ class User extends Authenticatable
     public function kelas()
     {
         return $this->hasMany(Kelas::class);
+    }
+
+    public function provinsi()
+    {
+        return $this->belongsTo(Province::class, 'prov_id');
+    }
+
+    public function kota()
+    {
+        return $this->belongsTo(Regency::class, 'kota_id');
+    }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(District::class, 'kec_id');
+    }
+
+    public function kelurahan()
+    {
+        return $this->belongsTo(Village::class, 'kel_id');
     }
 }

@@ -10,6 +10,8 @@
     @include('includes.backend.style')
     @stack('style-after')
 
+    <livewire:styles>
+
 </head>
 <body class="sidebar-noneoverflow">
     <!-- BEGIN LOADER -->
@@ -41,6 +43,8 @@
     @stack('script-before')
     @include('includes.backend.script')
     @stack('script-after')
+
+    <livewire:scripts>
 
 </body>
 </html>

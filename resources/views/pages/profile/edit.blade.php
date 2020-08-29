@@ -109,67 +109,10 @@
                                             <h5 class="">Contact</h5>
                                             <div class="row">
                                                 <div class="col-md-11 mx-auto">
+                                                        
+                                                    @livewire('region.dropdowns')
+
                                                     <div class="row">
-                                                        <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                <label for="country">Provinsi</label>
-                                                                <select class="form-control" name="prov_id">
-                                                                    <option>Pilih Provinsi...</option>
-                                                                    <option value="1">United States</option>
-                                                                    <option>India</option>
-                                                                    <option>Japan</option>
-                                                                    <option>China</option>
-                                                                    <option>Brazil</option>
-                                                                    <option>Norway</option>
-                                                                    <option>Canada</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                <label for="country">Kabupaten/Kota</label>
-                                                                <select class="form-control" name="kota_id">
-                                                                    <option>Pilih Kab/Kota...</option>
-                                                                    <option value="2">United States</option>
-                                                                    <option>India</option>
-                                                                    <option>Japan</option>
-                                                                    <option>China</option>
-                                                                    <option>Brazil</option>
-                                                                    <option>Norway</option>
-                                                                    <option>Canada</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                <label for="country">Kecamatan</label>
-                                                                <select class="form-control" name="kec_id">
-                                                                    <option>Pilih Kecamatan...</option>
-                                                                    <option value="3">United States</option>
-                                                                    <option>India</option>
-                                                                    <option>Japan</option>
-                                                                    <option>China</option>
-                                                                    <option>Brazil</option>
-                                                                    <option>Norway</option>
-                                                                    <option>Canada</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="form-group">
-                                                                <label for="country">Kelurahan</label>
-                                                                <select class="form-control" name="kel_id">
-                                                                    <option>Pilih Kelurahan...</option>
-                                                                    <option value="4">United States</option>
-                                                                    <option>India</option>
-                                                                    <option>Japan</option>
-                                                                    <option>China</option>
-                                                                    <option>Brazil</option>
-                                                                    <option>Norway</option>
-                                                                    <option>Canada</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="alamat">Alamat</label>
@@ -182,6 +125,8 @@
                                                                 <input type="number" class="form-control mb-4" id="phone" placeholder="Write your phone number here" name="no_hp" value="{{ $user->no_hp }}">
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="email">Email</label>
@@ -200,7 +145,7 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div>                                                    
                                                 </div>
                                             </div>
                                         </div>
