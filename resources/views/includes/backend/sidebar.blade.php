@@ -1,13 +1,12 @@
 <!--  BEGIN SIDEBAR  -->
-<div class="sidebar-wrapper sidebar-theme">
-            
+<div class="sidebar-wrapper sidebar-theme">            
     <nav id="sidebar">
         <div class="profile-info">
             <figure class="user-cover-image"></figure>
             <div class="user-info">
                 <img src="{{ asset('cork/assets/img/90x90.jpg') }}" alt="avatar">
                 <h6 class="">Sonia Shaw</h6>
-                <p class="">Project Leader</p>
+                <p class="">Project Leader</p>                
             </div>
         </div>
         <div class="shadow-bottom"></div>
