@@ -26,7 +26,7 @@
                     </div>
                     <div class="widget-content widget-content-area">
                         <div class="card component-card_2">
-                            <a href="">
+                            <a href="{{ route('kelas.materi', $k->id) }}">
                                 <img src="{{ asset('storage/' . $k->thumbnail) }}" class="card-img-top" onError="this.onerror=null;this.src='{{ asset('cork/assets/img/400x300.jpg') }}';">
                             </a>
                             <div class="card-body">

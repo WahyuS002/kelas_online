@@ -19,4 +19,9 @@ class Kelas extends Model
     {
         return $this->belongsTo(KategoriKelas::class, 'kategori_id');
     }
+
+    public function materi()
+    {
+        return $this->hasMany(Materi::class, 'id');
+    }
 }

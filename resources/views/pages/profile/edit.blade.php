@@ -114,7 +114,7 @@
                                                             <div class="form-group">
                                                                 <label for="country">Provinsi</label>
                                                                 <select class="form-control" name="prov_id">
-                                                                    <option>All Countries</option>
+                                                                    <option>Pilih Provinsi...</option>
                                                                     <option value="1">United States</option>
                                                                     <option>India</option>
                                                                     <option>Japan</option>
@@ -129,7 +129,7 @@
                                                             <div class="form-group">
                                                                 <label for="country">Kabupaten/Kota</label>
                                                                 <select class="form-control" name="kota_id">
-                                                                    <option>All Countries</option>
+                                                                    <option>Pilih Kab/Kota...</option>
                                                                     <option value="2">United States</option>
                                                                     <option>India</option>
                                                                     <option>Japan</option>
@@ -144,7 +144,7 @@
                                                             <div class="form-group">
                                                                 <label for="country">Kecamatan</label>
                                                                 <select class="form-control" name="kec_id">
-                                                                    <option>All Countries</option>
+                                                                    <option>Pilih Kecamatan...</option>
                                                                     <option value="3">United States</option>
                                                                     <option>India</option>
                                                                     <option>Japan</option>
@@ -159,7 +159,7 @@
                                                             <div class="form-group">
                                                                 <label for="country">Kelurahan</label>
                                                                 <select class="form-control" name="kel_id">
-                                                                    <option>All Countries</option>
+                                                                    <option>Pilih Kelurahan...</option>
                                                                     <option value="4">United States</option>
                                                                     <option>India</option>
                                                                     <option>Japan</option>
