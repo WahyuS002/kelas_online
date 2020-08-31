@@ -20,33 +20,8 @@
                 <div class="widget-one">
                     <form action="{{ route('kelas.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-row mb-4">
-                            <div class="form-group col-md-4">
-                                <label for="nama_kelas">Nama Kelas</label>
-                                <input name="nama_kelas" type="text" class="form-control">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="jenjang">Jenjang</label>
-                                <select name="jenjang" class="form-control">
-                                    <option value="sd">SD</option>
-                                    <option value="smp">SMP</option>
-                                    <option value="sma">SMA</option>
-                                    <option value="kuliah">Kuliah</option>
-                                    <option value="umum">Umum</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="level">Level</label>
-                                <select name="level" class="form-control">
-                                    <option value="Kelas 1">Kelas 1</option>
-                                    <option value="Kelas 2">Kelas 2</option>
-                                    <option value="Kelas 3">Kelas 3</option>
-                                    <option value="Kelas 4">Kelas 4</option>
-                                    <option value="Kelas 5">Kelas 5</option>
-                                    <option value="Kelas 6">Kelas 6</option>
-                                </select>
-                            </div>
-                        </div>
+
+                        <livewire:kelas.jenjang-level>
 
                         <div class="form-row mb-4">
                             <div class="form-group col-md-4">
@@ -75,7 +50,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="video_preview">URL Video Preview</label>
-                                <input type="text" name="video_preview" class="form-control">
+                                <input type="text" name="video_preview" class="form-control" placeholder="https://www.youtube.com/watch?v=JbEtJAETwJU">
                             </div>
                         </div>
                         

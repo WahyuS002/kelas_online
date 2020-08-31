@@ -67,4 +67,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Village::class, 'kel_id');
     }
+
+    public function materi()
+    {
+        return $this->hasMany(Materi::class, 'user_id');
+    }
 }

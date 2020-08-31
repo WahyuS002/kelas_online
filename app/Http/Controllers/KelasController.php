@@ -4,16 +4,14 @@ namespace App\Http\Controllers;
 
 use App\KategoriKelas;
 use Illuminate\Http\Request;
-use App\LevelKelas;
-use App\Mapel;
-use App\TingkatanKelas;
 use App\Kelas;
 
 class KelasController extends Controller
 {
     public function index()
     {
-        $kelas = Kelas::latest()->get();
+        //  user()->
+        $kelas = auth()->user()->kelas()->latest()->get();
 
         return view('pages.kelas.index', compact('kelas'));
     }
@@ -32,9 +30,6 @@ class KelasController extends Controller
 
     public function create()
     {
-        // $mapel = Mapel::get();
-        // $level = LevelKelas::get();
-        // $tingkatan = TingkatanKelas::get();
         $kategori = KategoriKelas::get();
 
         return view('pages.kelas.create', compact('kategori'));

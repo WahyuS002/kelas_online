@@ -110,7 +110,7 @@
                                             <div class="row">
                                                 <div class="col-md-11 mx-auto">
                                                         
-                                                    @livewire('region.dropdowns')
+                                                    <livewire:region.dropdowns>
 
                                                     <div class="row">
                                                         <div class="col-md-6">

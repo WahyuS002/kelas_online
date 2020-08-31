@@ -52,6 +52,14 @@
 /*
 	Component Card 2
 */
+.component-card_2-custom {
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    width: 18rem;
+    margin: 0 auto;
+    box-shadow: 4px 6px 10px -3px #bfc9d4;
+}
+
 .component-card_2 {
     border: 1px solid #e0e6ed;
     border-radius: 6px;

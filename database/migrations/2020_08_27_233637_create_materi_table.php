@@ -20,9 +20,9 @@ class CreateMateriTable extends Migration
 
             $table->string('judul', 64);
             $table->longText('deskripsi');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('video')->nullable();
-            $table->string('file')->nullable();
+            $table->string('pdf')->nullable();
             $table->integer('urutan')->nullable();
             $table->boolean('status')->nullable();
 
