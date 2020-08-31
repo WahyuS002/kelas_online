@@ -24,6 +24,12 @@ class Modal extends Component
         $user_id = auth()->user()->id;
         $kelas_id = $this->kelas->id;
 
+        $this->validate([
+            'judul' => 'required|min:5|Max:255',
+            'deskripsi' => 'required|max:255',
+            'video' => 'required|mimes:mp4,mov,mkv',
+        ]);
+
         Materi::create([
             'user_id' => $user_id,
             'kelas_id' => $kelas_id,
@@ -39,6 +45,8 @@ class Modal extends Component
         $kelas_id = $this->kelas->id;
 
         $this->validate([
+            'judul' => 'required|min:5|Max:255',
+            'deskripsi' => 'required|max:255',
             'pdf' => 'required|mimes:pdf',
         ]);
 
@@ -59,6 +67,8 @@ class Modal extends Component
         $kelas_id = $this->kelas->id;
 
         $this->validate([
+            'judul' => 'required|min:5|Max:255',
+            'deskripsi' => 'required|max:255',
             'foto' => 'required|mimes:jpeg,jpg,png,gif|max:1024',
         ]);
 
@@ -76,8 +86,11 @@ class Modal extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
+            'judul' => 'required|min:5|Max:255',
+            'deskripsi' => 'required|max:255',
+            'foto' => 'required|mimes:jpeg,jpg,png|max:1024',
+            'video' => 'required|mimes:mp4,mov,mkv',
             'pdf' => 'required|mimes:pdf',
-            'foto' => 'required|mimes:jpeg,jpg,png|max:1024'
         ]);
     }
 

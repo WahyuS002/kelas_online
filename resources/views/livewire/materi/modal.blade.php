@@ -24,14 +24,29 @@
                     <div class="form-group mb-3">
                         <label>Judul</label>
                         <input type="text" class="form-control" name="judul" wire:model="judul">
+                        @error('judul')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label>Url Video</label>
                         <input type="text" class="form-control" name="video" wire:model="video">
+                        @error('video')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label>Deskripsi</label>
                         <textarea class="form-control" style="resize: none;" rows="5" name="deskripsi" wire:model="deskripsi"></textarea>
+                        @error('deskripsi')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>                    
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
@@ -43,6 +58,11 @@
                     <div class="form-group mb-3">
                         <label>Judul</label>
                         <input type="text" class="form-control" name="judul" wire:model="judul">
+                        @error('judul')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label>PDF</label>
@@ -56,6 +76,11 @@
                     <div class="form-group mb-3">
                         <label>Deskripsi</label>
                         <textarea class="form-control" style="resize: none;" rows="5" name="deskripsi" wire:model="deskripsi"></textarea>
+                        @error('deskripsi')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
@@ -67,6 +92,11 @@
                 <div class="form-group mb-3">
                     <label>Judul</label>
                     <input type="text" class="form-control" name="judul" wire:model="judul">
+                    @error('judul')
+                        <div class="mt-2 text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                     <div class="form-group mb-3">
                         <label>Foto</label>
@@ -80,6 +110,11 @@
                     <div class="form-group mb-3">
                         <label>Deskripsi</label>
                         <textarea class="form-control" style="resize: none;" rows="5" name="deskripsi" wire:model="deskripsi"></textarea>
+                        @error('deskripsi')
+                            <div class="mt-2 text-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
