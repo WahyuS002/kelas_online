@@ -30,13 +30,16 @@ Route::get('/admin/kelas', 'KelasController@admin')->name('kelas.admin');
 Route::get('/admin/kelas/{kelas:id}/verifikasi', 'KelasController@verifikasi')->name('kelas.verifikasi');
 
 // Kelas
-Route::get('/kelas/index', 'KelasController@index')->name('kelas');
-Route::get('/kelas/create', 'KelasController@create')->name('kelas.create');
-Route::post('/kelas/store', 'KelasController@store')->name('kelas.store');
-Route::get('/kelas/{kelas:id}/materi', 'MateriController@index')->name('kelas.materi');
-Route::get('/kelas/{kelas:id}/materi/create', 'MateriController@create')->name('kelas.materi.create');
+Route::get('/user/kelas/index', 'UserKelasController@index')->name('kelas');
+Route::get('/user/kelas/create', 'UserKelasController@create')->name('kelas.create');
+Route::post('/user/kelas/store', 'UserKelasController@store')->name('kelas.store');
+Route::get('/user/kelas/{kelas:id}/materi', 'UserMateriController@index')->name('kelas.materi');
+Route::get('/user/kelas/{kelas:id}/materi/create', 'UserMateriController@create')->name('kelas.materi.create');
 
 
-Route::get('/profile/index', 'ProfileController@index')->name('profile');
-Route::get('/profile/{user:id}/edit', 'ProfileController@edit')->name('profile.edit');
-Route::post('/profile/{user:id}/update', 'ProfileController@update')->name('profile.update');
+Route::get('/user/profile/index', 'UserProfileController@index')->name('profile');
+Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('profile.edit');
+Route::post('/user/profile/{user:id}/update', 'UserProfileController@update')->name('profile.update');
+
+// Frontend
+Route::get('/kelas', 'KelasController@index');

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
-class MateriController extends Controller
+class UserMateriController extends Controller
 {
     public function index(Kelas $kelas)
     {
