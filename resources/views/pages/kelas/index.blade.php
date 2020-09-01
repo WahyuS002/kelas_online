@@ -28,7 +28,7 @@
                                     <img src="{{ asset('storage/' . $k->thumbnail) }}" class="card-img-top" onError="this.onerror=null;this.src='{{ asset('cork/assets/img/400x300.jpg') }}';" style="height: 193px; width: 286px; object-fit: cover;">
                                 </a>
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ Str::limit($k->user->name, 15) }}</h5>
+                                    <h5 class="card-title">{{ Str::limit($k->nama_kelas, 15) }}</h5>
                                     <p class="card-text">{!! Str::limit($k->deskripsi, 50) !!}</p>                                
                                 </div>
                             </div>

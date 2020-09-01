@@ -10,7 +10,6 @@ class KelasController extends Controller
 {
     public function index()
     {
-        //  user()->
         $kelas = auth()->user()->kelas()->latest()->get();
 
         return view('pages.kelas.index', compact('kelas'));

@@ -27,7 +27,7 @@ class Modal extends Component
         $this->validate([
             'judul' => 'required|min:5|Max:255',
             'deskripsi' => 'required|max:255',
-            'video' => 'required|mimes:mp4,mov,mkv',
+            'video' => 'required',
         ]);
 
         Materi::create([
@@ -89,7 +89,7 @@ class Modal extends Component
             'judul' => 'required|min:5|Max:255',
             'deskripsi' => 'required|max:255',
             'foto' => 'required|mimes:jpeg,jpg,png|max:1024',
-            'video' => 'required|mimes:mp4,mov,mkv',
+            'video' => 'required',
             'pdf' => 'required|mimes:pdf',
         ]);
     }
