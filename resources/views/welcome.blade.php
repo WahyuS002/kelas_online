@@ -26,29 +26,35 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <blockquote class="blockquote media-object col-10">
+            <blockquote class="info-panel media-object col-10">
                 <div class="row">
                     <div class="col">
-                        Lorem ipsum dolor sit amet.
+                        <img src="{{ asset('icon/frontend/online-support.png') }}" class="float-left">
+                        <h4>24 Hours</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur.</p>
                     </div>
                     <div class="col">
-                        Lorem ipsum dolor sit amet.
+                        <img src="{{ asset('icon/frontend/image-correction.png') }}" class="float-left">
+                        <h4>High Res</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur.</p>
                     </div>
                     <div class="col">
-                        Lorem ipsum dolor sit amet.
+                        <img src="{{ asset('icon/frontend/protected.png') }}" class="float-left">
+                        <h4>Security</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur.</p>
                     </div>
                 </div>
             </blockquote>
         </div>
         <div class="container">
-            <div class="d-flex justify-content-center mb-3">
+            <div class="d-flex justify-content-center mb-3 mt-5">
                 <h3>Kelas Pilihan</h3>
             </div>
             <div class="row mb-5">
                 <div class="col-3">
                     <div class="card component-card_1">
                         <div class="card-body">
-                            <a href="/kelas">
+                            <a href="/materi">
                                 <div class="icon-svg">
                                     <svg> ... </svg>
                                 </div>

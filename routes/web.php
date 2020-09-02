@@ -42,4 +42,5 @@ Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('
 Route::post('/user/profile/{user:id}/update', 'UserProfileController@update')->name('profile.update');
 
 // Frontend
-Route::get('/kelas', 'KelasController@index');
+Route::get('/materi', 'MateriController@index');
+Route::get('/materi/belajar-html-dasar', 'MateriController@show');

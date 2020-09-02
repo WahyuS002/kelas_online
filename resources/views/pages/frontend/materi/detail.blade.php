@@ -9,7 +9,7 @@
 @endpush
 
 @section('jumbotron')
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-lg-12">
             <div class="jumbotron-fluid jumbotron-color">
                 <div class="mx-5">
@@ -30,7 +30,7 @@
 {{-- <div class="container"> --}}
     <div class="row">
         <div class="offset-md-8">
-            <div class="card component-card_9 card-margin">
+            <div class="card component-card_9 card-margin shadow-none">
             <img src="{{ asset('cork/assets/img/400x300.jpg') }}" class="card-img-top" alt="widget-card-2">
                 <div class="card-body">
                     <p class="meta-date">25 Jan 2020</p>
@@ -51,10 +51,19 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="ml-5 col-7 col-margin">
-            <h4>Modul Materi.</h4>
+        <div class="col-7 card-margin ml-5">
+            <h4>Modul Materi</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-1 text-center">1</div>
+                        <div class="col-8"><b>Lorem ipsum dolor sit amet.</b></div>
+                        <div class="col-3 text-center">
+                            <a href="/materi/belajar-html-dasar" class="btn btn-success btn-sm">Pelajari</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {{-- </div> --}}
