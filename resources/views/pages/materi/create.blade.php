@@ -13,35 +13,52 @@
 
 @section('content')
 <div class="layout-px-spacing">
-    <!-- CONTENT AREA -->    
+    <!-- CONTENT AREA -->
 
     <div class="row layout-top-spacing">
-        
+
         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
             <div class="widget-content-area br-4">
                 <div class="widget-one">
 
-                    <form action="" method="post">
+                    <form action="{{ route('kelas.materi.store', $id) }}" method="post">
+                        @csrf
                         <div class="form-row mb-4">
                             <div class="form-group col-md-12">
                                 <label for="judul">Judul Materi</label>
                                 <input name="judul" type="text" class="form-control">
-                            </div>                            
+                            </div>
                             <div class="form-group col-md-12">
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="summernote" name="deskripsi"></textarea>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="file">Upload File</label>
+                            <div class="form-group col-md-12">
+                                <label for="video">Video</label>
+                                <input name="video" type="text" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="foto">Upload File</label>
                                 <div class="upload pr-md-4">
-                                    <input type="file" id="input-file-max-fs" class="dropify" data-default-file="{{ asset('cork/assets/img/200x200.jpg') }}" data-max-file-size="2M" name="foto" />
+                                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M" name="foto" data-allowed-file-extensions="png jpg jpeg" />
                                     <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Picture</p>
                                 </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="pdf">Upload Pdf</label>
+                                <div class="upload pr-md-4">
+                                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M" name="pdf" data-allowed-file-extensions="pdf" />
+                                    <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Pdf</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </form>
 
-                </div>            
+                </div>
             </div>
         </div>
 

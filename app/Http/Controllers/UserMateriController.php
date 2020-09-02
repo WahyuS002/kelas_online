@@ -17,8 +17,18 @@ class UserMateriController extends Controller
         return view('pages.materi.index', compact('kelas', 'materi'));
     }
 
-    public function create()
+    public function create($id)
     {
-        return view('pages.materi.create');
+        return view('pages.materi.create', compact('id'));
+    }
+
+    public function store(Request $request, $id)
+    {
+        $data = $request->all();
+        $data['kelas_id'] = $id;
+
+        auth()->user()->materi()->create($data);
+
+        return redirect()->route('kelas.materi', $id);
     }
 }

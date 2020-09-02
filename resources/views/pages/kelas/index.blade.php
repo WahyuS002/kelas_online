@@ -1,47 +1,75 @@
 @extends('layouts.backend')
 
 @push('style-after')
-<!--  BEGIN CUSTOM STYLE FILE  -->
-<link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('cork/assets/css/components/cards/card.css') }}" rel="stylesheet" type="text/css" />
-<!--  END CUSTOM STYLE FILE  -->    
+<link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/custom_dt_miscellaneous.css') }}">
+<!-- BEGIN PAGE LEVEL CUSTOM STYLES -->
+<link href="{{ asset('cork/assets/css/tables/table-basic.css') }}" rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL CUSTOM STYLES -->
 @endpush
 
 @section('content')
-<div class="layout-px-spacing">        
-        <div class="row">            
-            <div id="card_1" class="col-lg-12 layout-spacing layout-top-spacing">                
-                <div class="statbox widget box box-shadow">
-                    <div class="widget-header">
-                        <div class="row d-flex align-items-center">                          
-                            <div class="col-xl-6 col-md-6 col-sm-6 col-6">
-                                <h4>Card 1</h4>                                
-                            </div>                            
-                            <div class="col-xl-6 col-md-6 col-sm-6 col-6">
-                                <a href="{{ route('kelas.create') }}" class="btn btn-primary float-right">Tambah Kelas</a>                              
-                            </div>                            
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing layout-spacing">
+        <div class="col-lg-12">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">
+                    <div class="row align-items-center">
+                        <div class="col-xl-6 col-md-6 col-sm-6 col-6">
+                            <h4>Kelas yang dibuat</h4>
                         </div>
-                        <div class="row">
-                            @foreach ($kelas as $k)
-                            <div class="card component-card_2-custom mt-3">
-                                <a href="{{ route('kelas.materi', $k->id) }}">
-                                    <img src="{{ asset('storage/' . $k->thumbnail) }}" class="card-img-top" onError="this.onerror=null;this.src='{{ asset('cork/assets/img/400x300.jpg') }}';" style="height: 193px; width: 286px; object-fit: cover;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ Str::limit($k->nama_kelas, 15) }}</h5>
-                                    <p class="card-text">{!! Str::limit($k->deskripsi, 50) !!}</p>                                
-                                </div>
-                            </div>
-                            @endforeach
+                        <div class="col-xl-6 col-md-6 col-sm-6 col-6 text-right">
+                            <a href="{{ route('kelas.create') }}" class="btn btn-primary btn-sm mr-3">Buat Kelas</a>
                         </div>
+                    </div>
+                </div>
+                <div class="widget-content widget-content-area">
+                    <div class="table-responsive mb-4">
+                        <table id="column-filter" class="table">
+                            <thead>
+                                <tr>
+                                    <th class="checkbox-column"> No. </th>
+                                    <th>Nama Kelas</th>
+                                    <th>Kapasitas</th>
+                                    <th>Harga</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($kelas as $k)
+                                    <tr>
+                                        <td class="checkbox-column"> {{ $loop->iteration }} </td>
+                                        <td>{{ $k->nama_kelas }}</td>
+                                        <td>{{ $k->kapasitas_kelas }}</td>
+                                        <td>Rp.{{ number_format($k->harga) }}</td>
+                                        @if (!$k->status)
+                                            <td><span class="shadow-none badge badge-warning">Materi Kosong</span></td>
+                                        @endif
+                                        <td class="text-center">
+                                            <ul class="table-controls">
+                                                <li><a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye text-primary"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></path></svg></a> </li>
+                                                <li><a href="{{ route('kelas.materi', $k->id) }}" data-toggle="tooltip" data-placement="top" title="Materi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle- text-success"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- @empty
-        <div class="alert alert-warning mb-4" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x close" data-dismiss="alert"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button> <strong>Warning!</strong> Tidak ada kelas silahkan lengkapi profile mu <a href="{{ route('profile') }}"><strong>disini</strong></a> </div>                
-        @endforelse --}}
-        
+    </div>
 
 </div>
 @endsection
+
+@push('script-after')
+    <!-- BEGIN PAGE LEVEL CUSTOM SCRIPTS -->
+    <script>
+        checkall('todoAll', 'todochkbox');
+        $('[data-toggle="tooltip"]').tooltip()
+    </script>
+    <!-- END PAGE LEVEL CUSTOM SCRIPTS -->
+@endpush

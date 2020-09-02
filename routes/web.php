@@ -35,6 +35,7 @@ Route::get('/user/kelas/create', 'UserKelasController@create')->name('kelas.crea
 Route::post('/user/kelas/store', 'UserKelasController@store')->name('kelas.store');
 Route::get('/user/kelas/{kelas:id}/materi', 'UserMateriController@index')->name('kelas.materi');
 Route::get('/user/kelas/{kelas:id}/materi/create', 'UserMateriController@create')->name('kelas.materi.create');
+Route::post('/user/kelas/{kelas:id}/materi/store', 'UserMateriController@store')->name('kelas.materi.store');
 
 
 Route::get('/user/profile/index', 'UserProfileController@index')->name('profile');
