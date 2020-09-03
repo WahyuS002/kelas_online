@@ -24,8 +24,12 @@ class UserMateriController extends Controller
 
     public function store(Request $request, $id)
     {
+        // Objek
+        $materi = new Materi();
+
         $data = $request->all();
         $data['kelas_id'] = $id;
+        $data['video'] = $materi->YoutubeID($request->video);
 
         auth()->user()->materi()->create($data);
 

@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Kelas Online </title>
-    
+
     @include('includes.frontend.style')
-    @stack('style-after')    
+    @stack('style-after')
+
+    <livewire:styles>
 
 </head>
 <body class="alt-menu sidebar-noneoverflow">
@@ -24,13 +26,13 @@
 
         <div class="overlay"></div>
         <div class="search-overlay"></div>
-        
+
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">
             @yield('jumbotron')
             <div class="layout-px-spacing">
 
-                @yield('content')                
+                @yield('content')
 
             </div>
         </div>
@@ -40,6 +42,8 @@
     <!-- END MAIN CONTAINER -->
 
     @include('includes.frontend.script')
-    @stack('script-after')    
+    @stack('script-after')
+
+    <livewire:scripts>
 </body>
 </html>

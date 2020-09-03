@@ -72,4 +72,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Materi::class, 'user_id');
     }
+
+    public function baca()
+    {
+        return $this->belongsToMany(Materi::class, 'baca', 'user_id', 'materi_id');
+    }
+
+    public function userBaca($materi)
+    {
+        return $this->baca()->find($materi->id);
+    }
 }
