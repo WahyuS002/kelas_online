@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
+use App\Materi;
 use Illuminate\Http\Request;
 
 class MateriController extends Controller
 {
-    public function index()
+    public function detail(Kelas $kelas)
     {
-        return view('pages.frontend.materi.detail');
+        $kelas_id = $kelas->id;
+        $slug_kelas = $kelas->slug_kelas;
+        $materi = Materi::where('kelas_id', $kelas_id)->get();
+        return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas'));
     }
 
-    public function show()
+    public function show($slug_kelas, $materi_id)
     {
-        return view('pages.frontend.materi.show');
+        $materi = Materi::where('id', $materi_id)->first();
+        return view('pages.frontend.materi.show', compact('materi'));
     }
 }

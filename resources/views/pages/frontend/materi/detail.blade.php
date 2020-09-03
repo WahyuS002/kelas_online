@@ -54,15 +54,17 @@
         <div class="col-7 card-margin ml-5">
             <h4>Modul Materi</h4>
             <div class="card">
+                @foreach ($materi as $m)
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-1 text-center">1</div>
-                        <div class="col-8"><b>Lorem ipsum dolor sit amet.</b></div>
+                        <div class="col-1 text-center">{{ $loop->iteration }}</div>
+                        <div class="col-8"><b>{{ $m->judul }}.</b></div>
                         <div class="col-3 text-center">
-                            <a href="/materi/belajar-html-dasar" class="btn btn-success btn-sm">Pelajari</a>
+                            <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "materi_id" => $m->id]) }}" class="btn btn-success btn-sm">Pelajari</a>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -51,52 +51,23 @@
                 <h3>Kelas Pilihan</h3>
             </div>
             <div class="row mb-5">
+                @foreach ($kelas as $k)
                 <div class="col-3">
                     <div class="card component-card_1">
                         <div class="card-body">
-                            <a href="/materi">
+                            <a href="{{ route('materi.detail', $k->slug_kelas) }}">
                                 <div class="icon-svg">
-                                    <svg> ... </svg>
+                                    {{-- <svg> --}}
+                                    <img src="{{ asset('storage/'.$k->thumbnail) }}" class="img-fluid" alt="">
+                                    {{-- </svg> --}}
                                 </div>
                             </a>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
+                            <h5 class="card-title">{{ Str::limit($k->nama_kelas, 16) }}</h5>
+                            <p class="card-text">{!! Str::limit($k->deskripsi, 25) !!}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="d-flex justify-content-center mb-3">
                 <h3>Semua Kelas</h3>

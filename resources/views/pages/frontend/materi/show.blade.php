@@ -5,11 +5,11 @@
 <div class="container">
     <div class="row mx-5">
         <div class="col-12">
-            <h1>Sejarah Singkat HTML</h1>
+            <h1>{{ $materi->judul }}</h1>
         </div>
-        <div class="col-6">
-            <div class="card">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, suscipit.
+        <div class="col-12">
+            <div class="card p-5">
+                {{ $materi->deskripsi }}
             </div>
         </div>
     </div>

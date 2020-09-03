@@ -15,13 +15,9 @@ use App\Kelas;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // Admin
 Route::get('/dashboard', 'DashboardController@index');
@@ -43,5 +39,5 @@ Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('
 Route::post('/user/profile/{user:id}/update', 'UserProfileController@update')->name('profile.update');
 
 // Frontend
-Route::get('/materi', 'MateriController@index');
-Route::get('/materi/belajar-html-dasar', 'MateriController@show');
+Route::get('/kelas/{kelas:slug_kelas}/detail', 'MateriController@detail')->name('materi.detail');
+Route::get('/kelas/{slug_kelas}/materi/{materi_id}', 'MateriController@show')->name('materi.show');
