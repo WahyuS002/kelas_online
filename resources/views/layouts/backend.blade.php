@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title> Kelas Online </title>
-    
+
     @stack('style-before')
     @include('includes.backend.style')
     @stack('style-after')
@@ -29,7 +29,7 @@
         <div class="search-overlay"></div>
 
         @include('includes.backend.sidebar')
-        
+
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">
             @yield('content')
@@ -45,6 +45,6 @@
     @stack('script-after')
 
     <livewire:scripts>
-
+    @include('sweetalert::alert')
 </body>
 </html>

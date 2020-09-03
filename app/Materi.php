@@ -26,4 +26,11 @@ class Materi extends Model
 
         return $url;
     }
+
+    public function saveQuietly()
+    {
+        return static::withoutEvents(function () {
+            return $this->save();
+        });
+    }
 }

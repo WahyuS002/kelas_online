@@ -45,6 +45,8 @@
                                         <td>Rp.{{ number_format($k->harga) }}</td>
                                         @if (!$k->status)
                                             <td><span class="shadow-none badge badge-warning">Materi Kosong</span></td>
+                                        @elseif($k->status == 'waiting')
+                                            <td><span class="shadow-none badge badge-warning">Waiting</span></td>
                                         @endif
                                         <td class="text-center">
                                             <ul class="table-controls">

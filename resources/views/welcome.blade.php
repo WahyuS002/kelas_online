@@ -13,10 +13,10 @@
         <div class="col-lg-12">
             <div class="jumbotron jumbotron-fluid">
                 <div class="mx-5">
-                <h2 class="display-4 mb-5 mt-4">Fluid Jumbotron</h2>
+                <h2 class="display-4 mb-5 mt-4">Kelas Online</h2>
                 <div class="col-4">
                     <p class="lead mt-3 mb-4">
-                        This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa voluptatem nisi cupiditate quo temporibus.
                     </p>
                 </div>
             </div>

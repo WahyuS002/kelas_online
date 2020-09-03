@@ -24,7 +24,7 @@ class CreateMateriTable extends Migration
             $table->string('video')->nullable();
             $table->string('pdf')->nullable();
             $table->integer('urutan')->nullable();
-            $table->boolean('status')->nullable();
+            $table->enum('status', ['waiting', 'success', 'failed'])->nullable();
 
             $table->timestamps();
         });

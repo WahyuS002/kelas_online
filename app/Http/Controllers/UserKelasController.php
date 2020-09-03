@@ -49,6 +49,6 @@ class UserKelasController extends Controller
 
         Kelas::create($data);
 
-        return redirect()->route('kelas');
+        return redirect()->route('kelas')->with('success', 'Kelas telah ditambahkan');
     }
 }
