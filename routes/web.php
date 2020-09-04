@@ -29,10 +29,13 @@ Route::get('/admin/kelas/{kelas:id}/verifikasi', 'KelasController@verifikasi')->
 Route::get('/user/kelas/index', 'UserKelasController@index')->name('kelas');
 Route::get('/user/kelas/create', 'UserKelasController@create')->name('kelas.create');
 Route::post('/user/kelas/store', 'UserKelasController@store')->name('kelas.store');
+
+// Materi
 Route::get('/user/kelas/{kelas:id}/materi', 'UserMateriController@index')->name('kelas.materi');
 Route::get('/user/kelas/{kelas:id}/materi/create', 'UserMateriController@create')->name('kelas.materi.create');
 Route::post('/user/kelas/{kelas:id}/materi/store', 'UserMateriController@store')->name('kelas.materi.store');
-
+Route::get('/user/kelas/{kelas:id}/materi/{materi:id}/edit', 'UserMateriController@edit')->name('kelas.materi.edit');
+Route::put('/user/kelas/materi/{materi:id}/update', 'UserMateriController@update')->name('kelas.materi.update');
 
 Route::get('/user/profile/index', 'UserProfileController@index')->name('profile');
 Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('profile.edit');

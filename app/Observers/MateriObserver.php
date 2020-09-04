@@ -22,6 +22,41 @@ class MateriObserver
             $lowerPriorityMeal->saveQuietly();
         }
     }
+
+    public function updating(Materi $materi)
+    {
+        if ($materi->isClean('urutan')) {
+            return;
+        }
+
+        if (is_null($materi->urutan)) {
+            $materi->urutan = Materi::where('urutan', $materi->urutan)->max('urutan');
+        }
+
+        if ($materi->getOriginal('urutan') > $materi->urutan) {
+            $urutanRange = [
+                $materi->urutan, $materi->getOriginal('urutan')
+            ];
+        } else {
+            $urutanRange = [
+                $materi->getOriginal('urutan'), $materi->urutan
+            ];
+        }
+
+        $lowerPriorityMeals = Materi::where('urutan', $materi->urutan)
+            ->whereBetween('urutan', $urutanRange)
+            ->where('id', '!=', $materi->id)
+            ->get();
+
+        foreach ($lowerPriorityMeals as $lowerPriorityMeal) {
+            if ($materi->getOriginal('urutan') < $materi->urutan) {
+                $lowerPriorityMeal->urutan--;
+            } else {
+                $lowerPriorityMeal->urutan++;
+            }
+            $lowerPriorityMeal->saveQuietly();
+        }
+    }
     /**
      * Handle the materi "created" event.
      *

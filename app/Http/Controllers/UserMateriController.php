@@ -50,4 +50,16 @@ class UserMateriController extends Controller
 
         return redirect()->route('kelas.materi', $id);
     }
+
+    public function edit($kelas, Materi $materi)
+    {
+        return view('pages.materi.edit', compact('materi'));
+    }
+
+    public function update(Materi $materi, Request $request)
+    {
+        $materi->update($request->all());
+
+        return redirect()->back();
+    }
 }
