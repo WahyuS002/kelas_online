@@ -23,7 +23,11 @@ class CreateKelasTable extends Migration
             $table->foreignId('kategori_id');
 
             $table->enum('jenjang', ['SD', 'SMP', 'SMA', 'Kuliah', 'Umum']);
-            $table->enum('level', ['Kelas 1', 'Kelas 2', 'Kelas 3', 'Kelas 4', 'Kelas 5', 'Kelas 6']);
+            $table->enum('level', [
+                'Kelas 1', 'Kelas 2', 'Kelas 3', 'Kelas 4', 'Kelas 5', 'Kelas 6',
+                'Kelas 7', 'Kelas 8', 'Kelas 9', 'Kelas 10', 'Kelas 11', 'Kelas 12', 'Diploma',
+                'S1', 'S2', 'S3', 'Beginner', 'Intermediate', 'Advanced',
+            ]);
 
             $table->string('nama_kelas', 35);
             $table->string('slug_kelas', 100);

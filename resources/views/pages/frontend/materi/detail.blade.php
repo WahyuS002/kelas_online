@@ -31,7 +31,7 @@
     <div class="row">
         <div class="offset-md-8">
             <div class="card component-card_9 card-margin shadow-none">
-            <img src="{{ asset('cork/assets/img/400x300.jpg') }}" class="card-img-top" alt="widget-card-2">
+            <img src="{{ asset('storage/' . $kelas->thumbnail) }}" class="card-img-top" alt="widget-card-2">
                 <div class="card-body">
                     <p class="meta-date">25 Jan 2020</p>
 
@@ -60,7 +60,12 @@
                         <div class="col-1 text-center">{{ $loop->iteration }}</div>
                         <div class="col-8"><b>{{ $m->judul }}.</b></div>
                         <div class="col-3 text-center">
+                            @auth
                             <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "materi_id" => $m->id]) }}" class="btn btn-success btn-sm">Pelajari</a>
+                            @endauth
+                            @guest
+                            <a href="{{ route('login') }}" class="btn btn-secondary btn-sm">Pelajari</a>
+                            @endguest
                         </div>
                     </div>
                 </div>

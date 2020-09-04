@@ -13,7 +13,7 @@ class MateriController extends Controller
         $kelas_id = $kelas->id;
         $slug_kelas = $kelas->slug_kelas;
         $materi = Materi::where('kelas_id', $kelas_id)->get();
-        return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas'));
+        return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas', 'kelas'));
     }
 
     public function show($slug_kelas, $materi_id)

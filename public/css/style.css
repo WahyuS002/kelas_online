@@ -64,3 +64,15 @@
     width: 208px;
     object-fit: cover;
 }
+
+.card img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.icon-svg img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+}

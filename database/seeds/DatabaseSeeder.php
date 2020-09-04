@@ -12,8 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TingkatanSeeder::class);
-        $this->call(LevelSeeder::class);
-        $this->call(MapelSeeder::class);
+        $this->call(KategoriKelasSeeder::class);
+        $this->call(IndoRegionSeeder::class);
     }
 }
