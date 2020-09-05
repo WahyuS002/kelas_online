@@ -9,6 +9,7 @@
     <!-- SUMMERNOTE -->
     <link href="{{ asset('cork/plugins/summernote/summernote.min.css') }}" rel="stylesheet">
     <!-- END SUMMERNOTE -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 @endpush
 
 @section('content')
@@ -25,16 +26,31 @@
                         @csrf
                         <div class="form-row mb-4">
                             <div class="form-group col-md-12">
-                                <label for="judul">Judul Materi</label>
+                                <label for="judul">Judul Materi <span class="required">*</span></label>
                                 <input name="judul" type="text" class="form-control">
+                                @error('judul')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="deskripsi">Deskripsi</label>
+                                <label for="deskripsi">Deskripsi <span class="required">*</span></label>
                                 <textarea id="summernote" name="deskripsi"></textarea>
+                                @error('deskripsi')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="video">Video</label>
+                                <label for="video">Video <span class="required">*</span></label>
                                 <input name="video" type="text" class="form-control">
+                                @error('video')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="foto">Upload File</label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KelasRequest;
 use App\KategoriKelas;
 use Illuminate\Http\Request;
 use App\Kelas;
@@ -34,7 +35,7 @@ class UserKelasController extends Controller
         return view('pages.kelas.create', compact('kategori'));
     }
 
-    public function store(Request $request)
+    public function store(KelasRequest $request)
     {
         $data = $request->all();
 

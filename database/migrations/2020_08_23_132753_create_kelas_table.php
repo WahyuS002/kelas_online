@@ -38,7 +38,7 @@ class CreateKelasTable extends Migration
             $table->date('durasi_kelas');
             $table->integer('kapasitas_kelas');
             $table->string('video_preview');
-            $table->boolean('status')->nullable();
+            $table->enum('status', ['draf', 'review', 'reject', 'publish', 'private', 'nonaktif'])->nullable();
 
             $table->timestamps();
         });
