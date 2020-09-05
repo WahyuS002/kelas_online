@@ -30,6 +30,6 @@ class UserProfileController extends Controller
 
         User::find($user->id)->update($data);
 
-        return redirect()->route('profile');
+        return redirect()->route('user.profile');
     }
 }

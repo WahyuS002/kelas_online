@@ -34,7 +34,7 @@ class UserMateriController extends Controller
 
         auth()->user()->materi()->create($data);
 
-        return redirect()->route('kelas.materi', $id);
+        return redirect()->route('user.kelas.materi', $id);
     }
 
     public function edit($kelas, Materi $materi)
@@ -47,5 +47,12 @@ class UserMateriController extends Controller
         $materi->update($request->all());
 
         return redirect()->back();
+    }
+
+    public function show($kelas, $materi_id)
+    {
+        $materi = Materi::where('id', $materi_id)->first();
+
+        return view('pages.materi.show', compact('materi'));
     }
 }

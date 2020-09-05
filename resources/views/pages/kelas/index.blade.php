@@ -19,7 +19,7 @@
                             <h4>Kelas yang dibuat</h4>
                         </div>
                         <div class="col-xl-6 col-md-6 col-sm-6 col-6 text-right">
-                            <a href="{{ route('kelas.create') }}" class="btn btn-primary btn-sm mr-3">Buat Kelas</a>
+                            <a href="{{ route('user.kelas.create') }}" class="btn btn-primary btn-sm mr-3">Buat Kelas</a>
                         </div>
                     </div>
                 </div>
@@ -50,8 +50,8 @@
                                         @endif
                                         <td class="text-center">
                                             <ul class="table-controls">
-                                                <li><a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye text-primary"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></path></svg></a> </li>
-                                                <li><a href="{{ route('kelas.materi', $k->id) }}" data-toggle="tooltip" data-placement="top" title="Materi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle- text-success"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></li>
+                                                <li><a href="{{ route('user.kelas.view', $k->slug_kelas) }}" data-toggle="tooltip" data-placement="top" title="View"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye text-primary"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></path></svg></a> </li>
+                                                <li><a href="{{ route('user.kelas.materi', $k->id) }}" data-toggle="tooltip" data-placement="top" title="Materi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle- text-success"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></li>
                                             </ul>
                                         </td>
                                     </tr>

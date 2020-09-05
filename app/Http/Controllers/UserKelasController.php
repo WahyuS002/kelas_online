@@ -6,6 +6,7 @@ use App\Http\Requests\KelasRequest;
 use App\KategoriKelas;
 use Illuminate\Http\Request;
 use App\Kelas;
+use App\Materi;
 
 class UserKelasController extends Controller
 {
@@ -50,6 +51,14 @@ class UserKelasController extends Controller
 
         Kelas::create($data);
 
-        return redirect()->route('kelas')->with('success', 'Kelas telah ditambahkan');
+        return redirect()->route('user.kelas')->with('success', 'Kelas telah ditambahkan');
+    }
+
+    public function view($slug_kelas)
+    {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+        $materi_kelas = $kelas->materi;
+
+        return view('pages.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
     }
 }

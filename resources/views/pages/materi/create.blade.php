@@ -22,7 +22,7 @@
             <div class="widget-content-area br-4">
                 <div class="widget-one">
 
-                    <form action="{{ route('kelas.materi.store', $id) }}" method="post">
+                    <form action="{{ route('user.kelas.materi.store', $id) }}" method="post">
                         @csrf
                         <div class="form-row mb-4">
                             <div class="form-group col-md-12">

@@ -19,7 +19,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
             <div class="widget-content-area br-4">
                 <div class="widget-one">
-                    <form action="{{ route('kelas.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.kelas.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <livewire:kelas.jenjang-level>

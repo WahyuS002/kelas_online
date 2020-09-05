@@ -21,7 +21,7 @@
             <div class="widget-content-area br-4">
                 <div class="widget-one">
 
-                    <form action="{{ route('kelas.materi.update', $materi->id) }}" method="post">
+                    <form action="{{ route('user.kelas.materi.update', $materi->id) }}" method="post">
                         @method('PUT')
                         @csrf
                         <div class="form-row mb-4">

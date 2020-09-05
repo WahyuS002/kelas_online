@@ -26,12 +26,12 @@
                 <h4 class="card-title font-20 mt-0">{{ $k->nama_kelas }}</h4>
                 <p class="card-text">{!! Str::limit($k->deskripsi, 50) !!}</p>
                 @if ($k->is_verified == 'waiting')
-                    <a href="{{ route('kelas.verifikasi', $k->id) }}" class="btn btn-sm btn-warning waves-effect waves-light">{{ $k->is_verified }}</a>
+                    <a href="{{ route('user.kelas.verifikasi', $k->id) }}" class="btn btn-sm btn-warning waves-effect waves-light">{{ $k->is_verified }}</a>
                 @elseif($k->is_verified == 'success')
                 <a href="#" class="btn btn-sm btn-success waves-effect waves-light">{{ $k->is_verified }}</a>
                 @endif
             </div>
-        </div>        
+        </div>
     </div><!-- end col -->
     @endforeach
 </div>
