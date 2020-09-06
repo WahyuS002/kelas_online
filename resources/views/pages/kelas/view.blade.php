@@ -30,7 +30,7 @@
 <div class="row">
     <div class="offset-md-8">
         <div class="card component-card_9 card-margin shadow-none">
-            <img src="{{ asset('storage/' . $kelas->thumbnail) }}" class="card-img-top" alt="widget-card-2">
+            <iframe width="350" height="300" src="http://www.youtube.com/embed/{{ $kelas->video_preview }}" frameborder="0" allowfullscreen></iframe>
             <div class="card-body">
                 <p class="meta-date">25 Jan 2020</p>
 
@@ -70,6 +70,19 @@
             </div>
             @endforeach
         </div>
+        <div class="d-flex justify-content-center">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-secondary btn-rounded mt-3" data-toggle="modal" data-target="#exampleModal">
+                Ajukan
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <livewire:kelas.modal-setuju :id="$kelas->id" :kelas="$kelas">
     </div>
 </div>
 @endsection

@@ -38,6 +38,9 @@ class UserKelasController extends Controller
 
     public function store(KelasRequest $request)
     {
+        // Objek
+        $kelas = new Kelas();
+
         $data = $request->all();
 
         $nama_foto = $request->thumbnail->getClientOriginalName();
@@ -47,7 +50,8 @@ class UserKelasController extends Controller
         $data['slug_kelas'] = \Str::slug($request->nama_kelas);
         $data['user_id'] = auth()->user()->id;
 
-        // dd($request->all());
+        $data['status'] = 'draf';
+        $data['video_preview'] = $kelas->YoutubeID($request->video_preview);
 
         Kelas::create($data);
 
@@ -60,5 +64,10 @@ class UserKelasController extends Controller
         $materi_kelas = $kelas->materi;
 
         return view('pages.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
+    }
+
+    public function submit()
+    {
+        dd('testing');
     }
 }

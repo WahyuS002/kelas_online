@@ -30,6 +30,7 @@ Route::get('/user/kelas/index', 'UserKelasController@index')->name('user.kelas')
 Route::get('/user/kelas/create', 'UserKelasController@create')->name('user.kelas.create');
 Route::post('/user/kelas/store', 'UserKelasController@store')->name('user.kelas.store');
 Route::get('/user/kelas/{kelas:slug_kelas}/view', 'UserKelasController@view')->name('user.kelas.view');
+Route::post('/user/kelas/{kelas:slug_kelas}/submit', 'UserKelasController@submit')->name('user.kelas.submit');
 
 // Materi
 Route::get('/user/kelas/{kelas:id}/materi', 'UserMateriController@index')->name('user.kelas.materi');
