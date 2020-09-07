@@ -66,8 +66,10 @@ class UserKelasController extends Controller
         return view('pages.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
     }
 
-    public function submit()
+    public function submit(Kelas $kelas)
     {
-        dd('testing');
+        Kelas::where('id', $kelas->id)->update(['status' => 'review']);
+
+        return redirect()->route('user.kelas')->with('success', 'Kelas Berhasil Diajukan Mohon Tunggu 1x24 jam');
     }
 }

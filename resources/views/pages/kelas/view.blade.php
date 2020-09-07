@@ -6,6 +6,7 @@
 <link href="{{ asset('cork/assets/css/components/cards/card.css') }}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="{{ asset('cork/assets/css/components/custom-modal.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 
 @section('jumbotron')
@@ -31,6 +32,23 @@
     <div class="offset-md-8">
         <div class="card component-card_9 card-margin shadow-none">
             <iframe width="350" height="300" src="http://www.youtube.com/embed/{{ $kelas->video_preview }}" frameborder="0" allowfullscreen></iframe>
+            <button id="yt-video-link" type="button" class="btn btn-primary mb-2 mr-2">Play Youtube</button>
+            <!-- Modal -->
+            <div class="modal fade" id="videoMedia1" tabindex="-1" role="dialog" aria-labelledby="videoMedia1Label" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" id="videoMedia1Label">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                        </div>
+                        <div class="modal-body p-0">
+                            <div class="video-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card-body">
                 <p class="meta-date">25 Jan 2020</p>
 
@@ -71,10 +89,15 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center">
-            <!-- Button trigger modal -->
+            @if($kelas->status == 'review')
+            <button type="button" class="btn btn-secondary btn-rounded mt-3" data-toggle="modal" data-target="#exampleModal" disabled>
+                Sedang di review
+            </button>
+            @elseif(!$kelas->status)
             <button type="button" class="btn btn-secondary btn-rounded mt-3" data-toggle="modal" data-target="#exampleModal">
                 Ajukan
             </button>
+            @endif
         </div>
     </div>
 </div>
@@ -86,3 +109,32 @@
     </div>
 </div>
 @endsection
+
+@push('script-after')
+<script>
+    $('#yt-video-link').click(function () {
+        var src = 'https://www.youtube.com/embed/YE7VzlLtp-4';
+        $('#videoMedia1').modal('show');
+        $('<iframe>').attr({
+            'src': src,
+            'width': '560',
+            'height': '315',
+            'allow': 'encrypted-media'
+        }).css('border', '0').appendTo('#videoMedia1 .video-container');
+    });
+    $('#vimeo-video-link').click(function () {
+        var src = 'https://player.vimeo.com/video/1084537';
+        $('#videoMedia2').modal('show');
+        $('<iframe>').attr({
+            'src': src,
+            'width': '1000',
+            'height': '1315',
+            'allow': 'encrypted-media'
+        }).css('border', '0').appendTo('#videoMedia2 .video-container');
+    });
+    $('#videoMedia1 button, #videoMedia2 button').click(function () {
+        $('#videoMedia1 iframe, #videoMedia2 iframe').removeAttr('src');
+    });
+</script>
+<!--  END CUSTOM SCRIPT FILE  -->
+@endpush

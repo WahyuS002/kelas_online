@@ -47,6 +47,8 @@
                                             <td><span class="shadow-none badge badge-warning">Materi Kosong</span></td>
                                         @elseif($k->status == 'waiting')
                                             <td><span class="shadow-none badge badge-warning">Waiting</span></td>
+                                        @elseif($k->status == 'review')
+                                            <td><span class="shadow-none badge badge-warning">Review</span></td>
                                         @endif
                                         <td class="text-center">
                                             <ul class="table-controls">
