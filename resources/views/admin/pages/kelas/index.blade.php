@@ -93,6 +93,8 @@
                                     <td>
                                         @if ($k->status == 'review')
                                             <span class="badge badge-warning"> Review </span>
+                                        @elseif ($k->status == 'review')
+                                            <span class="badge badge-warning"> Review </span>
                                         @endif
                                     </td>
                                     <td>Rp. {{ number_format($k->harga) }} </td>

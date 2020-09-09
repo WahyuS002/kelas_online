@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function kelas()
     {
-        $kelas = Kelas::where('status', 'review')->get();
+        $kelas = Kelas::get();
         return view('admin.pages.kelas.index', compact('kelas'));
     }
 
