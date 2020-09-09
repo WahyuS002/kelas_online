@@ -24,12 +24,17 @@ Route::middleware('guest')->prefix('admin')->group(function () {
 });
 
 // Admin Dashboard
-Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/admin/kelas/index', 'AdminController@kelas')->name('admin.kelas');
+
+    Route::get('/admin/kelas/view/{kelas}', 'AdminController@kelasView')->name('admin.kelas.view');
+});
 
 Route::get('/dashboard', 'DashboardController@index');
 
-Route::get('/admin/kelas', 'KelasController@admin')->name('kelas.admin');
-Route::get('/admin/kelas/{kelas:id}/verifikasi', 'KelasController@verifikasi')->name('kelas.verifikasi');
+// Route::get('/admin/kelas', 'KelasController@admin')->name('kelas.admin');
+// Route::get('/admin/kelas/{kelas:id}/verifikasi', 'KelasController@verifikasi')->name('kelas.verifikasi');
 
 /*
 |--------------------------------------------------------------------------

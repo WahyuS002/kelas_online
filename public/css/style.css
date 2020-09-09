@@ -80,3 +80,11 @@
 .required {
     color: red;
 }
+
+.vl {
+    border-left: 1px solid rgb(207, 207, 207);
+}
+
+.custom-button {
+    width: 100px !important;
+}

@@ -36,4 +36,9 @@ class Kelas extends Model
 
         return $url;
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug_kelas';
+    }
 }
