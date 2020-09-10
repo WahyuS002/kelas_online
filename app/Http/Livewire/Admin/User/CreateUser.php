@@ -46,5 +46,7 @@ class CreateUser extends Component
         $this->resetInputFields();
 
         $this->dispatchBrowserEvent('closeExampleModal'); // Close model to using to jquery
+
+        $this->emit('userAdded');
     }
 }

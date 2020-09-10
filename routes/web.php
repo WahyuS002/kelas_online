@@ -32,6 +32,9 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin/kelas/view/{kelas}', 'AdminController@kelasView')->name('admin.kelas.view');
 
     Route::get('/admin/user/index', 'AdminController@userIndex')->name('admin.user');
+
+    // Kategori
+    Route::get('/admin/kategori/index', 'AdminController@kategoriIndex')->name('admin.kategori.index');
 });
 
 Route::get('/dashboard', 'DashboardController@index');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kelas;
 use App\Admin;
+use App\KategoriKelas;
 
 class AdminController extends Controller
 {
@@ -36,7 +37,16 @@ class AdminController extends Controller
 
     public function userIndex()
     {
-        $admin = Admin::all();
-        return view('admin.pages.user.index', compact('admin'));
+        return view('admin.pages.user.index');
+    }
+
+    /*
+    | Function untuk Kategori
+    */
+
+    public function kategoriIndex()
+    {
+        $kategori = KategoriKelas::all();
+        return view('admin.pages.kategori.index', compact('kategori'));
     }
 }
