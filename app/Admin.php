@@ -13,10 +13,15 @@ class Admin extends Authenticatable
     protected $guard = 'admin';
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', 'kategori_id'
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function kategori_kelas()
+    {
+        return $this->belongsTo(KategoriKelas::class, 'kategori_id');
+    }
 }

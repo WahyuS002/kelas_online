@@ -26,11 +26,16 @@ class KelasReview extends Component
         }
     }
 
-    // Modal
     public function terima()
     {
         Kelas::where('id', $this->itemId)->update(['status' => 'publish']);
         $this->dispatchBrowserEvent('closeSetujuModal');
+    }
+
+    public function tolak()
+    {
+        Kelas::where('id', $this->itemId)->update(['status' => 'reject']);
+        $this->dispatchBrowserEvent('closeTolakModal');
     }
 
     public function render()

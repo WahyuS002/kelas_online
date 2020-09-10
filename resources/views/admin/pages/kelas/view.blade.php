@@ -15,7 +15,22 @@
         <div class="jumbotron-fluid jumbotron-color">
             <div class="mx-5">
                 <div class="col-8">
-                    <h2 class="display-4 mt-4">Fluid Jumbotron</h2>
+                    <h2 class="display-4 mt-4">
+                        Fluid Jumbotron
+                        @if ($kelas->status == 'reject')
+                            <button class="btn btn-danger btn-rounded">Ditolak</button>
+                        @endif
+                        @if ($kelas->status == 'draf')
+                            <button class="btn btn-warning btn-rounded">Draf</button>
+                        @endif
+                        @if ($kelas->status == 'review')
+                            <button class="btn btn-secondary btn-rounded">Review</button>
+                        @endif
+                        @if ($kelas->status == 'publish')
+                            <button class="btn btn-success btn-rounded">Disetujui</button>
+                        @endif
+                    </h2>
+
                     <p class="lead mt-3 mb-4">
                         This is a modified jumbotron that occupies the entire horizontal space of its parent.
                     </p>

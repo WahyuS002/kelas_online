@@ -1,7 +1,6 @@
 @extends('layouts.backend')
 
 @push('style-after')
-<link href="{{ asset('cork/assets/css/users/account-setting.css') }}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/datatables.css') }}">
@@ -92,9 +91,13 @@
                                     <td>30</td>
                                     <td>
                                         @if ($k->status == 'review')
-                                            <span class="badge badge-warning"> Review </span>
-                                        @elseif ($k->status == 'review')
-                                            <span class="badge badge-warning"> Review </span>
+                                            <span class="badge badge-secondary"> Review </span>
+                                        @elseif ($k->status == 'draf')
+                                            <span class="badge badge-warning"> Draf </span>
+                                        @elseif ($k->status == 'publish')
+                                            <span class="badge badge-success"> Published </span>
+                                        @elseif ($k->status == 'reject')
+                                            <span class="badge badge-danger"> Ditolak </span>
                                         @endif
                                     </td>
                                     <td>Rp. {{ number_format($k->harga) }} </td>

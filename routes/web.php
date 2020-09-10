@@ -28,7 +28,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
     Route::get('/admin/kelas/index', 'AdminController@kelas')->name('admin.kelas');
 
+    // View Kelas
     Route::get('/admin/kelas/view/{kelas}', 'AdminController@kelasView')->name('admin.kelas.view');
+
+    Route::get('/admin/user/index', 'AdminController@userIndex')->name('admin.user');
 });
 
 Route::get('/dashboard', 'DashboardController@index');

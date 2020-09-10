@@ -40,7 +40,7 @@
                     INI MODAL TOLAK
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary" wire:click="terima('test')">Yes</button>
+                    <button type="button" class="btn btn-primary" wire:click="tolak">Yes</button>
                     <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
                 </div>
             </div>

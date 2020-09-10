@@ -60,6 +60,9 @@
                                 <select name="kategori_id" class="form-control">
                                     <option value="">Pilih Kategori</option>
                                     @foreach ($kategori as $k)
+                                    @if ($k->kategori == 'Semua')
+                                        @continue
+                                    @endif
                                     <option value="{{ $k->id }}">{{ $k->kategori }}</option>
                                     @endforeach
                                 </select>
