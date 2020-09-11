@@ -63,7 +63,7 @@
                                 </div>
                             </a>
                             <h5 class="card-title">{{ Str::limit($k->nama_kelas, 16) }}</h5>
-                            <p class="card-text">{!! Str::limit($k->deskripsi, 25) !!}</p>
+                            <p class="card-text">{!! Str::limit($k->user->name, 25) !!}</p>
                         </div>
                     </div>
                 </div>

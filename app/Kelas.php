@@ -41,4 +41,23 @@ class Kelas extends Model
     {
         return 'slug_kelas';
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id');
+    }
+
+    public function pesertaKelas($slug_kelas)
+    {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+        $user_id = auth()->user()->id;
+
+        return PesertaKelas::where(['kelas_id' => $kelas->id, 'user_id' => $user_id])->first();
+    }
+
+    public function countModul($kelas_id)
+    {
+        $count = Materi::where('kelas_id', $kelas_id)->count();
+        return $count;
+    }
 }

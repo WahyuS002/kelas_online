@@ -7,6 +7,7 @@ use App\KategoriKelas;
 use Illuminate\Http\Request;
 use App\Kelas;
 use App\Materi;
+use App\PesertaKelas;
 
 class UserKelasController extends Controller
 {
@@ -71,5 +72,16 @@ class UserKelasController extends Controller
         Kelas::where('id', $kelas->id)->update(['status' => 'review']);
 
         return redirect()->route('user.kelas')->with('success', 'Kelas Berhasil Diajukan Mohon Tunggu 1x24 jam');
+    }
+
+    public function kelasBeli($slug_kelas)
+    {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+        $user_id = auth()->user()->id;
+
+        PesertaKelas::create([
+            'kelas_id' => $kelas->id,
+            'user_id' => $user_id,
+        ]);
     }
 }
