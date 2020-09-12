@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use DateInterval;
+
 class Materi extends Model
 {
     protected $table = 'materi';
@@ -32,5 +34,18 @@ class Materi extends Model
         return static::withoutEvents(function () {
             return $this->save();
         });
+    }
+
+    public function duration($ytDuration)
+    {
+
+        $di = new DateInterval($ytDuration);
+        $string = '';
+
+        if ($di->h > 0) {
+            $string .= $di->h . ':';
+        }
+
+        return $string . $di->i . ':' . $di->s;
     }
 }
