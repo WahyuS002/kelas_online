@@ -39,7 +39,7 @@
                     <hr>
                     <div class="row">
                         <p class="col text-muted text-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> {{ $kelas->countModul($kelas->id) }} Modul</p>
-                        <p class="col text-muted text-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> {{ $duration }}</p>
+                        <p class="col text-muted text-center"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> {{ $duration_kelas }}</p>
                     </div>
 
                     <div class="meta-info">
@@ -53,10 +53,7 @@
 
                     <div class="d-flex justify-content-center mt-3 fluid">
                         @if ($kelas->pesertaKelas($kelas->slug_kelas) == null)
-                        <form action="{{ route('user.kelas.beli', $kelas->slug_kelas) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-outline-primary btn-block p-2">Beli Sekarang</button>
-                        </form>
+                        <a href="{{ route('user.kelas.checkout', $kelas->slug_kelas) }}" type="submit" class="btn btn-outline-primary btn-block p-2">Beli Sekarang</a>
                         @else
                         <button class="btn btn-success btn-block p-2">Kelas Sudah Dibeli</button>
                         @endif
@@ -72,14 +69,25 @@
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
                         <div class="col-1 text-center">{{ $loop->iteration }}</div>
-                        <div class="col-8"><b>{{ $m->judul }}.</b></div>
+
+                        @auth
+                        <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "materi_id" => $m->id]) }}" class="col-8 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></a>
+                        @endauth
+                        @guest
+                        <a href="{{ route('login') }}" class="col-8 text-muted">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon>
+                            </svg>
+                            <b class="ml-3 align-middle">{{ $m->judul }}.</b>
+                        </a>
+                        @endguest
+
                         <div class="col-3 text-center">
-                            @auth
-                            <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "materi_id" => $m->id]) }}" class="btn btn-success btn-sm">Pelajari</a>
-                            @endauth
-                            @guest
-                            <a href="{{ route('login') }}" class="btn btn-secondary btn-sm">Pelajari</a>
-                            @endguest
+
+                            <div class="text-muted d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                                <b class="ml-3 align-middle">(06:23)</b>
+                            </div>
+
                         </div>
                     </div>
                 </div>

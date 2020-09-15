@@ -26,7 +26,7 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <blockquote class="info-panel media-object col-10">
+            <blockquote class="info-panel media-object col-xl-10">
                 <div class="row">
                     <div class="col">
                         <img src="{{ asset('icon/frontend/online-support.png') }}" class="float-left">
@@ -52,7 +52,7 @@
             </div>
             <div class="row mb-5">
                 @foreach ($kelas as $k)
-                <div class="col-3">
+                <div class="col-xl-3">
                     <div class="card component-card_1">
                         <div class="card-body">
                             <a href="{{ route('materi.detail', $k->slug_kelas) }}">

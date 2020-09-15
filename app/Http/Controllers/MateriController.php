@@ -19,10 +19,10 @@ class MateriController extends Controller
         $slug_kelas = $kelas->slug_kelas;
         $materi = Materi::where('kelas_id', $kelas_id)->get();
 
-        $video = Youtube::getVideoInfo($kelas->video_preview);
-        $duration = $materi_object->duration($video->contentDetails->duration);
+        $video_kelas = Youtube::getVideoInfo($kelas->video_preview);
+        $duration_kelas = $materi_object->duration($video_kelas->contentDetails->duration);
 
-        return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas', 'kelas', 'duration'));
+        return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas', 'kelas', 'duration_kelas'));
     }
 
     public function show($slug_kelas, $materi_id)

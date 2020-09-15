@@ -53,9 +53,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/kelas/create', 'UserKelasController@create')->name('user.kelas.create');
     Route::post('/user/kelas/store', 'UserKelasController@store')->name('user.kelas.store');
     Route::get('/user/kelas/{kelas:slug_kelas}/view', 'UserKelasController@view')->name('user.kelas.view');
-    Route::post('/user/kelas/{kelas}/beli', 'UserKelasController@kelasBeli')->name('user.kelas.beli');
 
-    // Beli Kelas
+    // Kelas Beli
+    Route::get('/kelas/{kelas}/checkout', 'UserKelasController@checkout')->name('user.kelas.checkout');
+    Route::post('/kelas/{kelas}/beli', 'UserKelasController@kelasBeli')->name('user.kelas.beli');
+
+    // Submit Kelas
     Route::post('/user/kelas/{kelas:slug_kelas}/submit', 'UserKelasController@submit')->name('user.kelas.submit');
 
     // Materi

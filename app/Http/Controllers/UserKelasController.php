@@ -74,6 +74,14 @@ class UserKelasController extends Controller
         return redirect()->route('user.kelas')->with('success', 'Kelas Berhasil Diajukan Mohon Tunggu 1x24 jam');
     }
 
+    // Beli Kelas
+    public function checkout($slug_kelas)
+    {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+
+        return view('pages.kelas.checkout', compact('kelas'));
+    }
+
     public function kelasBeli($slug_kelas)
     {
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();

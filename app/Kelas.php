@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\Auth;
+
 class Kelas extends Model
 {
     protected $table = 'kelas';
@@ -50,9 +52,13 @@ class Kelas extends Model
     public function pesertaKelas($slug_kelas)
     {
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
-        $user_id = auth()->user()->id;
 
-        return PesertaKelas::where(['kelas_id' => $kelas->id, 'user_id' => $user_id])->first();
+        if (Auth::check()) {
+            $user_id = auth()->user()->id;
+            return PesertaKelas::where(['kelas_id' => $kelas->id, 'user_id' => $user_id])->first();
+        } else {
+            return null;
+        }
     }
 
     public function countModul($kelas_id)

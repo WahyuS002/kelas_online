@@ -24,8 +24,19 @@
     border-radius: 0.3rem;
 }
 
+.jumbotron-color-two {
+    padding: 6rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #3b3f5c;
+    border-radius: 0.3rem;
+}
+
 .card-margin {
     margin-top: -250px;
+}
+
+.card-margin-two {
+    margin-top: -150px;
 }
 
 .col-margin {
@@ -87,4 +98,11 @@
 
 .custom-button {
     width: 100px !important;
+}
+
+.checkout-section .thumbnail-kelas {
+    width: 180px;
+    height: 120px;
+    border-radius: 11px;
+    object-fit: cover;
 }
