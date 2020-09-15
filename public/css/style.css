@@ -20,14 +20,14 @@
 .jumbotron-color {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    background-color: #3b3f5c;
+    background-color: #0f0e20;
     border-radius: 0.3rem;
 }
 
 .jumbotron-color-two {
     padding: 6rem 1rem;
     margin-bottom: 2rem;
-    background-color: #3b3f5c;
+    background-color: #0f0e20;
     border-radius: 0.3rem;
 }
 
@@ -37,6 +37,10 @@
 
 .card-margin-two {
     margin-top: -150px;
+}
+
+.card-margin-three {
+    margin-top: -500px;
 }
 
 .col-margin {

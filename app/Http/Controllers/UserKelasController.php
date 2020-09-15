@@ -78,8 +78,9 @@ class UserKelasController extends Controller
     public function checkout($slug_kelas)
     {
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+        $total_harga = $kelas->harga + 170;
 
-        return view('pages.kelas.checkout', compact('kelas'));
+        return view('pages.kelas.checkout', compact('kelas', 'total_harga'));
     }
 
     public function kelasBeli($slug_kelas)
