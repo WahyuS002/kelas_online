@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Kelas;
 use App\Materi;
 use App\PesertaKelas;
+use Illuminate\Support\Facades\DB;
 
 class UserKelasController extends Controller
 {
@@ -92,5 +93,17 @@ class UserKelasController extends Controller
             'kelas_id' => $kelas->id,
             'user_id' => $user_id,
         ]);
+    }
+
+    public function enrolled()
+    {
+        $data = auth()->user()->pesertaKelas()->get();
+
+        return view('pages.kelas.enrolled', compact('data'));
+    }
+
+    public function historyPengajar()
+    {
+        return view('pages.kelas.history-pengajar');
     }
 }

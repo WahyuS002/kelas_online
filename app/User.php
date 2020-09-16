@@ -84,4 +84,9 @@ class User extends Authenticatable
     {
         return $this->baca()->find($materi->id);
     }
+
+    public function pesertaKelas()
+    {
+        return $this->belongsToMany(Kelas::class, 'peserta_kelas', 'user_id', 'kelas_id');
+    }
 }

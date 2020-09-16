@@ -54,6 +54,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/kelas/store', 'UserKelasController@store')->name('user.kelas.store');
     Route::get('/user/kelas/{kelas:slug_kelas}/view', 'UserKelasController@view')->name('user.kelas.view');
 
+    // History Kelas
+    Route::get('/user/history/enrolled', 'UserKelasController@enrolled')->name('user.kelas.enrolled');
+    Route::get('/user/history/historyPengajar', 'UserKelasController@historyPengajar')->name('user.kelas.historyPengajar');
+
     // Kelas Beli
     Route::get('/kelas/{kelas}/checkout', 'UserKelasController@checkout')->name('user.kelas.checkout');
     Route::post('/kelas/{kelas}/beli', 'UserKelasController@kelasBeli')->name('user.kelas.beli');
