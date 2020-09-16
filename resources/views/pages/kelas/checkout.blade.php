@@ -82,7 +82,7 @@
                                 <h5 class="card-title">Total</h5>
                                 <h5 class="card-title">Rp. {{ number_format($total_harga) }}</h5>
                             </div>
-                            <livewire:checkout.lanjutkan-pembayaran>
+                        <livewire:checkout.lanjutkan-pembayaran :kelas="$kelas">
                         </div>
                     </div>
                 </div>

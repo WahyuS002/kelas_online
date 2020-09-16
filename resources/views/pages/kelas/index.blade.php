@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/custom_dt_miscellaneous.css') }}">
 <!-- BEGIN PAGE LEVEL CUSTOM STYLES -->
 <link href="{{ asset('cork/assets/css/tables/table-basic.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/custom_dt_custom.css') }}">
 <!-- END PAGE LEVEL CUSTOM STYLES -->
 @endpush
 
@@ -49,6 +50,12 @@
                                             <td><span class="shadow-none badge badge-warning">Waiting</span></td>
                                         @elseif($k->status == 'review')
                                             <td><span class="shadow-none badge badge-warning">Review</span></td>
+                                        @elseif($k->status == 'draf')
+                                            <td><span class="shadow-none badge badge-grey">Draf</span></td>
+                                        @elseif($k->status == 'reject')
+                                            <td><span class="shadow-none badge badge-danger">Rejected</span></td>
+                                        @elseif($k->status == 'publish')
+                                            <td><span class="shadow-none badge badge-primary">Published</span></td>
                                         @endif
                                         <td class="text-center">
                                             <ul class="table-controls">

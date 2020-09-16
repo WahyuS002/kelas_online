@@ -16,6 +16,32 @@
         <h6 class="card-subtitle text-muted mt-3">Penerima</h6>
         <h5 class="card-title">John Doe</h5>
     </div>
-    <button class="btn btn-success btn-block p-2 mt-4"><h5 class="text-white">KONFIRMASI PEMBAYARAN</h5></button>
+    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-block p-2 mt-4"><h5 class="text-white">KONFIRMASI PEMBAYARAN</h5></button>
+
+    <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pembayaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <form wire:submit.prevent="konfirmasi">
+                <div class="modal-body">
+                <div class="form-group">
+                    <label for="bukti">Bukti Pembayaran</label>
+                    <input type="file" class="form-control" name="bukti" wire:model="bukti">
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
     @endif
 </div>
