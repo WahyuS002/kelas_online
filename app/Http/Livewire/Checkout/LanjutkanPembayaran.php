@@ -26,6 +26,14 @@ class LanjutkanPembayaran extends Component
 
     public function lanjutkan()
     {
+        $kelas_id = $this->kelas->id;
+        $user_id = auth()->user()->id;
+
+        $peserta = PesertaKelas::create([
+            'kelas_id' => $kelas_id,
+            'user_id' => $user_id,
+        ]);
+
         $this->klik = true;
     }
 
@@ -39,7 +47,7 @@ class LanjutkanPembayaran extends Component
 
         $bukti = $this->bukti->store("bukti-pembayaran");
 
-        PesertaKelas::where('id', $kelas_id)->update(['bukti_pembayaran' => $bukti, 'status' => 'ya']);
+        PesertaKelas::where('id', $kelas_id)->updateOrCreate(['bukti_pembayaran' => $bukti, 'status' => 'waiting']);
 
         // return redirect()->route('');
     }

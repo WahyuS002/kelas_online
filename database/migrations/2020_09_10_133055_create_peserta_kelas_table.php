@@ -22,7 +22,7 @@ class CreatePesertaKelasTable extends Migration
             $table->dateTime('waktu_selesai')->nullable();
             $table->integer('harga_bayar')->nullable();
             $table->string('kode_voc')->nullable();
-            $table->enum('status', ['ya', 'tidak'])->nullable();
+            $table->enum('status', ['ya', 'tidak', 'waiting'])->nullable();
             $table->string('bukti_pembayaran');
             $table->text('testimoni')->nullable();
             $table->tinyInteger('rating')->nullable();

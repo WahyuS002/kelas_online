@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function () {
 
     // Kelas Beli
     Route::get('/kelas/{kelas}/checkout', 'UserKelasController@checkout')->name('user.kelas.checkout');
+    Route::get('/kelas/{kelas}/checkoutKelas', 'UserKelasController@checkoutKelas')->name('user.kelas.checkoutKelas');
     Route::post('/kelas/{kelas}/beli', 'UserKelasController@kelasBeli')->name('user.kelas.beli');
 
     // Submit Kelas
