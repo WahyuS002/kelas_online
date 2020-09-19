@@ -16,7 +16,11 @@
         <h6 class="card-subtitle text-muted mt-3">Penerima</h6>
         <h5 class="card-title">John Doe</h5>
     </div>
+    @if ($kelas->pesertaCheckout($kelas->id) == true)
+    <a href="" class="btn btn-warning btn-block p-2 mt-4"><h5 class="text-white">MENUNGGU KONFIRMASI</h5></a>
+    @else
     <button data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-block p-2 mt-4"><h5 class="text-white">KONFIRMASI PEMBAYARAN</h5></button>
+    @endif
 
     <!-- Modal -->
     <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

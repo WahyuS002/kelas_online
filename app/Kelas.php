@@ -61,6 +61,20 @@ class Kelas extends Model
         }
     }
 
+    public function pesertaCheckout($id)
+    {
+        $kelas_id = $id;
+        $user_id = auth()->user()->id;
+
+        $peserta = PesertaKelas::where(['user_id' => $user_id, 'kelas_id' => $kelas_id])->first();
+
+        if ($peserta) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function countModul($kelas_id)
     {
         $count = Materi::where('kelas_id', $kelas_id)->count();
