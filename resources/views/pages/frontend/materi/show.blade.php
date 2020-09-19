@@ -19,11 +19,11 @@
     <br><br><br>
     <div class="row mx-5">
         <div class="col-3 text-left">
-            <button class="btn btn-secondary btn-lg">< Prev</button>
+            <a class="btn btn-secondary btn-lg">< Prev</a>
         </div>
         <livewire:materi.mengerti :materi="$materi">
         <div class="col-3 text-right">
-            <button class="btn btn-secondary btn-lg">Next ></button>
+            <a class="btn btn-secondary btn-lg">Next ></a>
         </div>
     </div>
     <br><br><br>
