@@ -50,8 +50,13 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::middleware('auth')->group(function () {
     // Kelas
     Route::get('/user/kelas/index', 'UserKelasController@index')->name('user.kelas');
+
     Route::get('/user/kelas/create', 'UserKelasController@create')->name('user.kelas.create');
     Route::post('/user/kelas/store', 'UserKelasController@store')->name('user.kelas.store');
+
+    Route::get('/user/kelas/{kelas}/edit', 'UserKelasController@edit')->name('user.kelas.edit')->middleware('kelas_edit');
+    Route::post('/user/kelas/{kelas}/update', 'UserKelasController@update')->name('user.kelas.update');
+
     Route::get('/user/kelas/{kelas:slug_kelas}/view', 'UserKelasController@view')->name('user.kelas.view');
 
     // Pengaturan

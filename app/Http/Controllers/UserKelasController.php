@@ -60,6 +60,24 @@ class UserKelasController extends Controller
         return redirect()->route('user.kelas')->with('success', 'Kelas telah ditambahkan');
     }
 
+    public function edit($slug_kelas)
+    {
+        $kategori = KategoriKelas::get();
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+
+        return view('pages.kelas.edit', compact('kategori', 'kelas'));
+    }
+
+    public function update($slug_kelas, KelasRequest $request)
+    {
+        Kelas::where('slug_kelas', $slug_kelas)->update($request->only([
+            'nama_kelas', 'jenjang', 'level', 'harga', 'durasi_kelas', 'kapasitas_kelas',
+            'kategori_id', 'video_preview', 'thumbnail', 'deskripsi'
+        ]));
+
+        return redirect()->route('user.kelas')->with('toast_success', 'Kelas Berhasil Diedit');
+    }
+
     public function view($slug_kelas)
     {
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
