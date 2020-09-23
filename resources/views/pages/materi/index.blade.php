@@ -23,7 +23,7 @@
                             <h4>Materi yang dibuat</h4>
                         </div>
                         <div class="col-xl-6 col-md-6 col-sm-6 col-6 text-right">
-                            <a href="{{ route('user.kelas.materi.create', $kelas->id) }}" class="btn btn-primary btn-sm mr-3">Tambah Materi</a>
+                            <a href="{{ route('user.kelas.materi.create', $kelas->slug_kelas) }}" class="btn btn-primary btn-sm mr-3">Tambah Materi</a>
                         </div>
                     </div>
                 </div>

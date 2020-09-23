@@ -75,9 +75,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/kelas/{kelas:slug_kelas}/submit', 'UserKelasController@submit')->name('user.kelas.submit');
 
     // Materi
-    Route::get('/user/kelas/{kelas:id}/materi', 'UserMateriController@index')->name('user.kelas.materi');
-    Route::get('/user/kelas/{kelas:id}/materi/create', 'UserMateriController@create')->name('user.kelas.materi.create');
-    Route::post('/user/kelas/{kelas:id}/materi/store', 'UserMateriController@store')->name('user.kelas.materi.store');
+    Route::get('/user/kelas/{kelas}/materi', 'UserMateriController@index')->name('user.kelas.materi');
+    Route::get('/user/kelas/{kelas}/materi/create', 'UserMateriController@create')->name('user.kelas.materi.create');
+    Route::post('/user/kelas/{kelas}/materi/store', 'UserMateriController@store')->name('user.kelas.materi.store');
     Route::get('/user/kelas/{kelas:id}/materi/{materi:id}/edit', 'UserMateriController@edit')->name('user.kelas.materi.edit');
     Route::put('/user/kelas/materi/{materi:id}/update', 'UserMateriController@update')->name('user.kelas.materi.update');
     Route::get('/user/kelas/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('user.kelas.materi.show');

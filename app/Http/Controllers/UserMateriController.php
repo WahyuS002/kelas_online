@@ -11,30 +11,35 @@ use Illuminate\Support\Facades\DB;
 
 class UserMateriController extends Controller
 {
-    public function index(Kelas $kelas)
+    public function index($slug_kelas)
     {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+
         $kelas_id = $kelas->id;
         $materi = Materi::where('kelas_id', $kelas_id)->get();
         return view('pages.materi.index', compact('kelas', 'materi'));
     }
 
-    public function create($id)
+    public function create($slug_kelas)
     {
+        $id = Kelas::where('slug_kelas', $slug_kelas)->first();
+
         return view('pages.materi.create', compact('id'));
     }
 
-    public function store(MateriRequest $request, $id)
+    public function store(MateriRequest $request, $slug_kelas)
     {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
         // Objek
         $materi = new Materi();
 
         $data = $request->all();
-        $data['kelas_id'] = $id;
+        $data['kelas_id'] = $kelas->id;
         $data['video'] = $materi->YoutubeID($request->video);
 
         auth()->user()->materi()->create($data);
 
-        return redirect()->route('user.kelas.materi', $id);
+        return redirect()->route('user.kelas.materi', $slug_kelas);
     }
 
     public function edit($kelas, Materi $materi)
