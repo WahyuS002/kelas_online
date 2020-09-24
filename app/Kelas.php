@@ -4,10 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\Auth;
 
 class Kelas extends Model
 {
+    use Sluggable;
+
+    public function sluggable(): array
+    {
+        return [
+            'slug_kelas' => [
+                'source' => 'slug_kelas'
+            ]
+        ];
+    }
+
     protected $table = 'kelas';
 
     protected $fillable = ['user_id', 'kategori_id', 'jenjang', 'level', 'nama_kelas', 'slug_kelas', 'thumbnail', 'deskripsi', 'harga', 'diskon', 'durasi_kelas', 'kapasitas_kelas', 'video_preview', 'status'];
