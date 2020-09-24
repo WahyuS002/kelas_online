@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('password');
 
-            $table->string('no_induk', 50);
+            $table->string('no_induk', 50)->nullable();
 
             $table->enum('pendidikan_terakhir', ['SD', 'SMP', 'SMA', 'Kuliah'])->nullable();
             $table->enum('jk', ['L', 'P'])->nullable();

@@ -39,7 +39,7 @@ class UserMateriController extends Controller
 
         auth()->user()->materi()->create($data);
 
-        return redirect()->route('user.kelas.materi', $slug_kelas);
+        return redirect()->route('user.kelas.materi', $slug_kelas)->with('success', 'Materi Berhasil Ditambahkan');
     }
 
     public function edit($kelas, Materi $materi)
@@ -49,9 +49,13 @@ class UserMateriController extends Controller
 
     public function update(Materi $materi, Request $request)
     {
+        $slug_materi = $request->segment(4);
+        $materi = Materi::where('slug_materi', $slug_materi)->first();
+        $kelas = Kelas::where('id', $materi->kelas_id)->first();
+
         $materi->update($request->all());
 
-        return redirect()->back();
+        return redirect()->route('user.kelas.materi', $kelas->slug_kelas)->with('success', 'Materi Berhasil Diedit');
     }
 
     public function show($kelas, $materi_id)

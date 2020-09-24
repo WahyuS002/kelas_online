@@ -15,7 +15,7 @@ class Kelas extends Model
     {
         return [
             'slug_kelas' => [
-                'source' => 'slug_kelas'
+                'source' => 'nama_kelas'
             ]
         ];
     }

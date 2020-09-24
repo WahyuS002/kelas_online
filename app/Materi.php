@@ -4,13 +4,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use DateInterval;
 
 class Materi extends Model
 {
+    use Sluggable;
+
     protected $table = 'materi';
 
     protected $fillable = ['user_id', 'kelas_id', 'judul', 'deskripsi', 'foto', 'video', 'pdf', 'urutan', 'status'];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug_materi' => [
+                'source' => 'judul'
+            ]
+        ];
+    }
 
     public function kelas()
     {
@@ -47,5 +59,10 @@ class Materi extends Model
         }
 
         return $string . $di->i . ':' . $di->s;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug_materi';
     }
 }

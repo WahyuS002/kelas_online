@@ -19,6 +19,7 @@ class CreateMateriTable extends Migration
             $table->foreignId('kelas_id');
 
             $table->string('judul', 64);
+            $table->string('slug_materi');
             $table->text('deskripsi');
             $table->string('foto')->nullable();
             $table->string('video')->nullable();
