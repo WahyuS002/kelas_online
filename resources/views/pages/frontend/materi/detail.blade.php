@@ -4,6 +4,7 @@
 <!--  BEGIN CUSTOM STYLE FILE  -->
 <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('cork/assets/css/components/cards/card.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('cork/assets/css/components/timeline/custom-timeline.css') }}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 @endpush
@@ -62,38 +63,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-7 card-margin ml-5">
-            <h4>Modul Materi</h4>
-            <div class="card">
-                @foreach ($materi as $m)
-                <div class="card-body">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-1 text-center">{{ $loop->iteration }}</div>
-
-                        @auth
-                        <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "materi_id" => $m->id]) }}" class="col-8 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></a>
-                        @endauth
-                        @guest
-                        <a href="{{ route('login') }}" class="col-8 text-muted">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon>
-                            </svg>
-                            <b class="ml-3 align-middle">{{ $m->judul }}.</b>
-                        </a>
-                        @endguest
-
-                        <div class="col-3 text-center">
-
-                            <div class="text-muted d-flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                                <b class="ml-3 align-middle">(06:23)</b>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
+        <livewire:materi.modul :materi="$materi" :slug_kelas="$slug_kelas">
     </div>
     {{-- </div> --}}
     @endsection

@@ -6,6 +6,7 @@
 <link href="{{ asset('cork/assets/css/components/cards/card.css') }}" rel="stylesheet" type="text/css" />
 <!--  END CUSTOM STYLE FILE  -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('cork/assets/css/components/custom-modal.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 
@@ -121,19 +122,6 @@
             'height': '315',
             'allow': 'encrypted-media'
         }).css('border', '0').appendTo('#videoMedia1 .video-container');
-    });
-    $('#vimeo-video-link').click(function () {
-        var src = 'https://player.vimeo.com/video/1084537';
-        $('#videoMedia2').modal('show');
-        $('<iframe>').attr({
-            'src': src,
-            'width': '1000',
-            'height': '1315',
-            'allow': 'encrypted-media'
-        }).css('border', '0').appendTo('#videoMedia2 .video-container');
-    });
-    $('#videoMedia1 button, #videoMedia2 button').click(function () {
-        $('#videoMedia1 iframe, #videoMedia2 iframe').removeAttr('src');
     });
 </script>
 <!--  END CUSTOM SCRIPT FILE  -->
