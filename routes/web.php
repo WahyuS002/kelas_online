@@ -76,8 +76,8 @@ Route::middleware('auth')->group(function () {
 
     // Materi
     Route::get('/user/kelas/{kelas}/materi', 'UserMateriController@index')->name('user.kelas.materi');
-    Route::get('/user/kelas/{kelas}/materi/create', 'UserMateriController@create')->name('user.kelas.materi.create')->middleware('kelas_edit');
-    Route::post('/user/kelas/{kelas}/materi/store', 'UserMateriController@store')->name('user.kelas.materi.store')->middleware('kelas_edit');
+    Route::get('/user/kelas/{kelas}/materi/create', 'UserMateriController@create')->name('user.kelas.materi.create')->middleware('check_kelas');
+    Route::post('/user/kelas/{kelas}/materi/store', 'UserMateriController@store')->name('user.kelas.materi.store')->middleware('check_kelas');
     Route::get('/user/kelas/{kelas}/materi/{materi}/edit', 'UserMateriController@edit')->name('user.kelas.materi.edit')->middleware('kelas_edit');
     Route::put('/user/kelas/materi/{materi}/update', 'UserMateriController@update')->name('user.kelas.materi.update')->middleware('kelas_edit');
     Route::get('/user/kelas/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('user.kelas.materi.show');
@@ -85,6 +85,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/profile/index', 'UserProfileController@index')->name('user.profile');
     Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('user.profile.edit');
     Route::post('/user/profile/{user:id}/update', 'UserProfileController@update')->name('user.profile.update');
+
+    // Publish Kelas
+    Route::get('/user/kelas/{kelas}/materi/create-new-materi', 'UserMateriController@createMateriNew')->name('user.kelas.materi.create.new')->middleware('new_materi');
+
+    Route::post('/user/kelas/{kelas}/materi/store-new-materi', 'UserMateriController@storeMateriNew')->name('user.kelas.materi.store.new');
 });
 
 // Frontend

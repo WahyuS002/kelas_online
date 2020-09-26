@@ -6,8 +6,10 @@ use App\Kelas;
 use App\Materi;
 use Illuminate\Http\Request;
 use App\Http\Requests\MateriRequest;
-
+use App\Http\Requests\NewMateriRequest;
+use App\Log;
 use Illuminate\Support\Facades\DB;
+use Laravel\Ui\Presets\React;
 
 class UserMateriController extends Controller
 {
@@ -63,5 +65,31 @@ class UserMateriController extends Controller
         $materi = Materi::where('id', $materi_id)->first();
 
         return view('pages.materi.show', compact('materi'));
+    }
+
+    public function createMateriNew($slug_kelas)
+    {
+        $id = Kelas::where('slug_kelas', $slug_kelas)->first();
+
+        return view('revision.materi.create', $id);
+    }
+
+    public function storeMateriNew(NewMateriRequest $request, $id)
+    {
+        $id_kelas = $request->segment(3);
+        $kelas = Kelas::where('id', $id_kelas)->first();
+        $slug_kelas = $kelas->slug_kelas;
+
+        $data['user_id'] = auth()->user()->id;
+
+        $data_field = $request->except('keterangan', '_token');
+        $data['data'] = json_encode($data_field);
+
+        $keterangan = $request->only('keterangan');
+        $data['keterangan'] = implode('', $keterangan);
+
+        Log::create($data);
+
+        return redirect()->route('user.kelas.materi', $slug_kelas);
     }
 }
