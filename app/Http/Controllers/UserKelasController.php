@@ -119,7 +119,7 @@ class UserKelasController extends Controller
     public function enrolled()
     {
         $data = auth()->user()->pesertaKelas()->get();
-        // dd($data);
+        dd($data);
 
         return view('pages.kelas.enrolled', compact('data'));
     }

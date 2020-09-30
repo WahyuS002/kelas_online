@@ -20,9 +20,7 @@ class CreatePesertaKelasTable extends Migration
             $table->foreignId('user_id')->constrained();
 
             // Table duplikasi
-            $table->string('nama_kelas', 35);
-            $table->string('thumbnail_kelas');
-            $table->string('nama_user');
+            $table->string('pembuat_kelas');
 
             $table->dateTime('waktu_mulai')->nullable();
             $table->dateTime('waktu_selesai')->nullable();

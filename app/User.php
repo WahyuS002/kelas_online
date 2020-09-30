@@ -87,7 +87,7 @@ class User extends Authenticatable
 
     public function pesertaKelas()
     {
-        return $this->belongsToMany(Kelas::class, 'peserta_kelas', 'user_id', 'kelas_id');
+        return $this->belongsToMany(Kelas::class, 'peserta_kelas', 'user_id', 'kelas_id')->withPivot('pembuat_kelas', 'status');
     }
 
     public function checkPesertaKelas($slug_kelas)
