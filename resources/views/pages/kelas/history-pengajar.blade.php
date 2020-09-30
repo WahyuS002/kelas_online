@@ -62,8 +62,7 @@
                                     <td>Wahyu Syahputra</td>
                                     <td>500k</td>
                                     <td>
-                                        <a class="badge badge-danger">Tolak</a>
-                                        <a class="badge badge-primary">Terima</a>
+                                        <a href="#" class="badge badge-primary text-white">Verifikasi</a>
                                     </td>
                                 </tr>
                             </tbody>

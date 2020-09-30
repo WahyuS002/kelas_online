@@ -80,7 +80,7 @@
     object-fit: cover;
 }
 
-.card img {
+.kelas-detail img {
     height: 300px;
     width: 100%;
     object-fit: cover;
@@ -109,4 +109,12 @@
     height: 120px;
     border-radius: 11px;
     object-fit: cover;
+}
+
+.notify-badge {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    text-align: center;
+    padding: 5px 10px;
 }

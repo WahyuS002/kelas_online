@@ -5,6 +5,7 @@
 <!-- BEGIN PAGE LEVEL CUSTOM STYLES -->
 <link href="{{ asset('cork/assets/css/tables/table-basic.css') }}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/custom_dt_custom.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <!-- END PAGE LEVEL CUSTOM STYLES -->
 @endpush
 
@@ -18,11 +19,12 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-md-6 col-sm-6 col-6">
                             <h4>History Kelas yang Diikuti</h4>
+                            <h6 class="text-muted ml-3">10 Kelas tersedia untuk dipelajari</h6>
                         </div>
                     </div>
                 </div>
                 <div class="widget-content widget-content-area">
-                    <div class="table-responsive mb-4">
+                    {{-- <div class="table-responsive mb-4">
                         <table id="column-filter" class="table">
                             <thead>
                                 <tr>
@@ -43,6 +45,19 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div> --}}
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card" style="width: 18rem;">
+                                <span class="badge badge-warning w-25 notify-badge shadow">Waiting</span>
+                                <img class="card-img-top" src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Belajar HTML Dasar</h5>
+                                  <p class="card-text text-muted">Wahyu Syahputra</p>
+                                </div>
+                              </div>
+                        </div>
                     </div>
                 </div>
             </div>

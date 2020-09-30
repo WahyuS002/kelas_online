@@ -32,7 +32,12 @@ class LanjutkanPembayaran extends Component
     public function konfirmasi()
     {
         $kelas_id = $this->kelas->id;
-        $user_id = auth()->user()->id;
+        $user = auth()->user();
+        $user_id = $user->id;
+
+        $nama_kelas = $this->kelas->nama_kelas;
+        $thumbnail_kelas = $this->kelas->thumbnail;
+        $nama_user = $user->name;
 
         $this->validate([
             'bukti' => 'image|max:1024'
@@ -45,6 +50,10 @@ class LanjutkanPembayaran extends Component
         PesertaKelas::create([
             'kelas_id' => $kelas_id,
             'user_id' => $user_id,
+            'nama_kelas' => $nama_kelas,
+            'thumbnail_kelas' => $thumbnail_kelas,
+            'nama_user' => $nama_user,
+            'harga_bayar' => $this->kelas->harga,
             'bukti_pembayaran' => $bukti,
             'status' => 'waiting',
         ]);

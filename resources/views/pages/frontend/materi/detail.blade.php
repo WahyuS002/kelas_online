@@ -31,7 +31,7 @@
 {{-- <div class="container"> --}}
     <div class="row">
         <div class="offset-md-8">
-            <div class="card component-card_9 card-margin shadow-none">
+            <div class="card component-card_9 card-margin shadow-none kelas-detail">
                 <img src="{{ asset('storage/' . $kelas->thumbnail) }}" class="card-img-top" alt="widget-card-2">
                 <div class="card-body">
 
