@@ -48,16 +48,18 @@
                     </div> --}}
 
                     <div class="row">
+                        @foreach ($data as $d)
                         <div class="col-lg-4">
                             <div class="card" style="width: 18rem;">
-                                <span class="badge badge-warning w-25 notify-badge shadow">Waiting</span>
-                                <img class="card-img-top" src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" alt="Card image cap">
+                                <span class="badge badge-warning w-25 notify-badge shadow">{{ $d->pivot->status }}</span>
+                                <img class="card-img-top" src="{{ asset('storage/' . $d->thumbnail) }}" alt="Card image cap">
                                 <div class="card-body">
-                                  <h5 class="card-title">Belajar HTML Dasar</h5>
-                                  <p class="card-text text-muted">Wahyu Syahputra</p>
+                                  <h5 class="card-title">{{ $d->nama_kelas }}</h5>
+                                  <p class="card-text text-muted">{{ $d->pivot->pembuat_kelas }}</p>
                                 </div>
                               </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
