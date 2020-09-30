@@ -14,7 +14,11 @@
                 <div class="col-1 text-center">{{ $loop->iteration }}</div>
 
                 @auth
-                <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "urutan" => $m->urutan]) }}" class="col-8 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></a>
+                @if (auth()->user()->checkPesertaKelas($slug_kelas))
+                    <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, "urutan" => $m->urutan]) }}" class="col-8 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></a>
+                @else
+                    <p class="col-8 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></p>
+                @endif
                 @endauth
                 @guest
                 <a href="{{ route('login') }}" class="col-8 text-muted">

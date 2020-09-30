@@ -89,4 +89,21 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Kelas::class, 'peserta_kelas', 'user_id', 'kelas_id');
     }
+
+    public function checkPesertaKelas($slug_kelas)
+    {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+        $kelas_id = $kelas->id;
+        $user_id = auth()->user()->id;
+
+        $cekPeserta = PesertaKelas::where('kelas_id', $kelas_id)
+            ->where('user_id', $user_id)
+            ->get();
+
+        if (count($cekPeserta) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

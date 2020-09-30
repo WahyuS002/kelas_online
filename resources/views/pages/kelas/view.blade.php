@@ -94,7 +94,7 @@
             <button type="button" class="btn btn-secondary btn-rounded mt-3" data-toggle="modal" data-target="#exampleModal" disabled>
                 Sedang di review
             </button>
-            @elseif(!$kelas->status)
+            @elseif($kelas->status == 'draf')
             <button type="button" class="btn btn-secondary btn-rounded mt-3" data-toggle="modal" data-target="#exampleModal">
                 Ajukan
             </button>

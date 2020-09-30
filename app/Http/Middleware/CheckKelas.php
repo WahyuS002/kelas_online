@@ -21,7 +21,7 @@ class CheckKelas
 
         if ($kelas->status == 'publish') {
             return redirect()->route('user.kelas.materi.create.new', $slug_kelas);
-        } elseif (!$kelas) {
+        } elseif ($kelas->status != 'publish') {
             return $next($request);
         }
     }
