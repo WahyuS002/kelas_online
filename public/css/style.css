@@ -118,3 +118,9 @@
     text-align: center;
     padding: 5px 10px;
 }
+
+.verifikasi-peserta img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}

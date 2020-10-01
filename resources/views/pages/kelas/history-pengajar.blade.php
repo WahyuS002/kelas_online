@@ -6,6 +6,11 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/datatables.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/dt-global_style.css') }}">
 <!-- END PAGE LEVEL STYLES -->
+
+<!--  BEGIN CUSTOM STYLE FILE  -->
+<link href="{{ asset('cork/assets/css/components/custom-modal.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{ asset('cork/css/style.css') }}">
+<!--  END CUSTOM STYLE FILE  -->
 @endpush
 
 @section('content')
@@ -50,21 +55,21 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Kelas</th>
-                                    <th>Peserta</th>
-                                    <th>Pembayaran</th>
+                                    <th>Peserta Kelas</th>
+                                    <th>Pemasukan</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($kelas as $k)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Belajar HTML Dasar</td>
-                                    <td>Wahyu Syahputra</td>
-                                    <td>500k</td>
-                                    <td>
-                                        <a href="#" class="badge badge-primary text-white">Verifikasi</a>
-                                    </td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $k->nama_kelas }}</td>
+                                    <td>{{ $k->users->count() }}</td>
+                                    <td>Rp. {{ number_format($k->users->sum('pivot.harga_bayar')) }}</td>
+                                    <livewire:kelas.verifikasi-peserta :kelas="$k">
                                 </tr>
+                                @endforeach
                             </tbody>
 
                         </table>

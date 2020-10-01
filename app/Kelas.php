@@ -58,7 +58,7 @@ class Kelas extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id');
+        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar');
     }
 
     public function pesertaKelas($slug_kelas)

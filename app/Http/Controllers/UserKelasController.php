@@ -125,6 +125,8 @@ class UserKelasController extends Controller
 
     public function historyPengajar()
     {
-        return view('pages.kelas.history-pengajar');
+        $kelas = auth()->user()->kelas()->get();
+
+        return view('pages.kelas.history-pengajar', compact('kelas'));
     }
 }
