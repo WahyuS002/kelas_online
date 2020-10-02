@@ -129,4 +129,11 @@ class UserKelasController extends Controller
 
         return view('pages.kelas.history-pengajar', compact('kelas'));
     }
+
+    public function verifUser(Kelas $kelas)
+    {
+        $peserta = $kelas->users;
+
+        return view('pages.kelas.verif-user', compact('peserta'));
+    }
 }

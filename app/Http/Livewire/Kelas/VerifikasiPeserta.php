@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class VerifikasiPeserta extends Component
 {
-    public $kelas;
+    public $kelas, $key;
 
     public function mount($kelas)
     {
