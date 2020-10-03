@@ -70,7 +70,7 @@
                                     {{-- <livewire:kelas.verifikasi-peserta :kelas="$k" :key="$k->id"> --}}
                                     <td>
                                         <a href="{{ route('user.kelas.historyPengajar.verifikasi', $k->slug_kelas) }}" type="button" class="badge badge-primary position-relative p-1">
-                                            <span>Verifikasi</span>
+                                            <span>Lihat Kelas</span>
                                             <span class="badge badge-danger counter">22</span>
                                         </a>
                                     </td>

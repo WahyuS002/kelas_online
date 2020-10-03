@@ -51,8 +51,16 @@
                         @foreach ($data as $d)
                         <div class="col-lg-4">
                             <div class="card" style="width: 18rem;">
-                                <span class="badge badge-warning w-25 notify-badge shadow">{{ $d->pivot->status }}</span>
-                                <img class="card-img-top" src="{{ asset('storage/' . $d->thumbnail) }}" alt="Card image cap">
+                                @if ($d->pivot->status == 'ya')
+                                <span class="badge badge-success w-25 notify-badge shadow">Sukses</span>
+                                @elseif ($d->pivot->status == 'waiting')
+                                <span class="badge badge-warning w-25 notify-badge shadow">Waiting</span>
+                                @elseif ($d->pivot->status == 'tidak')
+                                <span class="badge badge-danger w-25 notify-badge shadow">Gagal</span>
+                                @endif
+                                <a href="{{ route('materi.detail', $d->slug_kelas) }}">
+                                    <img class="card-img-top" src="{{ asset('storage/' . $d->thumbnail) }}" alt="Card image cap">
+                                </a>
                                 <div class="card-body">
                                   <h5 class="card-title">{{ $d->nama_kelas }}</h5>
                                   <p class="card-text text-muted">{{ $d->pivot->pembuat_kelas }}</p>

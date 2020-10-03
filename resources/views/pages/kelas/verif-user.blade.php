@@ -63,12 +63,12 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $p->name }}</td>
                                     <td>{{ $p->pivot->status }}</td>
-                                    {{-- <td>
-                                        <a data-toggle="modal" data-target="#exampleModal" href="" class="badge badge-primary">Verifikasi</a>
-                                    </td> --}}
-                                    <livewire:kelas.verify-user :peserta="$p" :key="$p->id">
+                                    <td>
+                                        <livewire:kelas.verifying :peserta="$p" :key="$p->pivot->id">
+                                    </td>
                                 </tr>
                                 @endforeach
+
                             </tbody>
 
                         </table>

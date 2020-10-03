@@ -98,6 +98,7 @@ class User extends Authenticatable
 
         $cekPeserta = PesertaKelas::where('kelas_id', $kelas_id)
             ->where('user_id', $user_id)
+            ->where('status', 'ya')
             ->get();
 
         if (count($cekPeserta) > 0) {
