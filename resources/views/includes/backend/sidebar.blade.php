@@ -37,13 +37,24 @@
                 </a>
             </li>
 
-            <li class="menu{{ request()->is('admin/kelas/*') ? ' active' : '' }}">
-                <a href="{{ route('admin.kelas') }}" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu">
+                <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                         <span> Kelas </span>
                     </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
                 </a>
+                <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
+                    <li>
+                        <a href="{{ route('admin.kelas') }}"> Verifikasi Kelas </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"> Verifikasi Peserta Kelas </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="menu{{ request()->is('admin/user/*') ? ' active' : '' }}">
@@ -134,9 +145,6 @@
                 <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
                     <li>
                         <a href="{{ route('user.kelas.enrolled') }}"> History Kelas </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('user.kelas.historyPengajar') }}"> History Pengajar </a>
                     </li>
                 </ul>
             </li>

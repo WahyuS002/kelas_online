@@ -123,13 +123,6 @@ class UserKelasController extends Controller
         return view('pages.kelas.enrolled', compact('data'));
     }
 
-    public function historyPengajar()
-    {
-        $kelas = auth()->user()->kelas()->get();
-
-        return view('pages.kelas.history-pengajar', compact('kelas'));
-    }
-
     public function verifUser(Kelas $kelas)
     {
         $peserta = $kelas->users;

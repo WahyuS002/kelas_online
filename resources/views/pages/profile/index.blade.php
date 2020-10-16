@@ -29,10 +29,10 @@
                         <div class="">
                             <ul class="contacts-block list-unstyled">
                                 <li class="contacts-block__item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>{{ $user->pendidikan_terakhir }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>{{ ($user->pendidikan_terakhir) ? $user->pendidikan_terakhir : 'Data belum diisi' }}
                                 </li>
                                 <li class="contacts-block__item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>{{ $user->tanggal_lahir }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>{{ ($user->tanggal_lahir) ? $user->tanggal_lahir : 'Data belum diisi' }}
                                 </li>
                                 @if ($user->provinsi)
                                 <li class="contacts-block__item">
@@ -43,7 +43,7 @@
                                     <a href="mailto:example@mail.com"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>{{ Str::limit($user->email, 15) }}</a>
                                 </li>
                                 <li class="contacts-block__item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>{{ $user->no_hp }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>{{ ($user->no_hp) ? $user->no_hp : 'Data belum diisi' }}
                                 </li>
                                 <li class="contacts-block__item">
                                     <ul class="list-inline">
@@ -90,7 +90,8 @@
             <div class="bio layout-spacing ">
                 <div class="widget-content widget-content-area">
                     <h3 class="">Bio</h3>
-                    <p>{{ $user->bio }}</p>
+                    <p>{{ ($user->bio) ? $user->bio : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minus autem modi amet hic excepturi ab deserunt adipisci officiis? Minima doloremque dolorem corporis natus! Sit mollitia corrupti aperiam dolorem saepe.
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis minus autem modi amet hic excepturi ab deserunt adipisci officiis? Minima doloremque dolorem corporis natus! Sit mollitia corrupti aperiam dolorem saepe.' }}</p>
 
                     <div class="bio-skill-box">
 
@@ -103,7 +104,7 @@
                                     </div>
                                     <div class="">
                                         <h5>Nomor Induk Keluarga</h5>
-                                        <p>{{ $user->nik }}</p>
+                                        <p>{{ ($user->nik) ? $user->nik : 'Data belum diisi' }}</p>
                                     </div>
                                 </div>
 
@@ -116,7 +117,7 @@
                                     </div>
                                     <div class="">
                                         <h5>Nomor Pokok Wajib Pajak</h5>
-                                        <p>{{ $user->npwp }}</p>
+                                        <p>{{ ($user->npwp) ? $user->npwp : 'Data belum diisi' }}</p>
                                     </div>
                                 </div>
 

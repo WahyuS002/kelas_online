@@ -1,10 +1,20 @@
 <div class="d-flex justify-content-center">
+
+    @if ($kelas->status == 'draf')
+    <button type="button" class="btn btn-dark btn-rounded mt-3 custom-button" disabled>
+        Terima
+    </button>
+    <button type="button" class="btn btn-dark btn-rounded mt-3 custom-button ml-4" disabled>
+        Tolak
+    </button>
+    @else
     <button type="button" class="btn btn-secondary btn-rounded mt-3 custom-button" wire:click="selectItem({{ $kelas->id }}, 'setuju')">
         Terima
     </button>
     <button type="button" class="btn btn-danger btn-rounded mt-3 custom-button ml-4"  wire:click="selectItem({{ $kelas->id }}, 'tolak')">
         Tolak
     </button>
+    @endif
 
     <!-- Modal -->
     <div class="modal fade" id="modalFormSetuju" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

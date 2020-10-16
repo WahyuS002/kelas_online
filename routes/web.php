@@ -64,7 +64,6 @@ Route::middleware('auth')->group(function () {
 
     // History Kelas
     Route::get('/user/history/enrolled', 'UserKelasController@enrolled')->name('user.kelas.enrolled');
-    Route::get('/user/history/historyPengajar', 'UserKelasController@historyPengajar')->name('user.kelas.historyPengajar');
 
     Route::get('/user/history/historyPengajar/{kelas}', 'UserKelasController@verifUser')->name('user.kelas.historyPengajar.verifikasi');
 
