@@ -52,7 +52,7 @@
                         <a href="{{ route('admin.kelas') }}"> Verifikasi Kelas </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"> Verifikasi Peserta Kelas </a>
+                        <a href="{{ route('admin.verifikasi.peserta') }}"> Verifikasi Peserta Kelas </a>
                     </li>
                 </ul>
             </li>

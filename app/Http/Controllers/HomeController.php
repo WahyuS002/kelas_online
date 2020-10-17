@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::all()->take(4);
+        $kelas = Kelas::where('status', 'publish')->take(4)->get();
 
         return view('welcome', compact('kelas'));
     }

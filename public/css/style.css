@@ -124,3 +124,17 @@
     height: auto;
     border-radius: 10px;
 }
+
+.component-card_1 .card-body .circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #e7515a;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    align-self: center;
+}

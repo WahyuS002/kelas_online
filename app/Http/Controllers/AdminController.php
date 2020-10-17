@@ -49,4 +49,22 @@ class AdminController extends Controller
         $kategori = KategoriKelas::all();
         return view('admin.pages.kategori.index', compact('kategori'));
     }
+
+    /*
+    | Function untuk menampilkan view peserta kelas untuk di verif admin
+    */
+
+    public function verifikasiPeserta()
+    {
+        $kelas = Kelas::where('status', 'publish')->get();
+
+        return view('pages.kelas.verifikasi-peserta.index', compact('kelas'));
+    }
+
+    public function verifikasiPesertaDetail($slug_kelas)
+    {
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
+
+        return view('pages.kelas.verifikasi-peserta.detail', compact('kelas'));
+    }
 }
