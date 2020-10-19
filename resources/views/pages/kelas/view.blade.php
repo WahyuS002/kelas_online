@@ -4,10 +4,10 @@
 <!--  BEGIN CUSTOM STYLE FILE  -->
 <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('cork/assets/css/components/cards/card.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{{ asset('cork/assets/css/elements/alert.css') }}">
+<link rel="stylesheet" href="{{ asset('cork/plugins/modal-video/modal-video.min.css') }}">
 <!--  END CUSTOM STYLE FILE  -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('cork/assets/css/components/custom-modal.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 
 @section('jumbotron')
@@ -33,23 +33,12 @@
     <div class="offset-md-8">
         <div class="card component-card_9 card-margin shadow-none">
             <iframe width="350" height="300" src="http://www.youtube.com/embed/{{ $kelas->video_preview }}" frameborder="0" allowfullscreen></iframe>
-            <button id="yt-video-link" type="button" class="btn btn-primary mb-2 mr-2">Play Youtube</button>
-            <!-- Modal -->
-            <div class="modal fade" id="videoMedia1" tabindex="-1" role="dialog" aria-labelledby="videoMedia1Label" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header" id="videoMedia1Label">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </button>
-                        </div>
-                        <div class="modal-body p-0">
-                            <div class="video-container">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <!-- Button trigger modal -->
+            <button class="js-modal-btn" data-video-id="{{ $kelas->video_preview }}" style="border: none; background: none;">
+                <img src="http://img.youtube.com/vi/{{ $kelas->video_preview }}/mqdefault.jpg" width="200" height="100" style="object-fit: cover;">
+            </button>
+
             <div class="card-body">
                 <p class="meta-date">25 Jan 2020</p>
 
@@ -65,14 +54,13 @@
                     </div>
 
                 </div>
-
             </div>
         </div>
     </div>
     <div class="col-7 card-margin ml-5">
         <h4>Modul Materi</h4>
         <div class="card">
-            @foreach ($materi_kelas as $m)
+            @forelse ($materi_kelas as $m)
             <div class="card-body">
                 <div class="row d-flex align-items-center">
                     <div class="col-1 text-center">{{ $loop->iteration }}</div>
@@ -87,7 +75,13 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+
+            @empty
+            <div class="alert alert-outline-danger mt-3 text-danger text-center" role="alert">
+                <strong>Materi belum dibuat!</strong> Silahkan buat materi <a href="{{ route('user.kelas.materi', $slug_kelas) }}"><strong class="text-danger">disini</strong></a>
+            </div>
+
+            @endforelse
         </div>
         <div class="d-flex justify-content-center">
 
@@ -116,17 +110,10 @@
 @endsection
 
 @push('script-after')
-<script>
-    $('#yt-video-link').click(function () {
-        var src = 'https://www.youtube.com/embed/YE7VzlLtp-4';
-        $('#videoMedia1').modal('show');
-        $('<iframe>').attr({
-            'src': src,
-            'width': '560',
-            'height': '315',
-            'allow': 'encrypted-media'
-        }).css('border', '0').appendTo('#videoMedia1 .video-container');
-    });
-</script>
-<!--  END CUSTOM SCRIPT FILE  -->
+
+    <script src="{{ asset('cork/plugins/modal-video/jquery-modal-video.min.js') }}"></script>
+    <script>
+        $(".js-modal-btn").modalVideo();
+    </script>
+
 @endpush

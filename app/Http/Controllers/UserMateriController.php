@@ -55,7 +55,7 @@ class UserMateriController extends Controller
         $materi = Materi::where('slug_materi', $slug_materi)->first();
         $kelas = Kelas::where('id', $materi->kelas_id)->first();
 
-        $materi->update($request->all());
+        $materi->update([$request->all()]);
 
         return redirect()->route('user.kelas.materi', $kelas->slug_kelas)->with('success', 'Materi Berhasil Diedit');
     }

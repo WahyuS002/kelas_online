@@ -5,6 +5,7 @@
 <!-- BEGIN PAGE LEVEL CUSTOM STYLES -->
 <link href="{{ asset('cork/assets/css/tables/table-basic.css') }}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{{ asset('cork/plugins/table/datatable/custom_dt_custom.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('cork/assets/css/elements/alert.css') }}">
 <!-- END PAGE LEVEL CUSTOM STYLES -->
 @endpush
 
@@ -26,7 +27,7 @@
                 </div>
                 <div class="widget-content widget-content-area">
                     <div class="table-responsive mb-4">
-                        <table id="column-filter" class="table">
+                        <table id="column-filter" class="table" style="overflow: hidden">
                             <thead>
                                 <tr>
                                     <th class="checkbox-column"> No. </th>
@@ -38,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($kelas as $k)
+                                @forelse ($kelas as $k)
                                     <tr>
                                         <td class="checkbox-column"> {{ $loop->iteration }} </td>
                                         <td>{{ $k->nama_kelas }}</td>
@@ -73,7 +74,19 @@
                                             </ul>
                                         </td>
                                     </tr>
-                                @endforeach
+
+                                    @empty
+
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="alert alert-outline-danger text-center text-danger" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
+                                                <strong>Data Belum Ada!</strong> Silahkan tambah kelas terlebih dahulu
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

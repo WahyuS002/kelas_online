@@ -6,6 +6,8 @@
 <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('cork/assets/css/components/custom-media_object.css') }}" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+
+<link rel="stylesheet" href="{{ asset('cork/plugins/editors/markdown/simplemde.min.css') }}">
 @endpush
 
 @section('content')
@@ -32,6 +34,19 @@
                 <div class="media">
                     <img class=" rounded" src="{{ asset('cork/assets/img/90x90.jpg') }}" alt="pic1">
                     <div class="media-body">
+
+                        <div class="card">
+                            <div class="card-header">
+                                Wahyu
+                            </div>
+                            <div class="card-body">
+                                <textarea name="comment" id="comment" cols="30" rows="5" style="height: 100px !important;"></textarea>
+                            </div>
+                            <div class="card-footer text-muted">
+                                2 days ago
+                            </div>
+                        </div>
+
                         <h4 class="media-heading">Heading</h4>
                         <p class="media-text">Sed dapibus nulla elementum, rutrum neque eu, gravida neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus.</p>
                         <div class="media-notation">
@@ -70,3 +85,19 @@
 </div>
 
 @endsection
+
+@push('script-after')
+
+
+<script src="{{ asset('cork/plugins/editors/markdown/simplemde.min.js') }}"></script>
+
+<script>
+    // Basic
+    new SimpleMDE({
+        element: document.getElementById("comment"),
+        spellChecker: false,
+        hideIcons: ["guide", "heading", "unordered-list", "ordered-list", "fullscreen", "side-by-side", "preview"],
+    });
+</script>
+
+@endpush
