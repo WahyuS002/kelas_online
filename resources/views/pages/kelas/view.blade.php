@@ -35,8 +35,8 @@
             <iframe width="350" height="300" src="http://www.youtube.com/embed/{{ $kelas->video_preview }}" frameborder="0" allowfullscreen></iframe>
 
             <!-- Button trigger modal -->
-            <button class="js-modal-btn" data-video-id="{{ $kelas->video_preview }}" style="border: none; background: none;">
-                <img src="http://img.youtube.com/vi/{{ $kelas->video_preview }}/mqdefault.jpg" width="200" height="100" style="object-fit: cover;">
+            <button class="js-modal-btn text-center" data-video-id="{{ $kelas->video_preview }}" style="border: none; background: none;">
+                <img src="http://img.youtube.com/vi/{{ $kelas->video_preview }}/mqdefault.jpg" width="340" height="300" style="object-fit: cover;">
             </button>
 
             <div class="card-body">

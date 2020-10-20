@@ -53,6 +53,6 @@ class LanjutkanPembayaran extends Component
             'status' => 'waiting',
         ]);
 
-        // return redirect()->route('');
+        $this->dispatchBrowserEvent('closeKonfirmasiPembayaranModal');
     }
 }

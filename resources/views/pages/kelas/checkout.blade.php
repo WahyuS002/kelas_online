@@ -93,3 +93,13 @@
 </div>
 
 @endsection
+
+@push('script-after')
+
+    <script>
+        window.addEventListener('closeKonfirmasiPembayaranModal', event => {
+            $('#konfirmasiPembayaranModal').modal('hide');
+        })
+    </script>
+
+@endpush

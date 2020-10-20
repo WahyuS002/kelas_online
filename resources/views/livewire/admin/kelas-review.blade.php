@@ -7,6 +7,7 @@
     <button type="button" class="btn btn-dark btn-rounded mt-3 custom-button ml-4" disabled>
         Tolak
     </button>
+    @elseif($kelas->status == 'publish')
     @else
     <button type="button" class="btn btn-secondary btn-rounded mt-3 custom-button" wire:click="selectItem({{ $kelas->id }}, 'setuju')">
         Terima

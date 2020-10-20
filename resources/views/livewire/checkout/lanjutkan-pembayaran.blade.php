@@ -17,17 +17,17 @@
         <h5 class="card-title">John Doe</h5>
     </div>
     @if ($kelas->pesertaCheckout($kelas->id) == true)
-    <a href="" class="btn btn-warning btn-block p-2 mt-4"><h5 class="text-white">MENUNGGU KONFIRMASI</h5></a>
+    <a href="#" class="btn btn-warning btn-block p-2 mt-4"><h5 class="text-white">MENUNGGU KONFIRMASI</h5></a>
     @else
-    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-block p-2 mt-4"><h5 class="text-white">KONFIRMASI PEMBAYARAN</h5></button>
+    <button data-toggle="modal" data-target="#konfirmasiPembayaranModal" class="btn btn-success btn-block p-2 mt-4"><h5 class="text-white">KONFIRMASI PEMBAYARAN</h5></button>
     @endif
 
     <!-- Modal -->
-    <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="konfirmasiPembayaranModal" tabindex="-1" role="dialog" aria-labelledby="konfirmasiPembayaranModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Pembayaran</h5>
+            <h5 class="modal-title" id="konfirmasiPembayaranModalLabel">Konfirmasi Pembayaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
