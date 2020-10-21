@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Peserta extends Component
 {
+    public $peserta;
     public $kelas, $bukti_pembayaran, $nama_user, $harga_bayar, $id_peserta;
 
     public function mount($kelas)
@@ -16,9 +17,9 @@ class Peserta extends Component
 
     public function render()
     {
-        $peserta = $this->kelas->users;
+        $this->peserta = $this->kelas->users;
 
-        return view('livewire.verifikasi.peserta', compact('peserta'));
+        return view('livewire.verifikasi.peserta');
     }
 
     public function verifikasi($peserta)
@@ -37,5 +38,7 @@ class Peserta extends Component
 
         $pesertaKelas->update(['status' => 'ya']);
         $this->dispatchBrowserEvent('closeVerifikasiModal');
+
+        return redirect()->route('admin.verifikasi.peserta.detail', $this->kelas->slug_kelas);
     }
 }

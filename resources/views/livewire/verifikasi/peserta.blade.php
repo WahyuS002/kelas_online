@@ -27,9 +27,19 @@
                     {{ $p->pivot->status }}
                 </td>
                 <td class="text-center">
+                    @if ($p->pivot->status == 'ya')
+                    <button class="btn btn-sm btn-success" disabled>
+                        Terverifikasi
+                    </button>
+                    @elseif ($p->pivot->status == 'tidak')
+                    <button class="btn btn-sm btn-danger">
+                        Ditolak
+                    </button>
+                    @else
                     <button class="btn btn-sm btn-primary" wire:click="verifikasi({{ $p }})">
                         Verifikasi
                     </button>
+                    @endif
                 </td>
             </tr>
             @endforeach

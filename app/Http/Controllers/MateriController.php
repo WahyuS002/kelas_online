@@ -28,6 +28,6 @@ class MateriController extends Controller
     public function show($slug_kelas, $materi_id)
     {
         $materi = Materi::where('id', $materi_id)->first();
-        return view('pages.frontend.materi.show', compact('materi'));
+        return view('pages.frontend.materi.show', compact('materi', 'slug_kelas'));
     }
 }
