@@ -25,9 +25,11 @@ class MateriController extends Controller
         return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas', 'kelas', 'duration_kelas'));
     }
 
-    public function show($slug_kelas, $materi_id)
+    public function show($slug, $materi_id)
     {
-        $materi = Materi::where('id', $materi_id)->first();
-        return view('pages.frontend.materi.show', compact('materi', 'slug_kelas'));
+        $kelas = Kelas::where('slug_kelas', $slug)->first();
+        $kelas_id = $kelas->id;
+        $materi = Materi::where(['urutan' => $materi_id, 'kelas_id' => $kelas_id])->first();
+        return view('pages.frontend.materi.show', compact('materi', 'slug'));
     }
 }

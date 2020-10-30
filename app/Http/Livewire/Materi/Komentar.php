@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class Komentar extends Component
 {
-    public $materi;
+    public $materi, $slug_kelas;
     public $comment_value, $sub_comment_value;
 
-    public function mount($materi)
+    public function mount($materi, $slug)
     {
         $this->materi = $materi;
+        $this->slug_kelas = $slug;
     }
 
     public function render()
