@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'prov_id', 'kota_id', 'kec_id', 'kel_id', 'email', 'name', 'password', 'pendidikan_terakhir',
+        'prov_id', 'kota_id', 'kec_id', 'kel_id', 'email', 'name', 'password', 'no_induk', 'ktp-npwp', 'pendidikan_terakhir',
         'jk', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'bio', 'guru', 'siswa', 'no_hp', 'foto', 'fb',
         'twitter', 'ig', 'yt', 'linkedin', 'nik', 'npwp', 'status', 'kode_promosi', 'kode_affiliasi', 'last_login'
     ];

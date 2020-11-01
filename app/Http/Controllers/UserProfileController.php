@@ -22,7 +22,7 @@ class UserProfileController extends Controller
 
     public function update(ProfileRequest $request, User $user)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $nama_foto = $request->foto->getClientOriginalName();
         $foto = $request->foto->storeAs('profile', $nama_foto);

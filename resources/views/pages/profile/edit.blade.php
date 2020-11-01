@@ -95,7 +95,12 @@
                                                                             </div>
                                                                             @enderror
                                                                         </div>
-
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-3">
+                                                                    <div class="col">
+                                                                        <label for="jk">Upload KTP / NPWP <span class="required">*</span></label>
+                                                                        <input type="file" class="form-control">
                                                                     </div>
                                                                 </div>
                                                             </div>

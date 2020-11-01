@@ -41,10 +41,17 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
+            'foto.required' => 'Foto harus diisi',
+            'name.required' => 'Nama harus diisi',
+            'tanggal_lahir.required' => 'Tgl lahir harus diisi',
+            'jk.required' => 'Jenis kelamin harus diisi',
             'prov_id.required' => 'Provinsi harus diisi',
             'kota_id.required' => 'Kota/Kabupaten harus diisi',
             'kec_id.required' => 'Kecamatan harus diisi',
             'kel_id.required' => 'Kelurahan harus diisi',
+            'alamat.required' => 'Alamat harus diisi',
+            'no_hp.required' => 'Nomor HP harus diisi',
+            'pendidikan_terakhir.required' => 'Pendidikan harus diisi',
         ];
     }
 }
