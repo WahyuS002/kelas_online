@@ -147,6 +147,16 @@
                         <a href="{{ route('user.kelas.enrolled') }}"> History Kelas </a>
                     </li>
                 </ul>
+                <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
+                    <li>
+                        <a href="{{ route('user.kelas.pengajar') }}"> History Pengajar </a>
+                    </li>
+                </ul>
+                <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
+                    <li>
+                        <a href="{{ route('user.kelas.penarikan') }}"> History Penarikan </a>
+                    </li>
+                </ul>
             </li>
 
             {{-- END USER SIDEBAR --}}

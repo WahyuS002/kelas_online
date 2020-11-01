@@ -67,6 +67,13 @@ Route::middleware('auth')->group(function () {
     // History Kelas
     Route::get('/user/history/enrolled', 'UserKelasController@enrolled')->name('user.kelas.enrolled');
 
+    Route::get('/user/history/pengajar', 'PengajarController@index')->name('user.kelas.pengajar');
+    Route::get('/user/history/pengajar/{kelas}', 'PengajarController@kelas')->name('user.kelas.pengajar.kelas');
+
+    Route::get('/user/history/penarikan', 'PengajarController@withdraw')->name('user.kelas.penarikan');
+
+
+
     Route::get('/user/history/historyPengajar/{kelas}', 'UserKelasController@verifUser')->name('user.kelas.historyPengajar.verifikasi');
 
     // Kelas Beli
