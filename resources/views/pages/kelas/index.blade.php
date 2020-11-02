@@ -33,6 +33,7 @@
                                     <th class="checkbox-column"> No. </th>
                                     <th>Nama Kelas</th>
                                     <th>Kapasitas</th>
+                                    <th>Jumlah Materi</th>
                                     <th>Harga</th>
                                     <th>Status</th>
                                     <th class="text-center">Action</th>
@@ -44,6 +45,7 @@
                                         <td class="checkbox-column"> {{ $loop->iteration }} </td>
                                         <td>{{ $k->nama_kelas }}</td>
                                         <td>{{ $k->kapasitas_kelas }}</td>
+                                        <td class="text-center">{{ $k->materi->count() }}</td>
                                         <td>Rp.{{ number_format($k->harga) }}</td>
                                         @if (!$k->status)
                                             <td><span class="shadow-none badge badge-warning">Materi Kosong</span></td>
@@ -78,7 +80,7 @@
                                     @empty
 
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="7">
                                             <div class="alert alert-outline-danger text-center text-danger" role="alert">
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><svg> ... </svg></button>
                                                 <strong>Data Belum Ada!</strong> Silahkan tambah kelas terlebih dahulu

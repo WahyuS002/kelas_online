@@ -23,7 +23,11 @@
                 <div class="widget-one">
 
                     <div class="d-flex justify-content-between">
-                    <h5>Kelas - {{ $kelas->nama_kelas }} </h5>
+                        <h5>Kelas - {{ $kelas->nama_kelas }} </h5>
+                        <button class="btn btn-sm btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive mr-1"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+                            Withdraw
+                        </button>
                     </div>
 
                 </div>
@@ -36,24 +40,36 @@
 
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-3 text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-                            <h4 class="mt-2"><strong>13</strong></h4>
-                            <h6 class="text-muted">Kelas Aktif</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-meh"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="15" x2="16" y2="15"></line><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                            <h4 class="mt-2"><strong>
+                                @if ($peserta->isEmpty())
+                                    0
+                                @endif
+                                @foreach ($peserta as $p)
+                                    @if ($p->pivot->status == 'ya')
+                                        {{ count($peserta) }}
+                                        @break
+                                    @endif
+                                @endforeach
+                            </strong></h4>
+                            <h6 class="text-muted">
+                                Total Peserta
+                            </h6>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-3 text-center vl">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rotate-ccw"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#8dbf42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                             <h4 class="mt-2"><strong>1</strong></h4>
-                            <h6 class="text-muted">Kelas Pending</h6>
+                            <h6 class="text-muted">Peserta Selesai</h6>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-3 text-center vl">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e2a03f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-frown"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                             <h4 class="mt-2"><strong>5</strong></h4>
-                            <h6 class="text-muted">Kelas Gratis</h6>
+                            <h6 class="text-muted">Peserta Belum Selesai</h6>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-3 text-center vl">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                            <h4 class="mt-2"><strong>10</strong></h4>
-                            <h6 class="text-muted">Kelas Berbayar</h6>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1b55e2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            <h4 class="mt-2"><strong>Rp.{{ number_format($peserta->sum('pivot.harga_bayar')) }}</strong></h4>
+                            <h6 class="text-muted">Total Penghasilan</h6>
                         </div>
                     </div>
 
@@ -70,16 +86,39 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Kelas</th>
-                                    <th>Kategori</th>
-                                    <th>Materi</th>
-                                    <th>Peserta</th>
+                                    <th>Nama Peserta</th>
+                                    <th>Waktu Mulai</th>
+                                    <th>Waktu Selesai</th>
+                                    <th>Harga Bayar</th>
                                     <th>Status</th>
-                                    <th>Harga</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($peserta as $p)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $p->name }}</td>
+                                        <td>{{ $p->pivot->waktu_mulai }}</td>
+                                        <td>{{ $p->pivot->waktu_selesai ? $p->pivot->waktu_selesai : 'Belum Selesai'}}</td>
+                                        <td>{{ $p->pivot->harga_bayar }}</td>
+                                        <td>{{ $p->pivot->waktu_selesai ? 'Selesai' : 'Belum Selesai' }}</td>
+                                        <td class="text-center">
+                                            <div class="dropdown custom-dropdown">
+                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                                    <a class="dropdown-item" href="#">View</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+
+                                @endforelse
                                 {{-- @foreach ($kelas as $k)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>

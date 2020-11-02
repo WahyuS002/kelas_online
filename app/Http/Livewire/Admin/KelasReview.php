@@ -28,7 +28,10 @@ class KelasReview extends Component
 
     public function terima()
     {
-        Kelas::where('id', $this->itemId)->update(['status' => 'publish']);
+        Kelas::where('id', $this->itemId)->update([
+            'status' => 'publish',
+            'jumlah_materi' => $this->kelas->materi->count(),
+        ]);
         $this->dispatchBrowserEvent('closeSetujuModal');
     }
 

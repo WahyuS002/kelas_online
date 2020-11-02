@@ -19,8 +19,9 @@ class PengajarController extends Controller
     {
         $user_id = auth()->user()->id;
         $kelas = Kelas::where(['user_id' => $user_id, 'slug_kelas' => $slug_kelas])->first();
+        $peserta = $kelas->users;
 
-        return view('pages.pengajar.kelas', compact('kelas'));
+        return view('pages.pengajar.kelas', compact('kelas', 'peserta'));
     }
 
     public function withdraw()

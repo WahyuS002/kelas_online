@@ -58,7 +58,7 @@ class Kelas extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar', 'status', 'id', 'bukti_pembayaran');
+        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar', 'status', 'id', 'bukti_pembayaran', 'waktu_mulai', 'waktu_selesai');
     }
 
     public function pesertaKelas($slug_kelas)

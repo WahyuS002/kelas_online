@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($materi as $m)
+                                @forelse ($materi as $m)
                                 <tr>
                                     <td class="checkbox-column">{{ $loop->iteration }}</td>
                                     <td>{{ $m->judul }}</td>
@@ -53,7 +53,15 @@
                                         </ul>
                                     </td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="text-danger">
+                                            <p>Materi belum ada</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

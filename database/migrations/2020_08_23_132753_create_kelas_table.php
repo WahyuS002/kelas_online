@@ -29,7 +29,7 @@ class CreateKelasTable extends Migration
                 'S1', 'S2', 'S3', 'Beginner', 'Intermediate', 'Advanced',
             ]);
 
-            $table->string('nama_kelas', 35);
+            $table->string('nama_kelas', 128);
             $table->string('slug_kelas', 100);
             $table->string('thumbnail');
             $table->longText('deskripsi');
@@ -37,6 +37,7 @@ class CreateKelasTable extends Migration
             $table->integer('diskon')->nullable();
             $table->date('durasi_kelas');
             $table->integer('kapasitas_kelas');
+            $table->integer('jumlah_materi')->default(0);
             $table->string('video_preview');
             $table->enum('status', ['draf', 'review', 'reject', 'publish', 'private', 'nonaktif'])->nullable();
 
