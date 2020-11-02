@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <livewire:materi.modul :materi="$materi" :slug_kelas="$slug_kelas">
+        <livewire:materi.modul :materi="$materi" :slug="$slug_kelas">
     </div>
     {{-- </div> --}}
     @endsection

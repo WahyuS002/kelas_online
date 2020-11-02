@@ -1,16 +1,35 @@
 <div class="col-7 card-margin ml-5">
 
     @if ($log)
-    <h4>Change Log</h4>
+    <div class="d-flex justify-content-between align-self-center">
+        <h4>Change Log</h4>
+        <button class="btn btn-info mb-3" wire:click="materiClick">Lihat Materi</button>
+    </div>
     @else
-    <h4>Modul Materi</h4>
+    <div class="d-flex justify-content-between align-middle">
+        <h4>Modul Materi</h4>
+        <button class="btn btn-info mb-3" wire:click="logClick">Lihat Log Kelas</button>
+    </div>
     @endif
 
     @if (!$log)
     <div class="card">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="text-dark">Progress Belajar <strong>{{ $progress }}%</strong></p>
+                    <div class="progress">
+                        <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: {{ $progress }}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @foreach ($materi as $m)
         <div class="card-body">
             <div class="row d-flex align-items-center">
+
                 <div class="col-1 text-center">{{ $loop->iteration }}</div>
 
                 @auth
@@ -107,17 +126,5 @@
         </div>
 
     </div>
-    @endif
-
-    @if ($log)
-    <div class="mt-4">
-        <button class="btn btn-info" wire:click="materiClick">Lihat Materi</button>
-    </div>
-    <br><br><br>
-    @else
-    <div class="mt-4">
-        <button class="btn btn-info" wire:click="logClick">Lihat Log Kelas</button>
-    </div>
-    <br><br><br>
     @endif
 </div>
