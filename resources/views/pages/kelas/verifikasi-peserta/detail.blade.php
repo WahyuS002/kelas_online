@@ -19,7 +19,7 @@
             <div class="statbox widget box box-shadow">
                 <div class="widget-header">
                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-md-6 col-sm-6 col-6">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
                             <h4>Peserta Kelas - {{ $kelas->nama_kelas }}</h4>
                         </div>
                     </div>

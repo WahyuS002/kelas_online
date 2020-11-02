@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Verifikasi;
 
 use App\PesertaKelas;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Peserta extends Component
@@ -36,7 +37,12 @@ class Peserta extends Component
     {
         $pesertaKelas = PesertaKelas::where('id', $id)->first();
 
-        $pesertaKelas->update(['status' => 'ya']);
+        $pesertaKelas->update([
+            'waktu_mulai' => Carbon::now(),
+            'jumlah_materi_selesai' => 0,
+            'jumlah_materi' => $this->kelas->materi->count(),
+            'status' => 'ya',
+        ]);
         $this->dispatchBrowserEvent('closeVerifikasiModal');
 
         return redirect()->route('admin.verifikasi.peserta.detail', $this->kelas->slug_kelas);

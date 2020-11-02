@@ -24,6 +24,8 @@ class CreatePesertaKelasTable extends Migration
 
             $table->dateTime('waktu_mulai')->nullable();
             $table->dateTime('waktu_selesai')->nullable();
+            $table->integer('jumlah_materi_selesai')->nullable();
+            $table->integer('jumlah_materi')->nullable();
             $table->integer('harga_bayar')->nullable();
             $table->string('kode_voc')->nullable();
             $table->enum('status', ['ya', 'tidak', 'waiting'])->nullable();
