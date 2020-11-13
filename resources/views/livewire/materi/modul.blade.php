@@ -18,9 +18,9 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="text-dark">Progress Belajar <strong>{{ $progress }}%</strong></p>
+                    <p class="text-dark">Progress Belajar <strong>50 %</strong></p>
                     <div class="progress">
-                        <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: {{ $progress }}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>

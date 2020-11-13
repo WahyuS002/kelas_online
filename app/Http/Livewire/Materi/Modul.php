@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\Materi;
 
 use App\Kelas;
-use App\PesertaKelas;
 use Livewire\Component;
+
+use Illuminate\Support\Facades\Auth;
 
 class Modul extends Component
 {
-    public $materi, $progress;
+    public $materi;
     public $log = false;
 
     public function logClick()
@@ -23,11 +24,10 @@ class Modul extends Component
 
     public function mount($materi, $slug)
     {
-        $kelas_id = Kelas::where('slug_kelas', $slug)->first()->id;
-        $user_id = auth()->user()->id;
-
-        $peserta = PesertaKelas::where(['user_id' => $user_id, 'kelas_id' => $kelas_id])->first();
-        $this->progress = $peserta->jumlah_materi_selesai / $peserta->jumlah_materi * 100;
+        if (Auth::check()) {
+            $kelas_id = Kelas::where('slug_kelas', $slug)->first()->id;
+            $user_id = auth()->user()->id;
+        }
 
         $this->materi = $materi;
     }
