@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Kelas;
 use App\Materi;
 
+use App\Progress;
+use Carbon\Carbon;
+
 use Alaouy\Youtube\Facades\Youtube;
 
 use Illuminate\Http\Request;
@@ -25,11 +28,36 @@ class MateriController extends Controller
         return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas', 'kelas', 'duration_kelas'));
     }
 
-    public function show($slug, $materi_id)
+    public function show($slug_kelas, $slug_materi, $urutan)
     {
-        $kelas = Kelas::where('slug_kelas', $slug)->first();
+        $materi = Materi::where(['slug_materi' => $slug_materi, 'urutan' => $urutan])->first();
+        $materi_id = $materi->id;
+
+        $kelas_id = Kelas::where('slug_kelas', $slug_kelas)->first()->id;
+        $id_peserta_kelas = auth()->user()->id;
+
+        $progress = Progress::where([
+            'id_peserta_kelas' => $id_peserta_kelas,
+            'id_kelas' => $kelas_id,
+            'id_materi' => $materi_id,
+        ]);
+
+        $progressIsExist = $progress->exists();
+
+        if (!$progressIsExist) {
+            Progress::create([
+                'id_peserta_kelas' => $id_peserta_kelas,
+                'id_kelas' => $kelas_id,
+                'id_materi' => $materi_id,
+                'waktu_baca' => Carbon::now(),
+            ]);
+        } elseif ($progressIsExist && $progress->first()->waktu_mengerti == null) {
+            $progress->update(['waktu_baca' => Carbon::now()]);
+        }
+
+        $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
         $kelas_id = $kelas->id;
-        $materi = Materi::where(['urutan' => $materi_id, 'kelas_id' => $kelas_id])->first();
-        return view('pages.frontend.materi.show', compact('materi', 'slug'));
+        // $materi = Materi::where(['urutan' => $materi_id, 'kelas_id' => $kelas_id])->first();
+        return view('pages.frontend.materi.show', compact('materi', 'slug_kelas'));
     }
 }

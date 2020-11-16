@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Livewire\Component;
 
 use App\Kelas;
-use App\PesertaKelas;
+use App\Progress;
 
 class Mengerti extends Component
 {
@@ -29,15 +29,14 @@ class Mengerti extends Component
         $kelas_id = Kelas::where('id', $kelas_id)->first()->id;
         $user_id = auth()->user()->id;
 
-        $peserta = PesertaKelas::where(['user_id' => $user_id, 'kelas_id' => $kelas_id]);
-
-        $jumlah_materi_selesai = $peserta->pluck('jumlah_materi_selesai')->first();
-
-        $i = $jumlah_materi_selesai + 1;
-
-        $peserta->update([
-            'jumlah_materi_selesai' => 1,
+        $materi_id = $this->materi->id;
+        $progress = Progress::where([
+            'id_peserta_kelas' => $user_id,
+            'id_kelas' => $kelas_id,
+            'id_materi' => $materi_id,
         ]);
+
+        $progress->update(['waktu_mengerti' => Carbon::now()]);
 
         auth()->user()->baca()->save($this->materi, [
             'mengerti' => true,

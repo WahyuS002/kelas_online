@@ -27,7 +27,7 @@
 <div class="row mx-2 mt-4">
     <div class="col-12">
 
-        <livewire:materi.komentar :materi="$materi" :slug="$slug">
+        <livewire:materi.komentar :materi="$materi" :slug="$slug_kelas">
 
     </div>
 </div>
