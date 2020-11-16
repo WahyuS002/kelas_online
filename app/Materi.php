@@ -65,4 +65,21 @@ class Materi extends Model
     {
         return 'slug_materi';
     }
+
+    public function progress($user_id, $slug_kelas, $id_materi)
+    {
+        $id_kelas = Kelas::where('slug_kelas', $slug_kelas)->first()->id;
+
+        $id_peserta_kelas = PesertaKelas::where(['kelas_id' => $id_kelas, 'user_id' => $user_id])->first()->id;
+
+        $progress = Progress::where(['id_peserta_kelas' => $id_peserta_kelas, 'id_kelas' => $id_kelas, 'id_materi' => $id_materi]);
+
+        if ($progress->exists()) {
+            if ($progress->first()->waktu_mengerti != null) {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
 }

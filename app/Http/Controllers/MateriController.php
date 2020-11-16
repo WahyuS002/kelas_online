@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kelas;
 use App\Materi;
+use App\PesertaKelas;
 
 use App\Progress;
 use Carbon\Carbon;
@@ -34,7 +35,9 @@ class MateriController extends Controller
         $materi_id = $materi->id;
 
         $kelas_id = Kelas::where('slug_kelas', $slug_kelas)->first()->id;
-        $id_peserta_kelas = auth()->user()->id;
+        $user_id = auth()->user()->id;
+
+        $id_peserta_kelas = PesertaKelas::where(['kelas_id' => $kelas_id, 'user_id' => $user_id])->first()->id;
 
         $progress = Progress::where([
             'id_peserta_kelas' => $id_peserta_kelas,

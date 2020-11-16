@@ -34,7 +34,14 @@
 
                 @auth
                 @if (auth()->user()->checkPesertaKelas($slug_kelas))
-                    <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, 'slug_materi' => $m->slug_materi ,"urutan" => $m->urutan]) }}" class="col-8 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></a>
+                <a href="{{ route('materi.show', ["slug_kelas" => $slug_kelas, 'slug_materi' => $m->slug_materi ,"urutan" => $m->urutan]) }}" class="col-8 text-primary">
+                    @if ($m->progress(auth()->user()->id ,$slug_kelas, $m->id))
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    @else
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                    @endif
+                    <b class="ml-3 align-middle">{{ $m->judul }} </b>
+                </a>
                 @else
                     <p class="col-8 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><b class="ml-3 align-middle">{{ $m->judul }}.</b></p>
                 @endif

@@ -1,4 +1,4 @@
-<div class="widget-content widget-content-area notation-text-icon">
+<div class="widget-content widget-content-area notation-text-icon mt-3">
 
     <h5 class="mb-3">Komentar</h5>
     <hr>
@@ -47,6 +47,10 @@
                 </div>
             </div>
             @endforeach
+
+            @if ($all_comments > $comments->count())
+            <a wire:click="load" class="btn btn-primary my-3">Load More</a>
+            @endif
 
             <div class="card">
                 <form wire:submit.prevent="comment">

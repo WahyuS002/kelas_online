@@ -12,6 +12,9 @@ class Komentar extends Component
     public $materi, $kelas_id;
     public $comment_value, $sub_comment_value;
 
+    public $all_comments;
+    public $amount = 2;
+
     public function mount($materi, $slug)
     {
         $kelas = Kelas::where('slug_kelas', $slug)->first();
@@ -23,7 +26,10 @@ class Komentar extends Component
 
     public function render()
     {
-        $comments = Comment::where(['id_materi' => $this->materi->id, 'id_komentar' => 0])->get();
+        $c = Comment::where(['id_materi' => $this->materi->id, 'id_komentar' => 0]);
+        $comments = $c->take($this->amount)->get();
+        $this->all_comments = $c->count();
+
         $subComments = Comment::where('id_materi', $this->materi->id)->get();
 
         return view('livewire.materi.komentar', compact('comments', 'subComments'));
@@ -46,5 +52,10 @@ class Komentar extends Component
             'komentar' => $this->sub_comment_value,
             'id_komentar' => $id,
         ]);
+    }
+
+    public function load()
+    {
+        $this->amount += 5;
     }
 }

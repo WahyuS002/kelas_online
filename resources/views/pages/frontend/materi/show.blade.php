@@ -27,20 +27,22 @@
 <div class="row mx-2 mt-4">
     <div class="col-12">
 
+        <div class="row mx-5">
+            <div class="col-3 text-left">
+                <a class="btn btn-secondary btn-lg">< Prev</a>
+            </div>
+            <livewire:materi.mengerti :materi="$materi">
+            <div class="col-3 text-right">
+                <a class="btn btn-secondary btn-lg">Next ></a>
+            </div>
+        </div>
+
         <livewire:materi.komentar :materi="$materi" :slug="$slug_kelas">
 
     </div>
 </div>
 
-<div class="row mx-5 mt-5">
-    <div class="col-3 text-left">
-        <a class="btn btn-secondary btn-lg">< Prev</a>
-    </div>
-    <livewire:materi.mengerti :materi="$materi">
-    <div class="col-3 text-right">
-        <a class="btn btn-secondary btn-lg">Next ></a>
-    </div>
-</div>
+
 <br><br><br>
 
 @endsection
