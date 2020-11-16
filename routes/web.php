@@ -104,4 +104,4 @@ Route::middleware('auth')->group(function () {
 
 // Frontend
 Route::get('/kelas/{kelas}/detail', 'MateriController@detail')->name('materi.detail');
-Route::get('/kelas/{slug_kelas}/{slug_materi}/{urutan}', 'MateriController@show')->name('materi.show');
+Route::get('/kelas/{slug_kelas}/{slug_materi}/', 'MateriController@show')->name('materi.show');

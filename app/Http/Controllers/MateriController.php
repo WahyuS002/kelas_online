@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Alaouy\Youtube\Facades\Youtube;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class MateriController extends Controller
 {
@@ -29,9 +30,11 @@ class MateriController extends Controller
         return view('pages.frontend.materi.detail', compact('materi', 'slug_kelas', 'kelas', 'duration_kelas'));
     }
 
-    public function show($slug_kelas, $slug_materi, $urutan)
+    public function show($slug_kelas, $slug_materi_encrypt)
     {
-        $materi = Materi::where(['slug_materi' => $slug_materi, 'urutan' => $urutan])->first();
+        $slug_materi = Crypt::decrypt($slug_materi_encrypt);
+
+        $materi = Materi::where('slug_materi', $slug_materi)->first();
         $materi_id = $materi->id;
 
         $kelas_id = Kelas::where('slug_kelas', $slug_kelas)->first()->id;
