@@ -54,16 +54,16 @@
                 @foreach ($kelas as $k)
                 <div class="col-xl-3">
                     <div class="card component-card_1">
-                        <div class="card-body">
+                        <div class="card-body img-hover">
                             <a href="{{ route('materi.detail', $k->slug_kelas) }}">
                                 <div class="icon-svg">
                                     {{-- <svg> --}}
                                     <img src="{{ asset('storage/'.$k->thumbnail) }}" class="img-fluid" alt="">
                                     {{-- </svg> --}}
+                                    <h5 class="card-title">{{ Str::limit($k->nama_kelas, 16) }}</h5>
+                                    <p class="card-text">{!! Str::limit($k->user->name, 25) !!}</p>
                                 </div>
                             </a>
-                            <h5 class="card-title">{{ Str::limit($k->nama_kelas, 16) }}</h5>
-                            <p class="card-text">{!! Str::limit($k->user->name, 25) !!}</p>
                         </div>
                     </div>
                 </div>

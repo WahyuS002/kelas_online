@@ -151,3 +151,13 @@
     text-align: center;
     color: #fafafa;
 }
+
+/*
+.img-hover::after {
+    content: "";
+    background-color: #0f0e20;
+}
+
+.img-hover:hover {
+    background: #0f0e20;
+} */

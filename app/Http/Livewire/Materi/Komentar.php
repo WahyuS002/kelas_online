@@ -56,6 +56,6 @@ class Komentar extends Component
 
     public function load()
     {
-        $this->amount += 5;
+        $this->amount += 1;
     }
 }
