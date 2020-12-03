@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->string('no_induk', 50)->nullable();
-            $table->stringn('ktp-npwp')->nullable();
+            $table->string('ktp-npwp')->nullable();
 
             $table->enum('pendidikan_terakhir', ['SD', 'SMP', 'SMA', 'Kuliah'])->nullable();
             $table->enum('jk', ['L', 'P'])->nullable();
