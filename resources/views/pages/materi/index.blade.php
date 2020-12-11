@@ -46,7 +46,6 @@
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            {{-- tes --}}
                             <tbody  id="sortable">
                                 <div class="media  d-md-flex d-block text-sm-left text-center">
                                     @forelse ($materi as $m)
