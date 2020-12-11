@@ -92,6 +92,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/user/kelas/materi/{materi}/update', 'UserMateriController@update')->name('user.kelas.materi.update')->middleware('kelas_edit');
     Route::get('/user/kelas/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('user.kelas.materi.show');
 
+    Route::post('/user/kelas/{kelas}/materi/order', 'UserMateriController@order')->name('user.kelas.materi.order');
+
     Route::get('/user/profile/index', 'UserProfileController@index')->name('user.profile');
     Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('user.profile.edit');
     Route::post('/user/profile/{user:id}/update', 'UserProfileController@update')->name('user.profile.update');

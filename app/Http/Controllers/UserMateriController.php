@@ -92,4 +92,16 @@ class UserMateriController extends Controller
 
         return redirect()->route('user.kelas.materi', $slug_kelas);
     }
+
+    public function order(Request $request)
+    {
+        foreach ($request->positions as $position) {
+            $index = $position[0];
+            $newPositon = $position[1];
+
+            Materi::where('id', $index)->update(['urutan' => $newPositon]);
+        }
+
+        return response('Update Successfully', 200);
+    }
 }

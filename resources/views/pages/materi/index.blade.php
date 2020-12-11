@@ -41,7 +41,7 @@
                         <table id="column-filter" class="table">
                             <thead>
                                 <tr>
-                                    <th class="checkbox-column"> No. </th>
+                                    <th class="checkbox-column"> Urutan </th>
                                     <th>Materi</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -50,7 +50,7 @@
                                 <div class="media  d-md-flex d-block text-sm-left text-center">
                                     @forelse ($materi as $m)
                                     <tr class="media-body" data-index="{{ $m->id }}" data-position="{{ $m->urutan }}">
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $m->urutan }}</td>
                                         <td>{{ $m->judul }}</td>
                                         <td class="text-center">
                                             <ul class="table-controls">
@@ -145,10 +145,11 @@
             });
 
             $.ajax({
-                url: '#',
+                url: '{{ route('user.kelas.materi.order', $kelas->id) }}',
                 method: 'POST',
                 dataType: 'text',
                 data:{
+                    _token: '{{ csrf_token() }}',
                     update: 1,
                     positions: positions
                 }, success: function(response){

@@ -47,8 +47,16 @@
             </blockquote>
         </div>
         <div class="container">
-            <div class="d-flex justify-content-center mb-3 mt-5">
-                <h3>Kelas Pilihan</h3>
+            <div class="d-flex justify-content-between mb-5 mt-5">
+                <div>
+                    <h3>Featured Course</h3>
+                    <p style="opacity: 75%">Discover Your Perfect Program in Our Course</p>
+                </div>
+                <div>
+                    <select class="form-control">
+                        <option>Semua Kelas</option>
+                    </select>
+                </div>
             </div>
             <div class="row mb-5">
                 @foreach ($kelas as $k)
