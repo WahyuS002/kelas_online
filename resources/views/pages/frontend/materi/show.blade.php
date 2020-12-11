@@ -6,6 +6,7 @@
 <link href="{{ asset('cork/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('cork/assets/css/components/custom-media_object.css') }}" rel="stylesheet" type="text/css" />
 <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 @endpush
 
 @section('content')
@@ -48,5 +49,14 @@
 @endsection
 
 @push('script-after')
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            Echo.channel('comment-channel')
+            .listen('CommentsEvent', (e) => {
+                // console.log(e.comment);
+                window.livewire.emit('commenAdded');
+            });
+        })
+    </script>
     <script src="{{ asset('vendor/alpine-js/alpine.min.js') }}"></script>
 @endpush
