@@ -20,7 +20,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::where('status', 'publish')->take(4)->get();
+        // $kelas = Kelas::where('status', 'publish')->take(4)->get();
+
+        // dd($kelas[3]->getFirstMedia()->getUrl());
+        $kelas = Kelas::find(7)->getFirstMedia();
 
         return view('welcome', compact('kelas'));
     }

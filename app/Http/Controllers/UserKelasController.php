@@ -58,7 +58,9 @@ class UserKelasController extends Controller
         $data['status'] = 'draf';
         $data['video_preview'] = $kelas->YoutubeID($request->video_preview);
 
-        Kelas::create($data);
+        $k = Kelas::create($data);
+
+        $k->addMedia($request->thumbnail)->toMediaCollection();
 
         return redirect()->route('user.kelas')->with('success', 'Kelas telah ditambahkan');
     }

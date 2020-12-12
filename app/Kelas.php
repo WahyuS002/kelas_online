@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Support\Facades\Auth;
 
-class Kelas extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+class Kelas extends Model implements HasMedia
 {
-    use Sluggable;
+    use Sluggable, InteractsWithMedia;
 
     public function sluggable(): array
     {
