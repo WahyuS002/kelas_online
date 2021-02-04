@@ -60,7 +60,7 @@ class UserKelasController extends Controller
 
         $k = Kelas::create($data);
 
-        $k->addMedia($request->thumbnail)->toMediaCollection();
+        $k->addMedia($request->thumbnail)->toMediaCollection('kelas');
 
         return redirect()->route('user.kelas')->with('success', 'Kelas telah ditambahkan');
     }

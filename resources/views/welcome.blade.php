@@ -59,13 +59,15 @@
                 </div>
             </div>
             <div class="row mb-5">
-                {{-- @foreach ($kelas as $k)
+                @foreach ($kelas as $k)
+                @foreach ($kelas as $l)
+
                 <div class="col-xl-3">
                     <div class="card component-card_1">
                         <div class="card-body img-hover">
                             <a href="{{ route('materi.detail', $k->slug_kelas) }}">
                                 <div class="icon-svg">
-                                    <img src="{{ asset('storage/'.$k->thumbnail) }}" class="img-fluid" alt="">
+                                    <img src="{{ $k->getFirstMedia('kelas')->getUrl('thumb') }}" class="img-fluid" alt="">
                                     <h5 class="card-title">{{ Str::limit($k->nama_kelas, 16) }}</h5>
                                     <p class="card-text">{!! Str::limit($k->user->name, 25) !!}</p>
                                 </div>
@@ -73,57 +75,13 @@
                         </div>
                     </div>
                 </div>
-                @endforeach --}}
-                {{ $kelas }}
-            <div class="d-flex justify-content-center mb-3">
+                @endforeach
+
+                @endforeach
+                {{-- {{ $kelas }} --}}
+            {{-- <div class="d-flex justify-content-center mb-3">
                 <h3>Semua Kelas</h3>
-            </div>
-            <div class="row mb-3">
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card component-card_1">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
