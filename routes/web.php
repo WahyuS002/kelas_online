@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('beranda', function () {
+    return view('beranda');
+});
+Route::get('detail', function () {
+    return view('detail');
+});
 
 // Admin
 Route::middleware('guest')->prefix('admin')->group(function () {

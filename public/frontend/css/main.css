@@ -1,0 +1,172 @@
+/* START OF UTILITES */
+
+.bg-pink {
+    background-color: #FF6575;
+}
+
+.bg-pink:hover {
+    background-color: #e24958
+}
+
+.bg-outline-pink {
+    border: 2px solid #FF6575;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-secondary-purple {
+    color: #9490B6
+}
+
+.text-gray {
+    color: #4F4F4F;
+}
+
+.mt-6 {
+    margin-top: 6rem;
+}
+
+.mb-6 {
+    margin-bottom: 6rem;
+}
+
+.font-montserrat {
+    font-family: Montserrat;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+/* END OF UTILITES */
+
+body {
+    font-family: 'Source Sans Pro';
+}
+
+nav span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.jumbotron {
+    margin-top: -4rem;
+    height: 106vh;
+    background-color: #453D80;
+}
+
+.jumbotron h1 {
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.jumbotron span {
+    font-size: 17.5px;
+    font-weight: 600;
+}
+
+.jumbotron input::placeholder {
+    color: #A6A2BF;
+}
+
+.jumbotron input[type=text] {
+    width: 90%;
+    padding: 25px;
+    background-color: #453D80;
+    color: white;
+}
+
+.jumbotron .input-with-icon {
+    position: relative;
+}
+
+.jumbotron .input-with-icon span {
+    position: absolute;
+    right: 45px;
+    top: 6px;
+}
+
+main h2 {
+    font-weight: 600;
+}
+
+.card-rounded {
+    border-radius: 20px;
+}
+
+.card .card-img-top {
+    display: block;
+    margin: auto;
+    width: 18rem;
+    height: 11.5rem;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.card .card-body span {
+    font-weight: 500;
+}
+
+.card-user {
+    padding: 0 1.25rem 0 1.25rem;
+}
+
+.card-footer span {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+hr {
+    margin-top: 0;
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 15px 15px 31px -24px rgba(0, 0, 0, 0.75);
+}
+
+.card .card-img-top {
+    transition: 0.3s;
+}
+
+.card:hover .card-img-top {
+    cursor: pointer;
+    filter: grayscale(80%);
+    transform: scale(1.05);
+}
+
+.btn-category {
+    border: none;
+    padding: 3px 20px 3px 20px;
+    border-radius: 5px;
+}
+
+.btn-outline-category {
+    border: 1px solid #FF6575;
+    padding: 3px 20px 3px 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.btn-outline-category:hover {
+    background-color: #FF6575;
+    color: white;
+}
+
+footer {
+    width: 100%;
+    height: 12rem;
+    background-color: #453D80;
+}
+
+@media (min-width: 992px) {}
