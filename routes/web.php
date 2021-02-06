@@ -22,6 +22,9 @@ Route::get('beranda', function () {
 Route::get('detail', function () {
     return view('detail');
 });
+Route::get('kelas', function () {
+    return view('kelas');
+});
 
 // Admin
 Route::middleware('guest')->prefix('admin')->group(function () {

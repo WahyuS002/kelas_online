@@ -1,4 +1,16 @@
 /* START OF UTILITES */
+.w-half {
+    width: 50%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.no-margin {
+    padding: 0;
+    margin: 0;
+}
 
 .bg-pink {
     background-color: #FF6575;
@@ -16,8 +28,20 @@
     color: white;
 }
 
+.text-pink {
+    color: #FF6575;
+}
+
 .text-secondary-purple {
     color: #9490B6
+}
+
+.text-green {
+    color: #72C861;
+}
+
+.text-md {
+    font-size: 18px;
 }
 
 .text-gray {
@@ -36,11 +60,32 @@
     font-family: Montserrat;
 }
 
+.font-medium {
+    font-weight: 500;
+}
+
 .font-semibold {
     font-weight: 600;
 }
 
+.font-bold {
+    font-weight: 700;
+}
+
 /* END OF UTILITES */
+
+/* START PLYR CUSTOM STYLE */
+/* -- https://github.com/sampotts/plyr -- */
+
+:root {
+    --plyr-color-main: #FF6575;
+}
+
+/* END PLYR CUSTOM STYLE */
+
+nav {
+    background-color: #453D80;
+}
 
 body {
     font-family: 'Source Sans Pro';
@@ -60,6 +105,10 @@ nav span {
 .jumbotron h1 {
     font-size: 52px;
     font-weight: 600;
+}
+
+.course-title {
+    padding: 0 12rem 0 12rem;
 }
 
 .jumbotron span {
@@ -145,6 +194,10 @@ hr {
     transform: scale(1.05);
 }
 
+.card-link a {
+    text-decoration: none;
+}
+
 .btn-category {
     border: none;
     padding: 3px 20px 3px 20px;
@@ -167,6 +220,80 @@ footer {
     width: 100%;
     height: 12rem;
     background-color: #453D80;
+}
+
+.card-full {
+    width: 100%;
+    height: 33.5rem;
+    border: 1px solid #4F4F4F;
+    border-radius: 40px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-preview {
+    position: absolute;
+    width: 16.5rem;
+    height: 3rem;
+    text-align: right;
+    z-index: 1;
+    top: 6px;
+    left: -80px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    padding-right: 25px;
+}
+
+.svg-polygon {
+    margin-top: -5px;
+}
+
+.progress-md {
+    height: 1.3rem;
+}
+
+.progress-rounded {
+    border-radius: 20px;
+}
+
+.progress-bar-pink {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #FF6575;
+    transition: width 0.6s ease;
+}
+
+.info-video {
+    height: 100%;
+    overflow: auto;
+}
+
+.text-video {
+    font-size: 14px;
+}
+
+.comment-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment input[type=text] {
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+    width: 465px;
 }
 
 @media (min-width: 992px) {}
