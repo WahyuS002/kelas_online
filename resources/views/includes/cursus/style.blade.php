@@ -2,7 +2,7 @@
 <link rel="icon" type="image/png" href="{{ asset('cursus/images/fav.png') }}">
 
 <!-- Stylesheets -->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+<link href='{{ asset('cursus/http://fonts.googleapis.com/css?family=Roboto:400,700,500') }}' rel='stylesheet'>
 <link href='{{ asset('cursus/vendor/unicons-2.0.1/css/unicons.css') }}' rel='stylesheet'>
 <link href="{{ asset('cursus/css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
 <link href="{{ asset('cursus/css/style.css') }}" rel="stylesheet">
