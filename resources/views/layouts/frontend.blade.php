@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Kelas Online </title>
+    <meta name="viewport" content="width=device-width, shrink-to-fit=9">
+    <meta name="description" content="Gambolthemes">
+    <meta name="author" content="Gambolthemes">
+    <title>Cursus - Course Detail View</title>
 
-    @include('includes.frontend.style')
-    @stack('style-after')
-
-    <livewire:styles>
+    @include('includes.cursus.style')
 
 </head>
-<body class="alt-menu sidebar-noneoverflow">
-    <!-- BEGIN LOADER -->
-    <div id="load_screen"> <div class="loader"> <div class="loader-content">
-        <div class="spinner-grow align-self-center"></div>
-    </div></div></div>
-    <!--  END LOADER -->
 
-    @include('includes.frontend.navbar')
+<body>
+    <!-- Video Modal Start -->
+    @yield('modal')
+    <!-- Video Modal End -->
 
-    <!--  BEGIN MAIN CONTAINER  -->
-    <div class="main-container" id="container">
+    @include('includes.cursus.header')
 
-        <div class="overlay"></div>
-        <div class="search-overlay"></div>
+    @include('includes.cursus.sidebar')
 
-        <!--  BEGIN CONTENT PART  -->
-        <div id="content" class="main-content">
-            @yield('jumbotron')
-            <div class="layout-px-spacing">
+    <!-- Body Start -->
+    <div class="wrapper _bg4586">
 
-                @yield('content')
+        @yield('content')
 
-            </div>
-        </div>
-        <!--  END CONTENT PART  -->
-
+        @include('includes.cursus.footer')
     </div>
-    <!-- END MAIN CONTAINER -->
+    <!-- Body End -->
 
-    @include('includes.frontend.script')
-    @stack('script-after')
+    @include('includes.cursus.script')
 
-    <livewire:scripts>
-    @include('sweetalert::alert')
 </body>
 </html>
