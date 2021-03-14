@@ -3,21 +3,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="back_link">
-                    <a href="index.html" class="hde151">Back To Cursus</a>
-                    <a href="index.html" class="hde152">Back</a>
-                </div>
-                <div class="ml_item">
+                <div class="ml_item" style="width: 0;">
                     <div class="main_logo main_logo15" id="logo">
-                        <a href="index.html"><img src="images/logo.svg" alt=""></a>
-                        <a href="index.html"><img class="logo-inverse" src="images/ct_logo.svg" alt=""></a>
+                        <a href="index.html"><img src="{{ asset('cursus/images/logo.svg') }}" alt=""></a>
+                        <a href="index.html"><img class="logo-inverse" src="{{ asset('cursus/images/ct_logo.svg') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="header_right pr-0">
                     <ul>
                         <li class="ui top right pointing dropdown">
                             <a href="#" class="opts_account">
-                                <img src="images/hd_dp.jpg" alt="">
+                                <img src="{{ asset('cursus/images/hd_dp.jpg') }}" alt="">
                             </a>
                             <div class="menu dropdown_account">
                                 <div class="channel_my">

@@ -10,12 +10,13 @@
 		<title>Cursus - About Us</title>
 
 		@include('includes.cursus.style')
+		@yield('style.below')
 
 	</head>
 
 <body>
 
-    @include('includes.cursus.header')
+    @include('includes.cursus.navbar')
 
 	<!-- Body Start -->
 	<div class="wrapper _bg4586 _new89">
@@ -27,6 +28,7 @@
 	<!-- Body End -->
 
 	@include('includes.cursus.script')
+	@yield('script-below')
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+.main-text {
+    font-size: 3.5rem;
+}
+
+.text-green-dark {
+    color: #1DBF73;
+}
+
+.text-violet-dark {
+    color: #0D084D;
+}
+
+.main-search-input {
+    height: 3.5rem;
+}
+
+.main-search-input::placeholder {
+    font-size: medium;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.badge-light-danger {
+    background-color: #E7FBF1;
+    color: #545481;
+}
