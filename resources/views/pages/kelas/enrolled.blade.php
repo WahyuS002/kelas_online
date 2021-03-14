@@ -58,7 +58,7 @@
                                 @elseif ($d->pivot->status == 'tidak')
                                 <span class="badge badge-danger w-25 notify-badge shadow">Gagal</span>
                                 @endif
-                                <a href="{{ route('materi.detail', $d->slug_kelas) }}">
+                                <a href="{{ route('kelas.detail', $d->slug_kelas) }}">
                                     <img class="card-img-top" src="{{ asset('storage/' . $d->thumbnail) }}" alt="Card image cap">
                                 </a>
                                 <div class="card-body">

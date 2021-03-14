@@ -5,12 +5,15 @@
             <div class="col-12">
                 <div class="ml_item" style="width: 0;">
                     <div class="main_logo main_logo15" id="logo">
-                        <a href="index.html"><img src="{{ asset('cursus/images/logo.svg') }}" alt=""></a>
-                        <a href="index.html"><img class="logo-inverse" src="{{ asset('cursus/images/ct_logo.svg') }}" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('cursus/images/logo.svg') }}" alt=""></a>
+                        <a href="{{ route('home') }}"><img class="logo-inverse" src="{{ asset('cursus/images/ct_logo.svg') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="header_right pr-0">
                     <ul>
+                        <li>
+                            <a href="{{ route('kelas') }}">Kelas</a>
+                        </li>
                         <li class="ui top right pointing dropdown">
                             <a href="#" class="opts_account">
                                 <img src="{{ asset('cursus/images/hd_dp.jpg') }}" alt="">

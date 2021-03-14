@@ -64,7 +64,7 @@ class UserMateriController extends Controller
     {
         $materi = Materi::where('id', $materi_id)->first();
 
-        return view('pages.materi.show', compact('materi'));
+        return view('pages.kelas.show', compact('materi'));
     }
 
     public function createMateriNew($slug_kelas)

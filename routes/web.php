@@ -15,15 +15,26 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+/*
+|--------------------------------------------------------------------------
+| Frontend Routes
+|--------------------------------------------------------------------------
+*/
 
-// Admin
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/kelas', 'KelasController@index')->name('kelas');
+Route::get('/kelas/{kelas}/detail', 'KelasController@detail')->name('kelas.detail');
+Route::get('/kelas/{slug_kelas}/{slug_materi}/', 'KelasController@show')->name('kelas.show');
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
 Route::middleware('guest')->prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminController@login')->name('admin.login.submit');
 });
-
-// Admin Dashboard
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
     Route::get('/admin/kelas/verifikasi-kelas', 'AdminController@kelas')->name('admin.kelas');
@@ -90,7 +101,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/kelas/{kelas}/materi/store', 'UserMateriController@store')->name('user.kelas.materi.store')->middleware('check_kelas');
     Route::get('/user/kelas/{kelas}/materi/{materi}/edit', 'UserMateriController@edit')->name('user.kelas.materi.edit')->middleware('kelas_edit');
     Route::put('/user/kelas/materi/{materi}/update', 'UserMateriController@update')->name('user.kelas.materi.update')->middleware('kelas_edit');
-    Route::get('/user/kelas/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('user.kelas.materi.show');
+    Route::get('/user/kelas/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('user.kelas.kelas.show');
 
     Route::post('/user/kelas/{kelas}/materi/order', 'UserMateriController@order')->name('user.kelas.materi.order');
 
@@ -103,7 +114,3 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/user/kelas/{kelas}/materi/store-new-materi', 'UserMateriController@storeMateriNew')->name('user.kelas.materi.store.new');
 });
-
-// Frontend
-Route::get('/kelas/{kelas}/detail', 'MateriController@detail')->name('materi.detail');
-Route::get('/kelas/{slug_kelas}/{slug_materi}/', 'MateriController@show')->name('materi.show');
