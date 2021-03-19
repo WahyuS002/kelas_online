@@ -21,6 +21,15 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 
+/*
+======= MEMBELI KELAS =======
+*/
+Route::group(['prefix' => 'kelas', 'as' => 'user.'], function () {
+    Route::get('/{kelas}/checkout', 'UserKelasController@checkout')->name('kelas.checkout');
+    Route::get('/{kelas}/checkoutKelas', 'UserKelasController@checkoutKelas')->name('kelas.checkoutKelas');
+    Route::post('/{kelas}/beli', 'UserKelasController@kelasBeli')->name('kelas.beli');
+});
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/kelas', 'KelasController@index')->name('kelas');
 Route::get('/kelas/{kelas}/detail', 'KelasController@detail')->name('kelas.detail');
@@ -35,6 +44,7 @@ Route::middleware('guest')->prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminController@login')->name('admin.login.submit');
 });
+
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
     Route::get('/admin/kelas/verifikasi-kelas', 'AdminController@kelas')->name('admin.kelas');
@@ -44,7 +54,7 @@ Route::middleware('auth:admin')->group(function () {
     // View Kelas
     Route::get('/admin/kelas/view/{kelas}', 'AdminController@kelasView')->name('admin.kelas.view');
 
-    Route::get('/admin/user/index', 'AdminController@userIndex')->name('admin.user');
+    Route::get('/admin/index', 'AdminController@userIndex')->name('admin.user');
 
     // Kategori
     Route::get('/admin/kategori/index', 'AdminController@kategoriIndex')->name('admin.kategori.index');
@@ -52,65 +62,57 @@ Route::middleware('auth:admin')->group(function () {
 
 Route::get('/dashboard', 'DashboardController@index');
 
-// Route::get('/admin/kelas', 'KelasController@admin')->name('kelas.admin');
-// Route::get('/admin/kelas/{kelas:id}/verifikasi', 'KelasController@verifikasi')->name('kelas.verifikasi');
-
 /*
 |--------------------------------------------------------------------------
 | User Routes
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth')->group(function () {
-    // Kelas
-    Route::get('/user/kelas/index', 'UserKelasController@index')->name('user.kelas');
+    Route::group(['prefix' => 'user/kelas', 'as' => 'user.kelas'], function () {
+        Route::get('/index', 'UserKelasController@index')->name('');
+        Route::get('/create', 'UserKelasController@create')->name('.create');
+        Route::post('/store', 'UserKelasController@store')->name('.store');
+        Route::get('/{kelas}/edit', 'UserKelasController@edit')->name('.edit')->middleware('kelas_edit');
+        Route::post('/{kelas}/update', 'UserKelasController@update')->name('.update');
 
-    Route::get('/user/kelas/create', 'UserKelasController@create')->name('user.kelas.create');
-    Route::post('/user/kelas/store', 'UserKelasController@store')->name('user.kelas.store');
+        Route::get('/{kelas:slug_kelas}/view', 'UserKelasController@view')->name('.view');
 
-    Route::get('/user/kelas/{kelas}/edit', 'UserKelasController@edit')->name('user.kelas.edit')->middleware('kelas_edit');
-    Route::post('/user/kelas/{kelas}/update', 'UserKelasController@update')->name('user.kelas.update');
+        // Publish Kelas
+        Route::get('/{kelas}/materi/create-new-materi', 'UserMateriController@createMateriNew')->name('.materi.create.new')->middleware('new_materi');
+        Route::post('/{kelas}/materi/store-new-materi', 'UserMateriController@storeMateriNew')->name('.materi.store.new');
 
-    Route::get('/user/kelas/{kelas:slug_kelas}/view', 'UserKelasController@view')->name('user.kelas.view');
+        // Submit Kelas
+        Route::post('/{kelas:slug_kelas}/submit', 'UserKelasController@submit')->name('.submit');
+    });
 
-    // Pengaturan
-    Route::get('/user/pengaturan/index', 'UserPengaturan@index')->name('user.pengaturan');
+    Route::group(['prefix' => 'user/history', 'as' => 'user.history'], function () {
+        Route::get('/enrolled', 'UserKelasController@enrolled')->name('.enrolled');
 
-    // History Kelas
-    Route::get('/user/history/enrolled', 'UserKelasController@enrolled')->name('user.kelas.enrolled');
+        Route::get('/historyPengajar/{kelas}', 'UserKelasController@verifUser')->name('.historyPengajar.verifikasi');
 
-    Route::get('/user/history/pengajar', 'PengajarController@index')->name('user.kelas.pengajar');
-    Route::get('/user/history/pengajar/{kelas}', 'PengajarController@kelas')->name('user.kelas.pengajar.kelas');
+        Route::get('/pengajar', 'PengajarController@index')->name('.pengajar');
+        Route::get('/pengajar/{kelas}', 'PengajarController@kelas')->name('.pengajar.kelas');
 
-    Route::get('/user/history/penarikan', 'PengajarController@withdraw')->name('user.kelas.penarikan');
+        Route::get('/penarikan', 'PengajarController@withdraw')->name('.penarikan');
+    });
 
+    Route::group(['prefix' => 'user/kelas', 'as' => 'user.kelas.materi'], function () {
+        Route::get('/{kelas}/materi', 'UserMateriController@index')->name('');
+        Route::get('/{kelas}/materi/create', 'UserMateriController@create')->name('.create')->middleware('check_kelas');
+        Route::post('/{kelas}/materi/store', 'UserMateriController@store')->name('.store')->middleware('check_kelas');
+        Route::get('/{kelas}/materi/{materi}/edit', 'UserMateriController@edit')->name('.edit')->middleware('kelas_edit');
+        Route::put('/materi/{materi}/update', 'UserMateriController@update')->name('.update')->middleware('kelas_edit');
+        Route::get('/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('.show');
+        Route::post('/{kelas}/materi/order', 'UserMateriController@order')->name('.order');
+    });
 
+    Route::group(['prefix' => 'user/profile', 'as' => 'user.profile'], function () {
+        Route::get('/index', 'UserProfileController@index')->name('');
+        Route::get('/{user:id}/edit', 'UserProfileController@edit')->name('.edit');
+        Route::post('/{user:id}/update', 'UserProfileController@update')->name('.update');
+    });
 
-    Route::get('/user/history/historyPengajar/{kelas}', 'UserKelasController@verifUser')->name('user.kelas.historyPengajar.verifikasi');
-
-    // Kelas Beli
-    Route::get('/kelas/{kelas}/checkout', 'UserKelasController@checkout')->name('user.kelas.checkout');
-    Route::get('/kelas/{kelas}/checkoutKelas', 'UserKelasController@checkoutKelas')->name('user.kelas.checkoutKelas');
-    Route::post('/kelas/{kelas}/beli', 'UserKelasController@kelasBeli')->name('user.kelas.beli');
-
-    // Submit Kelas
-    Route::post('/user/kelas/{kelas:slug_kelas}/submit', 'UserKelasController@submit')->name('user.kelas.submit');
-
-    // Materi
-    Route::get('/user/kelas/{kelas}/materi', 'UserMateriController@index')->name('user.kelas.materi');
-    Route::get('/user/kelas/{kelas}/materi/create', 'UserMateriController@create')->name('user.kelas.materi.create')->middleware('check_kelas');
-    Route::post('/user/kelas/{kelas}/materi/store', 'UserMateriController@store')->name('user.kelas.materi.store')->middleware('check_kelas');
-    Route::get('/user/kelas/{kelas}/materi/{materi}/edit', 'UserMateriController@edit')->name('user.kelas.materi.edit')->middleware('kelas_edit');
-    Route::put('/user/kelas/materi/{materi}/update', 'UserMateriController@update')->name('user.kelas.materi.update')->middleware('kelas_edit');
-    Route::get('/user/kelas/{kelas:slug_kelas}/materi/{materi:id}/show', 'UserMateriController@show')->name('user.kelas.kelas.show');
-
-    Route::post('/user/kelas/{kelas}/materi/order', 'UserMateriController@order')->name('user.kelas.materi.order');
-
-    Route::get('/user/profile/index', 'UserProfileController@index')->name('user.profile');
-    Route::get('/user/profile/{user:id}/edit', 'UserProfileController@edit')->name('user.profile.edit');
-    Route::post('/user/profile/{user:id}/update', 'UserProfileController@update')->name('user.profile.update');
-
-    // Publish Kelas
-    Route::get('/user/kelas/{kelas}/materi/create-new-materi', 'UserMateriController@createMateriNew')->name('user.kelas.materi.create.new')->middleware('new_materi');
-
-    Route::post('/user/kelas/{kelas}/materi/store-new-materi', 'UserMateriController@storeMateriNew')->name('user.kelas.materi.store.new');
+    Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+        Route::get('/pengaturan/index', 'UserPengaturan@index')->name('pengaturan');
+    });
 });

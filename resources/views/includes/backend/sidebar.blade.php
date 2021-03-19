@@ -144,17 +144,17 @@
                 </a>
                 <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
                     <li>
-                        <a href="{{ route('user.kelas.enrolled') }}"> History Kelas </a>
+                        <a href="{{ route('user.history.enrolled') }}"> History Kelas </a>
                     </li>
                 </ul>
                 <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
                     <li>
-                        <a href="{{ route('user.kelas.pengajar') }}"> History Pengajar </a>
+                        <a href="{{ route('user.history.pengajar') }}"> History Pengajar </a>
                     </li>
                 </ul>
                 <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
                     <li>
-                        <a href="{{ route('user.kelas.penarikan') }}"> History Penarikan </a>
+                        <a href="{{ route('user.history.penarikan') }}"> History Penarikan </a>
                     </li>
                 </ul>
             </li>

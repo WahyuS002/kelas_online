@@ -69,7 +69,7 @@
                                     <td>Rp. {{ number_format($k->users->sum('pivot.harga_bayar')) }}</td>
                                     {{-- <livewire:kelas.verifikasi-peserta :kelas="$k" :key="$k->id"> --}}
                                     <td>
-                                        <a href="{{ route('user.kelas.historyPengajar.verifikasi', $k->slug_kelas) }}" type="button" class="badge badge-primary position-relative p-1">
+                                        <a href="{{ route('user.history.historyPengajar.verifikasi', $k->slug_kelas) }}" type="button" class="badge badge-primary position-relative p-1">
                                             <span>Lihat Kelas</span>
                                             <span class="badge badge-danger counter">22</span>
                                         </a>

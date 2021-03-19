@@ -29,7 +29,7 @@
                         @foreach ($kelas as $k)
                         <div class="col-lg-4">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ route('user.kelas.pengajar.kelas', $k->slug_kelas) }}">
+                                <a href="{{ route('user.history.pengajar.kelas', $k->slug_kelas) }}">
                                     <div class="circle-badge-danger">
                                         <span>5</span>
                                     </div>

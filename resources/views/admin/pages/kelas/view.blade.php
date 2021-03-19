@@ -93,7 +93,7 @@
                     <div class="col-8"><b>{{ $m->judul }}.</b></div>
                     <div class="col-3 text-center">
                         @auth
-                        <a href="{{ route('user.kelas.kelas.show', ["kelas" => $slug_kelas, "materi" => $m->id]) }}" class="btn btn-success btn-sm">Pelajari</a>
+                        <a href="{{ route('user.kelas.materi.show', ["kelas" => $slug_kelas, "materi" => $m->id]) }}" class="btn btn-success btn-sm">Pelajari</a>
                         @endauth
                         @guest
                         <a href="{{ route('login') }}" class="btn btn-secondary btn-sm">Pelajari</a>
