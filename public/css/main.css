@@ -1,6 +1,8 @@
-.main-text {
-    font-size: 3.5rem;
-}
+/*
+==================
+START OF UTILITIES
+==================
+*/
 
 .text-green-dark {
     color: #1DBF73;
@@ -8,6 +10,24 @@
 
 .text-violet-dark {
     color: #0D084D;
+}
+
+.h-64 {
+    height: 16rem;
+}
+
+.object-cover {
+    object-fit: cover;
+}
+
+/*
+================
+END OF UTILITIES
+================
+*/
+
+.main-text {
+    font-size: 3.5rem;
 }
 
 .main-search-input {

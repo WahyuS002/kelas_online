@@ -48,9 +48,8 @@ class Materi extends Model
         });
     }
 
-    public function duration($ytDuration)
+    public function youtubeDuration($ytDuration)
     {
-
         $di = new DateInterval($ytDuration);
         $string = '';
 
