@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 use App\Kelas;
-use App\Admin;
 use App\KategoriKelas;
 
 class AdminController extends Controller
