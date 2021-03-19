@@ -28,11 +28,13 @@
                             <div class="col-lg-3 col-md-4">
                                 <div class="fcrse_1 mt-30">
                                     <a href="course_detail_view.html" class="fcrse_img h-64">
-                                        <img class="h-64 object-cover" src="{{ asset('storage/' . $class->thumbnail) }}" alt="">
+                                        @foreach ($class->getMedia('kelas') as $image)
+                                            <img class="h-64 object-cover" src="{{ $image->getUrl('thumb') }}" alt="">
+                                        @endforeach
                                         <div class="course-overlay">
                                             <span class="play_btn1"><i class="uil uil-play"></i></span>
                                             <div class="crse_timer">
-                                                {{ $class->classDuration() }}
+                                                3 Hours
                                             </div>
                                         </div>
                                     </a>
@@ -47,15 +49,13 @@
                                             </div>
                                         </div>
                                         <div class="vdtodt">
-                                            <span class="vdt14">109k views</span>
                                             <span class="vdt14">{{ $class->created_at->diffForHumans() }}</span>
                                         </div>
-                                        <a href="course_detail_view.html" class="crse14s">Complete Python Bootcamp: Go from zero to hero in Python 3</a>
+                                        <a href="course_detail_view.html" class="crse14s">{{ \Str::limit($class->nama_kelas, 50) }}</a>
                                         <a href="#" class="crse-cate">Web Development | Python</a>
                                         <div class="auth1lnkprce">
-                                            <p class="cr1fot">By <a href="#">John Doe</a></p>
+                                            <p class="cr1fot">By <a href="#">{{ \Str::limit($class->user->name, 25) }}</a></p>
                                             <div class="prce142">$10</div>
-                                            <button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
                                         </div>
                                     </div>
                                 </div>

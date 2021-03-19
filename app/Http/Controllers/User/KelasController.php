@@ -42,13 +42,11 @@ class KelasController extends Controller
         // Objek
         $kelas = new Kelas();
 
-        $data = $request->all();
+        $data = $request->validated();
 
         $nama_foto = $request->thumbnail->getClientOriginalName();
         $foto = $request->thumbnail->storeAs("kelas", $nama_foto);
         $data['thumbnail'] = $foto;
-
-        // $data['slug_kelas'] = SlugService::createSlug(Kelas::class, 'slug_kelas', $request->nama_kelas);
 
         $data['user_id'] = auth()->user()->id;
 

@@ -35,11 +35,11 @@ class CreateKelasTable extends Migration
             $table->longText('deskripsi');
             $table->integer('harga');
             $table->integer('diskon')->nullable();
-            $table->date('durasi_kelas');
+            $table->integer('durasi_kelas')->default(0);
             $table->integer('kapasitas_kelas');
             $table->integer('jumlah_materi')->default(0);
             $table->string('video_preview');
-            $table->enum('status', ['draf', 'review', 'reject', 'publish', 'private', 'nonaktif'])->nullable();
+            $table->enum('status', ['draf', 'review', 'reject', 'publish', 'private', 'nonaktif'])->nullable()->default('draf');
 
             $table->timestamps();
         });

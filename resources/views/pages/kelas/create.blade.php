@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="durasi_kelas">Durasi <span class="required">*</span></label>
-                                <input type="date" name="durasi_kelas" class="form-control">
+                                <input name="durasi_kelas" class="form-control" id="intLimitTextBox" placeholder="Maximal 12 Bulan">
                                 @error('durasi_kelas')
                                 <div class="text-danger">
                                     {{ $message }}
@@ -134,5 +134,26 @@
             height: 200,
         });
     });
+
+
+    function setInputFilter(textbox, inputFilter) {
+    ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+        textbox.addEventListener(event, function() {
+        if (inputFilter(this.value)) {
+            this.oldValue = this.value;
+            this.oldSelectionStart = this.selectionStart;
+            this.oldSelectionEnd = this.selectionEnd;
+        } else if (this.hasOwnProperty("oldValue")) {
+            this.value = this.oldValue;
+            this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+        } else {
+            this.value = "";
+        }
+        });
+    });
+    }
+
+    setInputFilter(document.getElementById("intLimitTextBox"), function(value) {
+    return /^\d*$/.test(value) && (value === "" || ( parseInt(value) >= 1 && parseInt(value) <= 12) ); });
 </script>
 @endpush

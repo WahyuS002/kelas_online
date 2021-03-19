@@ -28,11 +28,12 @@ class KelasRequest extends FormRequest
             'jenjang' => 'required',
             'level' => 'required',
             'harga' => 'required',
-            'durasi_kelas' => 'required',
+            'durasi_kelas' => 'required|min:1|max:12',
             'kapasitas_kelas' => 'required',
             'kategori_id' => 'required',
             'video_preview' => 'required',
             'thumbnail' => 'required',
+            'deskripsi' => 'required',
         ];
     }
 
@@ -43,6 +44,7 @@ class KelasRequest extends FormRequest
             'kapasitas_kelas.required' => 'Kapasitas harus diisi atau 0',
             'kategori_id.required' => 'Kategori harus diisi',
             'video_preview.required' => 'Video harus diisi',
+            'deskripsi.required' => 'Deskripsi harus diisi',
         ];
     }
 }
