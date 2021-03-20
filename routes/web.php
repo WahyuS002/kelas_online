@@ -24,10 +24,10 @@ Auth::routes();
 /*
 ======= MEMBELI KELAS =======
 */
-Route::group(['prefix' => 'kelas', 'as' => 'user.'], function () {
-    Route::get('/{kelas}/checkout', 'UserKelasController@checkout')->name('kelas.checkout');
-    Route::get('/{kelas}/checkoutKelas', 'UserKelasController@checkoutKelas')->name('kelas.checkoutKelas');
-    Route::post('/{kelas}/beli', 'UserKelasController@kelasBeli')->name('kelas.beli');
+Route::group(['prefix' => 'kelas', 'as' => 'user.', 'namespace' => 'User'], function () {
+    Route::get('/{kelas}/checkout', 'KelasController@checkout')->name('kelas.checkout');
+    // Route::get('/{kelas}/checkoutKelas', 'KelasController@checkoutKelas')->name('kelas.checkoutKelas');
+    Route::post('/{kelas}/beli', 'KelasController@kelasBeli')->name('kelas.beli');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

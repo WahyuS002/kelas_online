@@ -20,7 +20,7 @@ class KelasController extends Controller
     {
         $classes = Kelas::paginate(8);
 
-        return view('public.kelas', compact('classes'));
+        return view('public.kelas.index', compact('classes'));
     }
 
     public function detail(Kelas $kelas)
@@ -34,7 +34,7 @@ class KelasController extends Controller
         $video_kelas = Youtube::getVideoInfo($kelas->video_preview);
         $duration_kelas = $materi_object->youtubeDuration($video_kelas->contentDetails->duration);
 
-        return view('pages.frontend.kelas.detail', compact('materi', 'slug_kelas', 'kelas', 'duration_kelas'));
+        return view('public.kelas.detail', compact('materi', 'slug_kelas', 'kelas', 'duration_kelas'));
     }
 
     public function show($slug_kelas, $slug_materi_encrypt)

@@ -12,9 +12,4 @@ class PesertaKelas extends Model
         'kelas_id', 'user_id', 'waktu_mulai', 'waktu_selesai', 'jumlah_materi_selesai', 'jumlah_materi',
         'bukti_pembayaran', 'harga_bayar', 'pembuat_kelas', 'status',
     ];
-
-    public function test()
-    {
-        return 'test';
-    }
 }

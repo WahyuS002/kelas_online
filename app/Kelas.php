@@ -62,7 +62,7 @@ class Kelas extends Model implements HasMedia
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar', 'status', 'id', 'bukti_pembayaran', 'waktu_mulai', 'waktu_selesai');
+        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar', 'status', 'id', 'bukti_pembayaran', 'waktu_mulai', 'waktu_selesai', 'rating');
     }
 
     public function pesertaKelas($slug_kelas)

@@ -27,7 +27,7 @@
                             @foreach ($classes as $class)
                             <div class="col-lg-3 col-md-4">
                                 <div class="fcrse_1 mt-30">
-                                    <a href="course_detail_view.html" class="fcrse_img h-64">
+                                    <a href="{{ route('kelas.detail', $class->slug_kelas) }}" class="fcrse_img h-64">
                                         @foreach ($class->getMedia('kelas') as $image)
                                             <img class="h-64 object-cover" src="{{ $image->getUrl('thumb') }}" alt="">
                                         @endforeach
