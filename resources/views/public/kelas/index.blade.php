@@ -34,7 +34,7 @@
                                         <div class="course-overlay">
                                             <span class="play_btn1"><i class="uil uil-play"></i></span>
                                             <div class="crse_timer">
-                                                3 Hours
+                                                {{ rand(1, 5) }} Hours
                                             </div>
                                         </div>
                                     </a>
@@ -52,10 +52,10 @@
                                             <span class="vdt14">{{ $class->created_at->diffForHumans() }}</span>
                                         </div>
                                         <a href="course_detail_view.html" class="crse14s">{{ \Str::limit($class->nama_kelas, 50) }}</a>
-                                        <a href="#" class="crse-cate">Web Development | Python</a>
+                                        <a href="#" class="crse-cate">{{ $class->kategoriKelas->kategori }}</a>
                                         <div class="auth1lnkprce">
                                             <p class="cr1fot">By <a href="#">{{ \Str::limit($class->user->name, 25) }}</a></p>
-                                            <div class="prce142">$10</div>
+                                            <div class="prce142">Free</div>
                                         </div>
                                     </div>
                                 </div>

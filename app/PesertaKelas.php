@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Nagy\LaravelRating\Traits\Rate\CanRate;
 
 class PesertaKelas extends Model
 {
+    use CanRate;
+
     protected $table = 'peserta_kelas';
 
     protected $fillable = [

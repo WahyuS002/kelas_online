@@ -172,6 +172,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Nagy\LaravelRating\LaravelRatingServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -235,6 +236,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+
+        "LaravelRating" => \Nagy\LaravelRating\LaravelRatingFacade::class,
     ],
 
 ];

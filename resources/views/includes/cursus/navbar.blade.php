@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="ml_item" style="width: 0;">
                     <div class="main_logo main_logo15" id="logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('cursus/images/logo.svg') }}" alt=""></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('cursus/images/logo_cursus.svg') }}" alt="" style="width: 125px;"></a>
                         <a href="{{ route('home') }}"><img class="logo-inverse" src="{{ asset('cursus/images/ct_logo.svg') }}" alt=""></a>
                     </div>
                 </div>

@@ -29,7 +29,6 @@ class CreatePesertaKelasTable extends Migration
             $table->enum('status', ['ya', 'tidak', 'waiting'])->nullable();
             $table->string('bukti_pembayaran');
             $table->text('testimoni')->nullable();
-            $table->tinyInteger('rating')->nullable();
 
             $table->timestamps();
         });

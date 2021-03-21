@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Nagy\LaravelRating\Traits\Rate\Rateable;
 
 class Kelas extends Model implements HasMedia
 {
-    use Sluggable, InteractsWithMedia;
+    use Sluggable, InteractsWithMedia, Rateable;
 
     public function sluggable(): array
     {
@@ -62,7 +63,7 @@ class Kelas extends Model implements HasMedia
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar', 'status', 'id', 'bukti_pembayaran', 'waktu_mulai', 'waktu_selesai', 'rating');
+        return $this->belongsToMany(User::class, 'peserta_kelas', 'kelas_id', 'user_id')->withPivot('harga_bayar', 'status', 'id', 'bukti_pembayaran', 'waktu_mulai', 'waktu_selesai');
     }
 
     public function pesertaKelas($slug_kelas)

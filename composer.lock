@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "864f748fd6a283305283aa65d08bbf2a",
+    "content-hash": "6f59c881b2803b23ae43f026d3428acb",
     "packages": [
         {
             "name": "alaouy/youtube",
@@ -1832,6 +1832,61 @@
                 }
             ],
             "time": "2020-11-14T18:14:52+00:00"
+        },
+        {
+            "name": "nagy/laravel-rating",
+            "version": "v1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohamednagy/Laravel-rating.git",
+                "reference": "0da3736632e45b5032dbfc89df79b8dbfe1fef7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohamednagy/Laravel-rating/zipball/0da3736632e45b5032dbfc89df79b8dbfe1fef7f",
+                "reference": "0da3736632e45b5032dbfc89df79b8dbfe1fef7f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "7.*",
+                "illuminate/support": "7.*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nagy\\LaravelRating\\LaravelRatingServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelRating": "Nagy\\LaravelRating\\LaravelRatingFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nagy\\LaravelRating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mohamednagy",
+                    "email": "mohamed.n.haleem@gmail.com"
+                }
+            ],
+            "description": "manage rating column for elqouent models",
+            "support": {
+                "issues": "https://github.com/mohamednagy/Laravel-rating/issues",
+                "source": "https://github.com/mohamednagy/Laravel-rating/tree/master"
+            },
+            "time": "2020-03-29T19:24:02+00:00"
         },
         {
             "name": "nesbot/carbon",
