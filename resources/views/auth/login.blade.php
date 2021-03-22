@@ -1,44 +1,37 @@
 @extends('layouts.auth')
 
 @section('content')
-<h1 class="">Sign In</h1>
-<p class="">Log in to your account to continue.</p>
-
-<form class="text-left" method="POST" action="{{ route('login') }}">
-    @csrf
-    <div class="form">
-
-        <div id="username-field" class="field-wrapper input">
-            <label for="email">EMAIL</label>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <input id="email" name="email" type="email" class="form-control" placeholder="Email@gmail.com">
-            @error('email')
-            {{-- <span class="danger" role="alert"> --}}
-                <strong>{{ $message }}</strong>
-                {{-- </span> --}}
+<div class="sign_form">
+    <h2>Welcome Back</h2>
+    <p>Log In to Your Edututs+ Account!</p>
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="ui search focus mt-15">
+            <div class="ui left icon input swdh95">
+                <input class="prompt srch_explore py-4" type="email" name="email" value="{{ old('email') }}" id="id_email" required="" maxlength="64" placeholder="Email Address">
+                <i class="uil uil-envelope icon icon2"></i>
+                @error('email')
+                    <strong>{{ $message }}</strong>
                 @enderror
             </div>
-
-            <div id="password-field" class="field-wrapper input mb-2">
-                <div class="d-flex justify-content-between">
-                    <label for="password">PASSWORD</label>
-                    <a href="auth_pass_recovery_boxed.html" class="forgot-pass-link">Forgot Password?</a>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <input id="password" name="password" type="password" class="form-control" placeholder="Password">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="toggle-password" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                @error('password')
-                <strong>{{ $message }}</strong>
-                @enderror
-            </div>
-            <div class="d-sm-flex justify-content-between">
-                <div class="field-wrapper">
-                    <button type="submit" class="btn btn-primary" value="">Log In</button>
-                </div>
-            </div>
-
-            <p class="signup-link">Not registered ? <a href="{{ route('register') }}">Create an account</a></p>
-
         </div>
+        <div class="ui search focus mt-15">
+            <div class="ui left icon input swdh95">
+                <input class="prompt srch_explore py-4" type="password" name="password" value="" id="id_password" required="" maxlength="64" placeholder="Password">
+                <i class="uil uil-key-skeleton-alt icon icon2"></i>
+            </div>
+        </div>
+        <div class="ui form mt-30 checkbox_sign">
+            <div class="inline field">
+                <div class="ui checkbox mncheck">
+                    <input type="checkbox" tabindex="0" class="hidden">
+                    <label>Remember Me</label>
+                </div>
+            </div>
+        </div>
+        <button class="login-btn" type="submit">Sign In</button>
     </form>
-    @endsection
+    <p class="sgntrm145">Or <a href="forgot_password.html">Forgot Password</a>.</p>
+    <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+</div>
+@endsection

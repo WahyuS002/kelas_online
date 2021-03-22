@@ -14,6 +14,7 @@
                         <li>
                             <a href="{{ route('kelas') }}">Kelas</a>
                         </li>
+                        @auth
                         <li class="ui top right pointing dropdown">
                             <a href="#" class="opts_account">
                                 <img src="{{ asset('cursus/images/hd_dp.jpg') }}" alt="">
@@ -34,18 +35,20 @@
                                     </div>
                                     <a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>
                                 </div>
-                                <div class="night_mode_switch__btn">
-                                    <a href="#" id="night-mode" class="btn-night-mode">
-                                        <i class="uil uil-moon"></i> Night mode
-                                        <span class="btn-night-mode-switch">
-                                            <span class="uk-switch-button"></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <a href="instructor_dashboard.html" class="item channel_item">Cursus Dashboard</a>
-                                <a href="sign_in.html" class="item channel_item">Sign Out</a>
+                                <a href="instructor_dashboard.html" class="item channel_item">Dashboard</a>
+
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" href="#" class="item channel_item btn_sign_out">Sign Out</button>
+                                </form>
                             </div>
                         </li>
+                        @endauth
+                        @guest
+                            <a class="btn btn-success rounded-lg m-3 px-4" href="{{ route('login') }}">
+                                Login
+                            </a>
+                        @endguest
                     </ul>
                 </div>
             </div>
