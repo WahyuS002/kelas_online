@@ -19,14 +19,14 @@ class MateriController extends Controller
 
         $kelas_id = $kelas->id;
         $materi = Materi::where('kelas_id', $kelas_id)->get();
-        return view('pages.materi.index', compact('kelas', 'materi'));
+        return view('private.materi.index', compact('kelas', 'materi'));
     }
 
     public function create($slug_kelas)
     {
         $id = Kelas::where('slug_kelas', $slug_kelas)->first();
 
-        return view('pages.materi.create', compact('id'));
+        return view('private.materi.create', compact('id'));
     }
 
     public function store(MateriRequest $request, $slug_kelas)
@@ -46,7 +46,7 @@ class MateriController extends Controller
 
     public function edit($kelas, Materi $materi)
     {
-        return view('pages.materi.edit', compact('materi'));
+        return view('private.materi.edit', compact('materi'));
     }
 
     public function update(Materi $materi, Request $request)
@@ -64,7 +64,7 @@ class MateriController extends Controller
     {
         $materi = Materi::where('id', $materi_id)->first();
 
-        return view('pages.kelas.show', compact('materi'));
+        return view('private.kelas.show', compact('materi'));
     }
 
     public function createMateriNew($slug_kelas)

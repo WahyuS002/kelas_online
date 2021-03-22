@@ -71,6 +71,6 @@ class KelasController extends Controller
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
         $kelas_id = $kelas->id;
         // $materi = Materi::where(['urutan' => $materi_id, 'kelas_id' => $kelas_id])->first();
-        return view('pages.frontend.kelas.show', compact('materi', 'slug_kelas'));
+        return view('private.frontend.kelas.show', compact('materi', 'slug_kelas'));
     }
 }

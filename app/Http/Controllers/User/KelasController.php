@@ -15,26 +15,26 @@ class KelasController extends Controller
     {
         $kelas = auth()->user()->kelas()->latest()->get();
 
-        return view('pages.kelas.index', compact('kelas'));
+        return view('private.kelas.index', compact('kelas'));
     }
 
     public function admin()
     {
         $kelas = Kelas::latest()->get();
 
-        return view('pages.kelas.admin', compact('kelas'));
+        return view('private.kelas.admin', compact('kelas'));
     }
 
     public function verifikasi($id)
     {
-        return view('pages.kelas.verifikasi', compact('id'));
+        return view('private.kelas.verifikasi', compact('id'));
     }
 
     public function create()
     {
         $kategori = KategoriKelas::get();
 
-        return view('pages.kelas.create', compact('kategori'));
+        return view('private.kelas.create', compact('kategori'));
     }
 
     public function store(KelasRequest $request)
@@ -65,7 +65,7 @@ class KelasController extends Controller
         $kategori = KategoriKelas::get();
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
 
-        return view('pages.kelas.edit', compact('kategori', 'kelas'));
+        return view('private.kelas.edit', compact('kategori', 'kelas'));
     }
 
     public function update($slug_kelas, KelasRequest $request)
@@ -83,7 +83,7 @@ class KelasController extends Controller
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
         $materi_kelas = $kelas->materi;
 
-        return view('pages.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
+        return view('private.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
     }
 
     public function submit(Kelas $kelas)
@@ -99,7 +99,7 @@ class KelasController extends Controller
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
         $total_harga = $kelas->harga + 170;
 
-        return view('pages.kelas.checkout', compact('kelas', 'total_harga'));
+        return view('private.kelas.checkout', compact('kelas', 'total_harga'));
     }
 
     public function kelasBeli($slug_kelas)
@@ -117,13 +117,13 @@ class KelasController extends Controller
     {
         $data = auth()->user()->pesertaKelas()->get();
 
-        return view('pages.kelas.enrolled', compact('data'));
+        return view('private.kelas.enrolled', compact('data'));
     }
 
     public function verifUser(Kelas $kelas)
     {
         $peserta = $kelas->users;
 
-        return view('pages.kelas.verif-user', compact('peserta'));
+        return view('private.kelas.verif-user', compact('peserta'));
     }
 }

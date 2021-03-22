@@ -13,12 +13,12 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
 
-        return view('pages.profile.index', compact('user'));
+        return view('private.profile.index', compact('user'));
     }
 
     public function edit(User $user)
     {
-        return view('pages.profile.edit', compact('user'));
+        return view('private.profile.edit', compact('user'));
     }
 
     public function update(ProfileRequest $request, User $user)

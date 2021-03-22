@@ -21,14 +21,14 @@ class AdminController extends Controller
     public function kelas()
     {
         $kelas = Kelas::get();
-        return view('admin.pages.kelas.index', compact('kelas'));
+        return view('admin.private.kelas.index', compact('kelas'));
     }
 
     public function kelasView(Kelas $kelas)
     {
         $slug_kelas = Kelas::where('slug_kelas', $kelas->slug_kelas)->first();
         $materi_kelas = $kelas->materi;
-        return view('admin.pages.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
+        return view('admin.private.kelas.view', compact('kelas', 'materi_kelas', 'slug_kelas'));
     }
 
     /*
@@ -36,7 +36,7 @@ class AdminController extends Controller
     */
     public function userIndex()
     {
-        return view('admin.pages.user.index');
+        return view('admin.private.user.index');
     }
 
     /*
@@ -45,7 +45,7 @@ class AdminController extends Controller
     public function kategoriIndex()
     {
         $kategori = KategoriKelas::all();
-        return view('admin.pages.kategori.index', compact('kategori'));
+        return view('admin.private.kategori.index', compact('kategori'));
     }
 
     /*
@@ -55,13 +55,13 @@ class AdminController extends Controller
     {
         $kelas = Kelas::where('status', 'publish')->get();
 
-        return view('pages.kelas.verifikasi-peserta.index', compact('kelas'));
+        return view('private.kelas.verifikasi-peserta.index', compact('kelas'));
     }
 
     public function verifikasiPesertaDetail($slug_kelas)
     {
         $kelas = Kelas::where('slug_kelas', $slug_kelas)->first();
 
-        return view('pages.kelas.verifikasi-peserta.detail', compact('kelas'));
+        return view('private.kelas.verifikasi-peserta.detail', compact('kelas'));
     }
 }

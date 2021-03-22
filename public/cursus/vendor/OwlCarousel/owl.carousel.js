@@ -3098,7 +3098,7 @@
 
 			for (i = lower, j = 0, k = 0; i < upper; i++) {
 				if (j >= size || j === 0) {
-					this._pages.push({
+					this._private.push({
 						start: Math.min(maximum, i - lower),
 						end: i - lower + size - 1
 					});
@@ -3134,7 +3134,7 @@
 		this._controls.$absolute.toggleClass('disabled', !settings.dots || disabled);
 
 		if (settings.dots) {
-			difference = this._pages.length - this._controls.$absolute.children().length;
+			difference = this._private.length - this._controls.$absolute.children().length;
 
 			if (settings.dotsData && difference !== 0) {
 				this._controls.$absolute.html(this._templates.join(''));
@@ -3159,7 +3159,7 @@
 
 		event.page = {
 			index: $.inArray(this.current(), this._pages),
-			count: this._pages.length,
+			count: this._private.length,
 			size: settings && (settings.center || settings.autoWidth || settings.dotsData
 				? 1 : settings.dotsEach || settings.items)
 		};
@@ -3188,7 +3188,7 @@
 
 		if (settings.slideBy == 'page') {
 			position = $.inArray(this.current(), this._pages);
-			length = this._pages.length;
+			length = this._private.length;
 			successor ? ++position : --position;
 			position = this._pages[((position % length) + length) % length].start;
 		} else {
@@ -3228,8 +3228,8 @@
 	Navigation.prototype.to = function(position, speed, standard) {
 		var length;
 
-		if (!standard && this._pages.length) {
-			length = this._pages.length;
+		if (!standard && this._private.length) {
+			length = this._private.length;
 			$.proxy(this._overrides.to, this._core)(this._pages[((position % length) + length) % length].start, speed);
 		} else {
 			$.proxy(this._overrides.to, this._core)(position, speed);

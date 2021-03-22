@@ -8,6 +8,6 @@ class PengaturanController extends Controller
 {
     public function index()
     {
-        return view('pages.pengaturan.index');
+        return view('private.pengaturan.index');
     }
 }
