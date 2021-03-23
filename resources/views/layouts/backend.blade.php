@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
 		<meta name="description" content="Gambolthemes">
 		<meta name="author" content="Gambolthemes">
-		<title>Cursus - Index</title>
+		<title>Cursus - Dashboard</title>
 
 		@include('includes.backend.style')
 
@@ -18,14 +18,12 @@
 	@include('includes.backend.navbar')
 
 	@include('includes.backend.sidebar')
-
 	<!-- Body Start -->
 	<div class="wrapper">
 
 		@yield('content')
 
 		@include('includes.backend.footer')
-
 	</div>
 	<!-- Body End -->
 
@@ -33,4 +31,3 @@
 
 </body>
 </html>
-
