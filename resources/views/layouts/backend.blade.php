@@ -18,12 +18,14 @@
 	@include('includes.backend.navbar')
 
 	@include('includes.backend.sidebar')
+
 	<!-- Body Start -->
 	<div class="wrapper">
 
 		@yield('content')
 
 		@include('includes.backend.footer')
+
 	</div>
 	<!-- Body End -->
 
