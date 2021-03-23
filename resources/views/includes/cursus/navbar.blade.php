@@ -35,7 +35,7 @@
                                     </div>
                                     <a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>
                                 </div>
-                                <a href="instructor_dashboard.html" class="item channel_item">Dashboard</a>
+                                <a href="{{ route('dashboard') }}" class="item channel_item">Dashboard</a>
 
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf

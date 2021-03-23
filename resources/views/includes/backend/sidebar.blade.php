@@ -1,172 +1,240 @@
-<!--  BEGIN SIDEBAR  -->
-<div class="sidebar-wrapper sidebar-theme">
-    <nav id="sidebar">
-        <div class="profile-info">
-            <figure class="user-cover-image"></figure>
-            <div class="user-info">
-                <img src="{{ asset('cork/assets/img/90x90.jpg') }}" alt="avatar">
-                <h6 class="">Sonia Shaw</h6>
-                <p class="">Project Leader</p>
+<!-- Left Sidebar Start -->
+<nav class="vertical_nav">
+    <div class="left_section menu_left" id="js-menu" >
+        <div class="left_section">
+            <ul>
+                <li class="menu--item">
+                    <a href="index.html" class="menu--link active" title="Home">
+                        <i class='uil uil-home-alt menu--icon'></i>
+                        <span class="menu--label">Home</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="live_streams.html" class="menu--link" title="Live Streams">
+                        <i class='uil uil-kayak menu--icon'></i>
+                        <span class="menu--label">Live Streams</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="explore.html" class="menu--link" title="Explore">
+                        <i class='uil uil-search menu--icon'></i>
+                        <span class="menu--label">Explore</span>
+                    </a>
+                </li>
+                <li class="menu--item menu--item__has_sub_menu">
+                    <label class="menu--link" title="Categories">
+                        <i class='uil uil-layers menu--icon'></i>
+                        <span class="menu--label">Categories</span>
+                    </label>
+                    <ul class="sub_menu">
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Development</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Business</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Finance & Accounting</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#.html" class="sub_menu--link">IT & Software</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Office Productivity</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Personal Development</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Design</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Marketing</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Lifestyle</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Photography</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Health & Fitness</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Music</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="#" class="sub_menu--link">Teaching & Academics</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu--item  menu--item__has_sub_menu">
+                    <label class="menu--link" title="Tests">
+                      <i class='uil uil-clipboard-alt menu--icon'></i>
+                      <span class="menu--label">Tests</span>
+                    </label>
+                    <ul class="sub_menu">
+                        <li class="sub_menu--item">
+                            <a href="certification_center.html" class="sub_menu--link">Certification Center</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="certification_start_form.html" class="sub_menu--link">Certification Fill Form</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="certification_test_view.html" class="sub_menu--link">Test View</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="certification_test__result.html" class="sub_menu--link">Test Result</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="http://www.gambolthemes.net/html-items/edututs+/Instructor_Dashboard/my_certificates.html" class="sub_menu--link">My Certification</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu--item">
+                    <a href="saved_courses.html" class="menu--link" title="Saved Courses">
+                      <i class="uil uil-heart-alt menu--icon"></i>
+                      <span class="menu--label">Saved Courses</span>
+                    </a>
+                </li>
+                <li class="menu--item  menu--item__has_sub_menu">
+                    <label class="menu--link" title="Pages">
+                      <i class='uil uil-file menu--icon'></i>
+                      <span class="menu--label">Pages</span>
+                    </label>
+                    <ul class="sub_menu">
+                        <li class="sub_menu--item">
+                            <a href="about_us.html" class="sub_menu--link">About</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sign_in.html" class="sub_menu--link">Sign In</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sign_up.html" class="sub_menu--link">Sign Up</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sign_up_steps.html" class="sub_menu--link">Sign Up Steps</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="membership.html" class="sub_menu--link">Paid Membership</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="course_detail_view.html" class="sub_menu--link">Course Detail View</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="checkout_membership.html" class="sub_menu--link">Checkout</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="invoice.html" class="sub_menu--link">Invoice</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="career.html" class="sub_menu--link">Career</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="apply_job.html" class="sub_menu--link">Job Apply</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="our_blog.html" class="sub_menu--link">Our Blog</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="blog_single_view.html" class="sub_menu--link">Blog Detail View</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="company_details.html" class="sub_menu--link">Company Details</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="press.html" class="sub_menu--link">Press</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="live_output.html" class="sub_menu--link">Live Stream View</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="add_streaming.html" class="sub_menu--link">Add live Stream</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="search_result.html" class="sub_menu--link">Search Result</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="thank_you.html" class="sub_menu--link">Thank You</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="coming_soon.html" class="sub_menu--link">Coming Soon</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="error_404.html" class="sub_menu--link">Error 404</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="left_section">
+            <h6 class="left_title">SUBSCRIPTIONS</h6>
+            <ul>
+                <li class="menu--item">
+                    <a href="instructor_profile_view.html" class="menu--link user_img">
+                        <img src="images/left-imgs/img-1.jpg" alt="">
+                        Rock Smith
+                        <div class="alrt_dot"></div>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="instructor_profile_view.html" class="menu--link user_img">
+                        <img src="images/left-imgs/img-2.jpg" alt="">
+                        Jassica William
+                    </a>
+                    <div class="alrt_dot"></div>
+                </li>
+                <li class="menu--item">
+                    <a href="all_instructor.html" class="menu--link" title="Browse Instructors">
+                      <i class='uil uil-plus-circle menu--icon'></i>
+                      <span class="menu--label">Browse Instructors</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="left_section pt-2">
+            <ul>
+                <li class="menu--item">
+                    <a href="setting.html" class="menu--link" title="Setting">
+                        <i class='uil uil-cog menu--icon'></i>
+                        <span class="menu--label">Setting</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="help.html" class="menu--link" title="Help">
+                        <i class='uil uil-question-circle menu--icon'></i>
+                        <span class="menu--label">Help</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="report_history.html" class="menu--link" title="Report History">
+                        <i class='uil uil-windsock menu--icon'></i>
+                        <span class="menu--label">Report History</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="feedback.html" class="menu--link" title="Send Feedback">
+                        <i class='uil uil-comment-alt-exclamation menu--icon'></i>
+                        <span class="menu--label">Send Feedback</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="left_footer">
+            <ul>
+                <li><a href="about_us.html">About</a></li>
+                <li><a href="press.html">Press</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+                <li><a href="coming_soon.html">Advertise</a></li>
+                <li><a href="coming_soon.html">Developers</a></li>
+                <li><a href="terms_of_use.html">Copyright</a></li>
+                <li><a href="terms_of_use.html">Privacy Policy</a></li>
+                <li><a href="terms_of_use.html">Terms</a></li>
+            </ul>
+            <div class="left_footer_content">
+                <p>© 2020 <strong>Cursus</strong>. All Rights Reserved.</p>
             </div>
         </div>
-        <div class="shadow-bottom"></div>
-        <ul class="list-unstyled menu-categories" id="accordionExample">
-
-            {{-- ADMIN SIDEBAR --}}
-
-            @role('admin')
-            <li class="menu menu-heading">
-                <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Administrator</span></div>
-            </li>
-
-            <li class="menu{{ request()->is('user/profile/*') ? ' active' : '' }}">
-                <a href="{{ route('user.profile') }}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span> Dashboard </span>
-                    </div>
-                </a>
-            </li>
-
-            <li class="menu{{ request()->is('admin/kategori/*') ? ' active' : '' }}">
-                <a href="{{ route('admin.kategori.index')}}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                        <span> Kategori </span>
-                    </div>
-                </a>
-            </li>
-
-            <li class="menu">
-                <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                        <span> Kelas </span>
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
-                    <li>
-                        <a href="{{ route('admin.kelas') }}"> Verifikasi Kelas </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.verifikasi.peserta') }}"> Verifikasi Peserta Kelas </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu{{ request()->is('admin/user/*') ? ' active' : '' }}">
-                <a href="{{ route('admin.user') }}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        <span> User </span>
-                    </div>
-                </a>
-            </li>
-
-            <li class="menu">
-                <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
-                        <span> Pengajar </span>
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
-                    <li>
-                        <a href="javascript:void(0);"> Semua Pengajar </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"> Pembayaran Pengajar </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu{{ request()->is('user/profile/*') ? ' active' : '' }}">
-                <a href="{{ route('user.profile') }}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span> Murid </span>
-                    </div>
-                </a>
-            </li>
-
-            {{-- END ADMIN SIDEBAR --}}
-
-            @else
-
-            {{-- USER SIDEBAR --}}
-
-            <li class="menu menu-heading">
-                <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Main Menu</span></div>
-            </li>
-
-            <li class="menu{{ request()->is('user/profile/*') ? ' active' : '' }}">
-                <a href="{{ route('user.profile') }}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span> Profile </span>
-                    </div>
-                </a>
-            </li>
-
-            <li class="menu{{ request()->is('user/kelas/*') ? ' active' : '' }}">
-                <a href="{{ route('user.kelas') }}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span> Kelas </span>
-                    </div>
-                </a>
-            </li>
-
-            <li class="menu{{ request()->is('user/pengaturan/*') ? ' active' : '' }}">
-                <a href="{{ route('user.pengaturan') }}" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                        <span> Pengaturan </span>
-                    </div>
-                </a>
-            </li>
-
-            <li class="menu{{ request()->is('user/history/*') ? ' active' : '' }}">
-                <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
-                        <span> History</span>
-                    </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
-                <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
-                    <li>
-                        <a href="{{ route('user.history.enrolled') }}"> History Kelas </a>
-                    </li>
-                </ul>
-                <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
-                    <li>
-                        <a href="{{ route('user.history.pengajar') }}"> History Pengajar </a>
-                    </li>
-                </ul>
-                <ul class="collapse submenu list-unstyled{{ request()->is('user/history/*') ? ' show' : '' }}" id="submenu" data-parent="#accordionExample">
-                    <li>
-                        <a href="{{ route('user.history.penarikan') }}"> History Penarikan </a>
-                    </li>
-                </ul>
-            </li>
-
-            {{-- END USER SIDEBAR --}}
-
-            @endrole
-
-
-        </ul>
-
-    </nav>
-
-</div>
-<!--  END SIDEBAR  -->
+    </div>
+</nav>
+<!-- Left Sidebar End -->

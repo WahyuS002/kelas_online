@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title> Kelas Online </title>
 
-    @stack('style-before')
-    @include('includes.backend.style')
-    @stack('style-after')
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
+		<meta name="description" content="Gambolthemes">
+		<meta name="author" content="Gambolthemes">
+		<title>Cursus - Index</title>
 
-    <livewire:styles>
+		@include('includes.backend.style')
 
-</head>
-<body class="sidebar-noneoverflow">
-    <!-- BEGIN LOADER -->
-    <div id="load_screen"> <div class="loader"> <div class="loader-content">
-        <div class="spinner-grow align-self-center"></div>
-    </div></div></div>
-    <!--  END LOADER -->
+	</head>
 
-    @include('includes.backend.navbar')
+<body>
 
-    <!--  BEGIN MAIN CONTAINER  -->
-    <div class="main-container" id="container">
+	@include('includes.backend.navbar')
 
-        <div class="overlay"></div>
-        <div class="search-overlay"></div>
+	@include('includes.backend.sidebar')
 
-        @include('includes.backend.sidebar')
+	<!-- Body Start -->
+	<div class="wrapper">
 
-        <!--  BEGIN CONTENT PART  -->
-        <div id="content" class="main-content">
-            @yield('content')
+		@yield('content')
 
-            @include('includes.backend.footer')
-        </div>
+		@include('includes.backend.footer')
 
-    </div>
-    <!-- END MAIN CONTAINER -->
+	</div>
+	<!-- Body End -->
 
-    @stack('script-before')
-    @include('includes.backend.script')
-    @stack('script-after')
+	@include('includes.backend.script')
 
-    <livewire:scripts>
-    @include('sweetalert::alert')
 </body>
 </html>
+
