@@ -104,13 +104,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/{kelas}/materi/order', 'MateriController@order')->name('.order');
     });
 
-    Route::group(['prefix' => 'user/profile', 'as' => 'user.profile', 'namespace' => 'User'], function () {
-        Route::get('/index', 'ProfileController@index')->name('');
-        Route::get('/{user:id}/edit', 'ProfileController@edit')->name('.edit');
-        Route::post('/{user:id}/update', 'ProfileController@update')->name('.update');
+    Route::group(['prefix' => 'user/pengaturan', 'as' => 'user.pengaturan', 'namespace' => 'User'], function () {
+        Route::get('/', 'PengaturanController@index')->name('');
+        Route::get('/profile', 'PengaturanController@profile')->name('.profile');
+        Route::get('/{user:id}/edit', 'PengaturanController@edit')->name('.edit');
+        Route::post('/{user:id}/update', 'PengaturanController@update')->name('.update');
     });
 
     Route::group(['prefix' => 'user', 'as' => 'user.', 'namespace' => 'User'], function () {
-        Route::get('/pengaturan/index', 'PengaturanController@index')->name('pengaturan');
+        // Route::get('/pengaturan/index', 'PengaturanController@index')->name('pengaturan');
     });
 });

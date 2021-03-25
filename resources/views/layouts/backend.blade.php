@@ -10,6 +10,7 @@
 		<title>Cursus - Dashboard</title>
 
 		@include('includes.backend.style')
+		@yield('custom_style')
 
 	</head>
 
@@ -30,6 +31,7 @@
 	<!-- Body End -->
 
 	@include('includes.backend.script')
+	@yield('custom_script')
 
 </body>
 </html>

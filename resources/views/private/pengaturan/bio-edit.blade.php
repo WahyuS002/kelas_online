@@ -18,7 +18,7 @@
 
     <div class="layout-px-spacing">
 
-        <form action="{{ route('user.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('user.pengaturan.update', $user->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="account-settings-container layout-top-spacing">
 
