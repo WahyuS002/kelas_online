@@ -20,6 +20,10 @@ START OF UTILITIES
     object-fit: cover;
 }
 
+.text-red-600 {
+    color: #DC2626;
+}
+
 /*
 ================
 END OF UTILITIES

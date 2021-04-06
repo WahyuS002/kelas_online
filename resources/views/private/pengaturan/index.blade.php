@@ -12,7 +12,7 @@
                 <div class="section3125 rpt145">
                     <div class="row">
                         <div class="col-lg-7">
-                            <a href="#" class="_216b22">
+                            <a href="{{ route('user.pengaturan.profile') }}" class="_216b22">
                                 <span><i class="uil uil-cog"></i></span>Pengaturan
                             </a>
                             <div class="dp_dt150">
@@ -52,7 +52,7 @@
                             </ul>
                         </div>
                         <div class="col-lg-5">
-                            <a href="setting.html" class="_216b12">
+                            <a href="{{ route('user.pengaturan.profile') }}" class="_216b12">
                                 <span><i class="uil uil-cog"></i></span>Pengaturan
                             </a>
                             <div class="rgt-145">

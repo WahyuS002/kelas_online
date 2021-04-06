@@ -149,11 +149,10 @@
                         </a>
                     </div>
                     <a href="instructor_dashboard.html" class="item channel_item">Cursus dashboard</a>
-                    <a href="membership.html" class="item channel_item">Paid Memberships</a>
-                    <a href="setting.html" class="item channel_item">Setting</a>
-                    <a href="help.html" class="item channel_item">Help</a>
-                    <a href="feedback.html" class="item channel_item">Send Feedback</a>
-                    <a href="sign_in.html" class="item channel_item">Sign Out</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" href="#" class="item channel_item btn_sign_out">Sign Out</button>
+                    </form>
                 </div>
             </li>
         </ul>
